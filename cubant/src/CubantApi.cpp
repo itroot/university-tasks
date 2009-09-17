@@ -1,23 +1,26 @@
 #include <cubant/CubantApi.hpp>
+#include <cubant/cubantexcept.hpp>
 
 #include <stdexcept>
+#include <vector>
+
 
 CubantCore::CubantType
-CubantCore::
+CubantCore::CubantType::
 char2type(char c) {
     CubantType cubantType;
     switch(c) {
         case 'Z' : {
-            cubantType.type=CubantType::Nothing;
+            cubantType.setType(CubantType::Nothing);
         } break;
         case '0' : {
-            cubantType.type=CubantType::NoShift;
+            cubantType.setType(CubantType::NoShift);
         } break;
         case '1' : {
-            cubantType.type=CubantType::Shift;
+            cubantType.setType(CubantType::Shift);
         } break;
         case '2' : {
-            cubantType.type=CubantType::Spread;
+            cubantType.setType(CubantType::Spread);
         } break;
         default : {
             throw std::range_error("No such char");
@@ -27,10 +30,10 @@ char2type(char c) {
 }
 
 char
-CubantCore::
+CubantCore::CubantType::
 type2char(CubantCore::CubantType t) {
     char c;
-    switch(t.type) {
+    switch(t.getType()) {
         case CubantType::Nothing : {
             c='Z';
         } break;

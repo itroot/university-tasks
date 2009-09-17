@@ -1,5 +1,5 @@
 #ifndef PARSE_HELPER_CXX_H_
-#define PARSE_HELPER_CXX_H_ 1
+#define PARSE_HELPER_CXX_H_
 
 #include <string>
 #include <ctype.h>

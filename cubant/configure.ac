@@ -17,6 +17,7 @@ AC_CONFIG_FILES([
   include/Makefile
   src/Makefile
   tests/Makefile
+  bin/Makefile
 ])
 
 AC_OUTPUT
