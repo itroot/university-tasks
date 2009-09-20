@@ -10,6 +10,19 @@
 #include <cubant/Cubant.hpp>
 
 namespace {
+void
+errorReporterCallback(JSContext* /*context*/,
+                      const char* message,
+                      JSErrorReport* report) {
+  std::cout << "js:: "
+        << (NULL==report->filename?"local":report->filename)
+        << ":" << report->lineno << " - " << message 
+        << " (what:" << report->errorNumber << ")" << std::cout;
+}
+
+}
+
+namespace {
     std::string usage="Usage:\n"
     "cbshell [name of file]\n";
     const uint32 maxbytes=0x1000000;
@@ -34,15 +47,45 @@ namespace {
     }
 }
 
+
+/**
+ * Functions for cubant
+ */
+
+
+namespace {
+    JSBool toString(JSContext*, JSObject*, uintN, jsval*, jsval*);
+
+    static JSFunctionSpec cubant_functions[] = {
+        {"toString", toString, 0, 0, 0},
+        {0,0,0,0,0}
+    };
+    JSBool toString(JSContext* context, JSObject* object,
+                    uintN, jsval* argv, jsval* rval) {
+        using namespace CubantCore;
+        cubant_t* cubant=static_cast<cubant_t*>(JS_GetPrivate(context, object));
+        std::string str=cubant->toString();
+        *rval=STRING_TO_JSVAL(JS_NewStringCopyZ(context, str.c_str()));
+        return JS_TRUE;
+    }
+
+}
+
+
 /**
  * Global functions
- * Functions for cubant
  */
 namespace {
     JSBool log(JSContext*, JSObject*, uintN, jsval*, jsval*);
+    JSBool put(JSContext*, JSObject*, uintN, jsval*, jsval*);
+    JSBool createCubant(JSContext*, JSObject*, uintN, jsval*, jsval*);
+    JSBool hausdorff(JSContext*, JSObject*, uintN, jsval*, jsval*);
 
     static JSFunctionSpec global_functions[] = {
         {"log", log, 1, 0, 0},
+        {"put", put, 1, 0, 0},
+        {"createCubant", createCubant, 1, 0, 0},
+        {"hausdorff", hausdorff, 2, 0, 0},
         {0,0,0,0,0}
     };
 
@@ -52,7 +95,50 @@ namespace {
         *rval=JSVAL_VOID;
         return JS_TRUE;
     }
+
+    JSBool put(JSContext* context, JSObject*, uintN, jsval* argv, jsval* rval) {
+        char* message=JS_GetStringBytes(JS_ValueToString(context, argv[0]));
+        std::cout << message;
+        *rval=JSVAL_VOID;
+        return JS_TRUE;
+    }
+
+    JSBool createCubant(JSContext* context, JSObject*,
+                        uintN, jsval* argv, jsval* rval) {
+        using namespace CubantCore;
+        JSObject* result=JS_NewObject(context, &global_class, NULL, NULL);
+        *rval=OBJECT_TO_JSVAL(result);
+        std::string str=JS_GetStringBytes(JS_ValueToString(context, argv[0]));
+        cubant_t* cubant=NULL;
+        try {
+            // LEAK FIXME
+            cubant=new cubant_t(str);
+        } catch (std::exception& e) {
+            JS_ReportError(context, "Can't create cubant.");
+            return JS_FALSE;
+        }
+        JS_SetPrivate(context, result, cubant);
+        if (!JS_DefineFunctions(context, result, cubant_functions)) {
+            JS_ReportError(context, "Can't define cubant functions.");
+            return JS_FALSE;
+        }
+        return JS_TRUE;
+    }
+
+    JSBool hausdorff(JSContext* context, JSObject*, uintN, jsval* argv, jsval* rval) {
+        using namespace CubantCore;
+        cubant_t* cubant0=static_cast<cubant_t*>
+            (JS_GetPrivate(context, JSVAL_TO_OBJECT(argv[0])));
+        cubant_t* cubant1=static_cast<cubant_t*>
+            (JS_GetPrivate(context, JSVAL_TO_OBJECT(argv[1])));
+        // FIXME HAUSDORFF
+        unsigned int result=cubant_t::hausdorf(*cubant0, *cubant1);
+        *rval=INT_TO_JSVAL(result);
+        return JS_TRUE;
+    }
 }
+
+
 
 /**
  * This code is quite unclean, while it do not frees resourses.
@@ -74,6 +160,7 @@ main(int argc, char* argv[]) {
     if (NULL==context) {
         throw std::runtime_error("Can't create JS context");
     }
+    JS_SetErrorReporter(context, errorReporterCallback);
 
     JSObject* global = JS_NewObject(context, &global_class, NULL, NULL);
     if (NULL==global) {
