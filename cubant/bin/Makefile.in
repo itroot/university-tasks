@@ -183,10 +183,12 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-AM_CPPFLAGS = -I../include
-AM_CXXFLAGS = -Wall -Wextra -Wconversion -pedantic -pthread
+AM_CPPFLAGS = -I../include -I/usr/include/mozjs
+AM_CXXFLAGS = -Wall -Wextra -Wconversion -pedantic -pthread\
+              -DXP_UNIX -Wno-long-long
+
 cbshell_SOURCES = cbshell.cpp
-cbshell_LDADD = -L../src -lcubant
+cbshell_LDADD = -L../src -lcubant -lmozjs
 all: all-am
 
 .SUFFIXES:
