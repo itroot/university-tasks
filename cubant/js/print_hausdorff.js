@@ -1,6 +1,6 @@
 const delimiter=";";
 const tokens=['0', '1', '2'];
-const dimension=4;
+const dimension=3;
 var table_size=1;
 var stats=[];
 
@@ -11,6 +11,7 @@ for (var i=0;i<dimension;++i) {
 stats.push(0);
 
 log("Table size: "+table_size+"x"+table_size);
+
 
 function numberToCubantString(num) {
     var n=num;
@@ -25,6 +26,29 @@ function numberToCubantString(num) {
     return '/'+result+'/';
 }
 
+
+function cubantSum(s) { 
+    var result=0;
+    for (var i=0;i<dimension;++i) {
+        result+=parseInt(s.substring(2*i+1,2*i+2));
+    }
+    return result;
+}
+
+var order=[];
+for (var i=0;i<table_size;++i) {
+    order.push(numberToCubantString(i));
+}
+order.sort(function(l,r){
+    return cubantSum(l)-cubantSum(r);
+});
+
+
+function numberToCubantUp(num) {
+    return order[num];        
+}
+
+
 put("dummy");
 for (var i=0;i<dimension;++i) {
     put("  ");
@@ -32,19 +56,19 @@ for (var i=0;i<dimension;++i) {
 
 for (var y=0; y<table_size; ++y) {
     put(delimiter);
-    put(numberToCubantString(y)+" ");
+    put(numberToCubantUp(y)+" ");
 }
 put("\n");
 
 for (var x=0; x<table_size; ++x) {
-    put(numberToCubantString(x));
+    put(numberToCubantUp(x));
     for (var y=0; y<table_size; ++y) {
         put(delimiter);
         for (var z=0; z<dimension; ++z) {
-            put(" ");
+            //put(" ");
         }
-        var cubant_x=createCubant(numberToCubantString(x));
-        var cubant_y=createCubant(numberToCubantString(y));
+        var cubant_x=createCubant(numberToCubantUp(x));
+        var cubant_y=createCubant(numberToCubantUp(y));
         var hd=hausdorff(cubant_x,cubant_y)
         put(hd);
         stats[hd]++;
