@@ -1,11 +1,14 @@
 const delimiter=";";
 const tokens=['0', '1', '2'];
-const dimension=6;
+const dimension=4;
 var table_size=1;
+var stats=[];
 
 for (var i=0;i<dimension;++i) {
     table_size*=tokens.length;
+    stats.push(0);
 }
+stats.push(0);
 
 log("Table size: "+table_size+"x"+table_size);
 
@@ -42,7 +45,14 @@ for (var x=0; x<table_size; ++x) {
         }
         var cubant_x=createCubant(numberToCubantString(x));
         var cubant_y=createCubant(numberToCubantString(y));
-        put(hausdorff(cubant_x,cubant_y));
+        var hd=hausdorff(cubant_x,cubant_y)
+        put(hd);
+        stats[hd]++;
     }
     put("\n");
+}
+
+log("Stats: ");
+for (var i=0;i<=dimension;++i) {
+    put(i+": "+stats[i]+" , ");
 }

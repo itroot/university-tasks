@@ -1,3 +1,4 @@
+#define MOZILLA_1_8_BRANCH
 #include <string>
 #include <iostream>
 #include <stdexcept>
