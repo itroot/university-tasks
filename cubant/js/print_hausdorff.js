@@ -39,13 +39,25 @@ var order=[];
 for (var i=0;i<table_size;++i) {
     order.push(numberToCubantString(i));
 }
+
+function cubantDimension(s) {
+    var result=0;
+    for (var i=0;i<dimension;++i) {
+        if ("2"===s.substring(2*i+1,2*i+2)) {
+            ++result;
+        }
+    }
+    return result;
+}
+
 order.sort(function(l,r){
-    return cubantSum(l)-cubantSum(r);
+    return cubantDimension(l)-cubantDimension(r);
+    //cubantSum(l)-cubantSum(r);
 });
 
 
 function numberToCubantUp(num) {
-    return order[num];        
+    return order[num];
 }
 
 

@@ -6,7 +6,7 @@ function printHausdorff(cubant1, cubant2) {
     );
 }
 
-var cubant1=createCubant("/1,1,1,1/");
+var cubant1=createCubant("/1,1,0,1/");
 var cubant2=createCubant("/1,1,1,1/");
 log("Cubant: "+cubant1.toString());
 
