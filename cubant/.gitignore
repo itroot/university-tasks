@@ -1,0 +1,16 @@
+*.o
+*.lo
+*.la
+*~
+Makefile
+.deps
+.libs
+config.h
+config.log
+config.status
+
+# Need to think how ignore executables
+bin/cbshell
+tests/intersect
+tests/simple
+
