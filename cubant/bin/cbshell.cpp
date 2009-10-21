@@ -161,6 +161,7 @@ main(int argc, char* argv[]) {
     if (NULL==context) {
         throw std::runtime_error("Can't create JS context");
     }
+//    JS_SetOptions(JSOPTION_JIT | JS_GetOptions(context));
     JS_SetErrorReporter(context, errorReporterCallback);
 
     JSObject* global = JS_NewObject(context, &global_class, NULL, NULL);
