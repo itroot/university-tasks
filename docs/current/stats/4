@@ -1,0 +1,16 @@
+00 : Distance sum: 512 , count: 256 = 2
+01 : Distance sum: 2560 , count: 1024 = 2.5
+02 : Distance sum: 2304 , count: 768 = 3
+03 : Distance sum: 896 , count: 256 = 3.5
+04 : Distance sum: 128 , count: 32 = 4
+11 : Distance sum: 1920 , count: 1024 = 1.875
+12 : Distance sum: 3456 , count: 1536 = 2.25
+13 : Distance sum: 1344 , count: 512 = 2.625
+14 : Distance sum: 192 , count: 64 = 3
+22 : Distance sum: 864 , count: 576 = 1.5
+23 : Distance sum: 672 , count: 384 = 1.75
+24 : Distance sum: 96 , count: 48 = 2
+33 : Distance sum: 56 , count: 64 = 0.875
+34 : Distance sum: 16 , count: 16 = 1
+44 : Distance sum: 0 , count: 1 = 0
+

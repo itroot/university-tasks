@@ -1,0 +1,11 @@
+00 : Distance sum: 96 , count: 64 = 1.5
+01 : Distance sum: 384 , count: 192 = 2
+02 : Distance sum: 240 , count: 96 = 2.5
+03 : Distance sum: 48 , count: 16 = 3
+11 : Distance sum: 192 , count: 144 = 1.3333333333333333
+12 : Distance sum: 240 , count: 144 = 1.6666666666666667
+13 : Distance sum: 48 , count: 24 = 2
+22 : Distance sum: 30 , count: 36 = 0.8333333333333334
+23 : Distance sum: 12 , count: 12 = 1
+33 : Distance sum: 0 , count: 1 = 0
+

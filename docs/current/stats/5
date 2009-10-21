@@ -1,0 +1,22 @@
+00 : Distance sum: 2560 , count: 1024 = 2.5
+01 : Distance sum: 15360 , count: 5120 = 3
+02 : Distance sum: 17920 , count: 5120 = 3.5
+03 : Distance sum: 10240 , count: 2560 = 4
+04 : Distance sum: 2880 , count: 640 = 4.5
+05 : Distance sum: 320 , count: 64 = 5
+11 : Distance sum: 15360 , count: 6400 = 2.4
+12 : Distance sum: 35840 , count: 12800 = 2.8
+13 : Distance sum: 20480 , count: 6400 = 3.2
+14 : Distance sum: 5760 , count: 1600 = 3.6
+15 : Distance sum: 640 , count: 160 = 4
+22 : Distance sum: 13440 , count: 6400 = 2.1
+23 : Distance sum: 15360 , count: 6400 = 2.4
+24 : Distance sum: 4320 , count: 1600 = 2.7
+25 : Distance sum: 480 , count: 160 = 3
+33 : Distance sum: 2560 , count: 1600 = 1.6
+34 : Distance sum: 1440 , count: 800 = 1.8
+35 : Distance sum: 160 , count: 80 = 2
+44 : Distance sum: 90 , count: 100 = 0.9
+45 : Distance sum: 20 , count: 20 = 1
+55 : Distance sum: 0 , count: 1 = 0
+
