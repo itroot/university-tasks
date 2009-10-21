@@ -1,6 +1,6 @@
 const delimiter=";";
 const tokens=['0', '1', '2'];
-const dimension=3;
+const dimension=2;
 var table_size=1;
 var stats=[];
 
@@ -73,17 +73,17 @@ put("dummy");
 for (var i=0;i<dimension;++i) {
     put("  ");
 }
-
+/*
 for (var y=0; y<table_size; ++y) {
     put(delimiter);
     put(numberToCubantUp(y)+" ");
 }
 put("\n");
-
+*/
 for (var x=0; x<table_size; ++x) {
     put(numberToCubantUp(x));
     for (var y=0; y<table_size; ++y) {
-        put(delimiter);
+        //put(delimiter);
         for (var z=0; z<dimension; ++z) {
             //put(" ");
         }
