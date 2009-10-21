@@ -50,9 +50,21 @@ function cubantDimension(s) {
     return result;
 }
 
-order.sort(function(l,r){
-    return cubantDimension(l)-cubantDimension(r);
-    //cubantSum(l)-cubantSum(r);
+order.sort(function(l,r) {
+    var result=cubantDimension(l)-cubantDimension(r);
+    if (0!==result) {
+        return result;
+    }
+    var lstr=l.toString();
+    var rstr=r.toString();
+    if (lstr>rstr) {
+        return 1;
+    } else if (lstr<rstr) {
+        return -1;
+    } else {
+        return 0;
+    }
+    //return cubantSum(l)-cubantSum(r);
 });
 
 
