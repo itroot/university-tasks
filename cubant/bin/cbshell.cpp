@@ -81,12 +81,16 @@ namespace {
     JSBool put(JSContext*, JSObject*, uintN, jsval*, jsval*);
     JSBool createCubant(JSContext*, JSObject*, uintN, jsval*, jsval*);
     JSBool hausdorff(JSContext*, JSObject*, uintN, jsval*, jsval*);
+    JSBool intersect(JSContext*, JSObject*, uintN, jsval*, jsval*);
+    JSBool convexHull(JSContext*, JSObject*, uintN, jsval*, jsval*);
 
     static JSFunctionSpec global_functions[] = {
         {"log", log, 1, 0, 0},
         {"put", put, 1, 0, 0},
         {"createCubant", createCubant, 1, 0, 0},
         {"hausdorff", hausdorff, 2, 0, 0},
+        {"intersect", intersect, 2, 0, 0},
+        {"convexHull", convexHull, 2, 0, 0},
         {0,0,0,0,0}
     };
 
@@ -135,6 +139,57 @@ namespace {
         // FIXME HAUSDORFF
         unsigned int result=cubant_t::hausdorf(*cubant0, *cubant1);
         *rval=INT_TO_JSVAL(result);
+        return JS_TRUE;
+    }
+
+    JSBool intersect(JSContext* context, JSObject*, uintN, jsval* argv, jsval* rval) {
+        using namespace CubantCore;
+        cubant_t* cubant0=static_cast<cubant_t*>
+            (JS_GetPrivate(context, JSVAL_TO_OBJECT(argv[0])));
+        cubant_t* cubant1=static_cast<cubant_t*>
+            (JS_GetPrivate(context, JSVAL_TO_OBJECT(argv[1])));
+        cubant_t tmp=cubant_t::intersect(*cubant0, *cubant1);
+        cubant_t* cubant=NULL;
+        JSObject* result=JS_NewObject(context, &global_class, NULL, NULL);
+        *rval=OBJECT_TO_JSVAL(result);
+        try {
+            // LEAK FIXME
+            cubant=new cubant_t(tmp);
+        } catch (std::exception& e) {
+            JS_ReportError(context, "Can't create cubant.");
+            return JS_FALSE;
+        }
+        JS_SetPrivate(context, result, cubant);
+        if (!JS_DefineFunctions(context, result, cubant_functions)) {
+            JS_ReportError(context, "Can't define cubant functions.");
+            return JS_FALSE;
+        }
+        return JS_TRUE;
+    }
+
+    JSBool convexHull(JSContext* context, JSObject*, uintN, jsval* argv, jsval* rval) {
+        using namespace CubantCore;
+        cubant_t* cubant0=static_cast<cubant_t*>
+            (JS_GetPrivate(context, JSVAL_TO_OBJECT(argv[0])));
+        cubant_t* cubant1=static_cast<cubant_t*>
+            (JS_GetPrivate(context, JSVAL_TO_OBJECT(argv[1])));
+
+        cubant_t tmp=cubant_t::convexHull(*cubant0, *cubant1);
+        cubant_t* cubant=NULL;
+        JSObject* result=JS_NewObject(context, &global_class, NULL, NULL);
+        *rval=OBJECT_TO_JSVAL(result);
+        try {
+            // LEAK FIXME
+            cubant=new cubant_t(tmp);
+        } catch (std::exception& e) {
+            JS_ReportError(context, "Can't create cubant.");
+            return JS_FALSE;
+        }
+        JS_SetPrivate(context, result, cubant);
+        if (!JS_DefineFunctions(context, result, cubant_functions)) {
+            JS_ReportError(context, "Can't define cubant functions.");
+            return JS_FALSE;
+        }
         return JS_TRUE;
     }
 }

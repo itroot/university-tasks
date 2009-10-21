@@ -56,6 +56,10 @@ namespace CubantCore {
                 return Cubant(Impl::intersect(lhs.impl, rhs.impl));
             }
             // make friend
+            static Cubant convexHull(const Cubant& lhs, const Cubant& rhs) {
+                return Cubant(Impl::convexHull(lhs.impl, rhs.impl));
+            }
+            // make friend
             static bool isIntersecting(const Cubant& lhs, const Cubant& rhs) {
                 return !Cubant(Impl::intersect(lhs.impl, rhs.impl)).isPseudo();
             }

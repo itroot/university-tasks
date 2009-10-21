@@ -1,6 +1,8 @@
 #include <cubant/VectorImpl.hpp>
 #include <cubant/cubantexcept.hpp>
 
+#include <iostream>
+
 CubantCore::VectorImpl::
 VectorImpl(unsigned int _dimension)
     : dimension(_dimension)
@@ -103,3 +105,22 @@ farEdge(const VectorImpl& lhs, const VectorImpl& rhs) {
     }
     return result;
 }
+
+CubantCore::VectorImpl
+CubantCore::VectorImpl::
+convexHull(const VectorImpl& lhs,
+           const VectorImpl& rhs) {
+    if (lhs.size()!=rhs.size()) {
+        throw cubant_exception("Can't find convex hull with different-sized cubants");
+    }
+    unsigned int size=lhs.size();
+    VectorImpl result(size);
+    for (unsigned int i=0;i<size;++i) {
+        // we use binary
+        result[i].setType(lhs[i].getType()|rhs[i].getType());
+    }
+    return result;
+}
+
+
+

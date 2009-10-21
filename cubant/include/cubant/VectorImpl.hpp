@@ -21,6 +21,8 @@ namespace CubantCore {
                                         const VectorImpl& rhs);
             static VectorImpl farEdge(const VectorImpl& lhs,
                                       const VectorImpl& rhs);
+            static VectorImpl convexHull(const VectorImpl& lhs,
+                                         const VectorImpl& rhs);
         private:
             unsigned int dimension;
             vector<CubantType> values;
