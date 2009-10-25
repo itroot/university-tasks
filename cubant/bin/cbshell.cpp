@@ -250,8 +250,8 @@ main(int argc, char* argv[]) {
     }
 
     std::string script=readFile(argv[1]);
-    std::cout << "READ SCRIPT: \n===========\n" << script << "\n===========\n";
-    std::cout << "EXECUTING..." << std::endl;
+    //std::cout << "READ SCRIPT: \n===========\n" << script << "\n===========\n";
+    //std::cout << "EXECUTING..." << std::endl;
 
     jsval rval;
     JSBool result=
