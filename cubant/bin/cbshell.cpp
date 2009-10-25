@@ -276,3 +276,4 @@ main(int argc, char* argv[]) {
     JS_DestroyRuntime(runtime);
     JS_ShutDown();
 }
+
