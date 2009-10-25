@@ -36,6 +36,23 @@ namespace {
     JSCLASS_NO_OPTIONAL_MEMBERS
     };
 
+    void cubant_finalize(JSContext* context, JSObject* object)
+    {
+        using CubantCore::cubant_t;
+        cubant_t* cubant=
+            static_cast<cubant_t*>(JS_GetPrivate(context, object));
+        delete cubant;
+    }
+
+    JSClass cubant_class = {
+        "Cubant",
+        JSCLASS_HAS_PRIVATE,
+        JS_PropertyStub, JS_PropertyStub, JS_PropertyStub, JS_PropertyStub,
+        JS_EnumerateStub, JS_ResolveStub, JS_ConvertStub, cubant_finalize,
+        JSCLASS_NO_OPTIONAL_MEMBERS
+    };
+
+
     std::string readFile(const std::string& name) {
         using namespace std;
         ifstream in(name.c_str());
@@ -111,7 +128,7 @@ namespace {
     JSBool createCubant(JSContext* context, JSObject*,
                         uintN, jsval* argv, jsval* rval) {
         using namespace CubantCore;
-        JSObject* result=JS_NewObject(context, &global_class, NULL, NULL);
+        JSObject* result=JS_NewObject(context, &cubant_class, NULL, NULL);
         *rval=OBJECT_TO_JSVAL(result);
         std::string str=JS_GetStringBytes(JS_ValueToString(context, argv[0]));
         cubant_t* cubant=NULL;
@@ -254,4 +271,8 @@ main(int argc, char* argv[]) {
     } else {
         std::cout << "RETURN: " << JS_GetStringBytes(str) << "\n";
     }
+
+    JS_DestroyContext(context);
+    JS_DestroyRuntime(runtime);
+    JS_ShutDown();
 }
