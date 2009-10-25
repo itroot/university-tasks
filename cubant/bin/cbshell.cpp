@@ -265,12 +265,14 @@ main(int argc, char* argv[]) {
     if (JS_FALSE==result) {
         throw std::runtime_error("Can't execute script");
     }
+    /*
     JSString* str=JS_ValueToString(context, rval);
     if (NULL==str) {
         std::cout << "RETURN: Can't convert to string.\n";
     } else {
         std::cout << "RETURN: " << JS_GetStringBytes(str) << "\n";
     }
+    */
 
     JS_DestroyContext(context);
     JS_DestroyRuntime(runtime);
