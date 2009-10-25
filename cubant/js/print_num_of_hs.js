@@ -1,6 +1,6 @@
 const delimiter=";";
 const tokens=['0', '1', '2'];
-const dimension=10;
+const dimension=3;
 var table_size=1;
 var stats=[];
 
@@ -81,38 +81,13 @@ for (var y=0; y<table_size; ++y) {
 put("\n");
 */
 for (var x=0; x<table_size; ++x) {
-    //put(numberToCubantUp(x));
-    for (var y=0; y<table_size; ++y) {
-        //put(delimiter);
-        for (var z=0; z<dimension; ++z) {
-            //put(" ");
-        }
+    for (var y=x; y<table_size; ++y) {
         var cubant_x=createCubant(numberToCubantUp(x));
         var cubant_y=createCubant(numberToCubantUp(y));
         var hd=hausdorff(cubant_x,cubant_y)
-        index=cubantsDims(cubant_x, cubant_y);
-        if (undefined===dimensions[index]) dimensions[index]={};
-        if (undefined===dimensions[index]["sum"]) dimensions[index]["sum"]=0
-        if (undefined===dimensions[index]["count"]) dimensions[index]["count"]=0
-        //if (undefined===dimensions["sum_"+index]) dimensions["sum_"+index]=0;
-        dimensions[index]["sum"]+=hd;
-        dimensions[index]["count"]+=1;
-        //put(hd);
         stats[hd]++;
     }
-    //put("\n");
 }
-//log(dimensions.toSource());
 
-//for (item in dimensions) {
-//   put(item+ " : Distance sum: "+dimensions[item]["sum"]+" , count: "+dimensions[item]["count"]+" = "+(dimensions[item]["sum"]/dimensions[item]["count"])+"\n" )
-//}
-
-/*
-log("Stats: ");
-for (var i=0;i<=dimension;++i) {
-    put(i+": "+stats[i]+" , ");
-}
-*/
 put(dimension+" : "+stats.toSource()+"\n");
 
