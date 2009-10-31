@@ -17,14 +17,13 @@ class CViz : public QMainWindow {
     Q_OBJECT
 
 public:
-//    CViz();
+    CViz();
 
 private slots:
 
 private:
     void createActions();
     void createMenus();
-    void updateActions();
 
     QLabel *imageLabel;
 
