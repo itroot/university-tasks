@@ -11,5 +11,8 @@ LIBS += -L/home/itroot/Desktop/dev/prefix/lib -lcubant
 
 
 # Input
-HEADERS += cviz.h
-SOURCES += cviz.cpp main.cpp
+HEADERS += cviz.h \
+           reper.h
+SOURCES += cviz.cpp \
+           reper.cpp \
+           main.cpp
