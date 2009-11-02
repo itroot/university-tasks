@@ -5,7 +5,7 @@
 TEMPLATE = app
 TARGET = 
 DEPENDPATH += .
-INCLUDEPATH += .;/home/itroot/Desktop/dev/prefix/lib/include
+INCLUDEPATH += .;/home/itroot/Desktop/dev/prefix/include
 LIBS += -L/home/itroot/Desktop/dev/prefix/lib -lcubant
 
 

@@ -20,12 +20,15 @@ class Reper;
 class CViz : public QMainWindow {
     Q_OBJECT
 
-public:
+	public:
     CViz();
 
-private slots:
+	private slots:
     void open();
-private:
+		void drawCubants();
+	private:
+	  void executeLine(const std::string& line);
+		void drawCubant(const std::string& cubant);
     void createActions();
     void createMenus();
 

@@ -8,6 +8,8 @@
 // FIXME
 #include <iostream>
 
+#include <cubant/Cubant.hpp>
+
 CViz::CViz() {
     imageLabel = new QLabel;
     imageLabel->setBackgroundRole(QPalette::Base);
@@ -63,8 +65,30 @@ void CViz::open() {
 			}
 		}
 	}
+	drawCubants();
 }
 
+void CViz::drawCubants() {
+	for (size_t i=0;i<filecontents.size();++i) {
+		executeLine(filecontents[i]);
+	}
+}
+
+// dumb function does something
+void CViz::executeLine(const std::string& line) {
+	if ("REPER"==line.substr(0,5)) {
+    return;
+  }
+	if ("COLOR"==line.substr(0,5)) {
+		return;
+	}
+	drawCubant(line);
+}
+void CViz::drawCubant(const std::string& cubant) {
+	using namespace CubantCore;
+	cubant_t c(cubant);
+	
+}
 
 
 

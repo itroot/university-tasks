@@ -34,6 +34,9 @@ namespace CubantCore {
             string toString() {
                 return impl.toString();
             }
+            CubantType operator[](unsigned int i) const {
+              return impl[i];
+            }
             bool isPseudo() {
                 for(unsigned int i=0; i<impl.size(); ++i) {
                     if (CubantType::Nothing==impl[i].getType()) {
