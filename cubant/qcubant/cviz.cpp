@@ -21,8 +21,9 @@ CViz::CViz() {
 
     setWindowTitle(tr("QCubant Visualizer"));
     //resize(900, 700);
-    QImage* image=new QImage(800, 600, QImage::Format_ARGB32);
+    image.reset(new QImage(800, 600, QImage::Format_ARGB32));
     image->fill(0);
+    painter.reset(new QPainter(image.get()));
     imageLabel->setPixmap(QPixmap::fromImage(*image));
     imageLabel->adjustSize();
 }

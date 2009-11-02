@@ -13,6 +13,8 @@ class QLabel;
 class QMenu;
 class QScrollArea;
 class QScrollBar;
+class QPainter;
+class QImage;
 QT_END_NAMESPACE
 
 class Reper;
@@ -33,6 +35,8 @@ class CViz : public QMainWindow {
     void createMenus();
 
     QLabel *imageLabel;
+    std::auto_ptr<QImage> image;
+    std::auto_ptr<QPainter> painter;
 
     QAction *openAct;
     QAction *aboutQtAct;
@@ -43,6 +47,7 @@ class CViz : public QMainWindow {
 		std::auto_ptr<Reper> reper;
 		// FIXME this shit
 		std::vector<std::string> filecontents;
+    
 };
 
 #endif
