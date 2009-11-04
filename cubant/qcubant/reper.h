@@ -10,6 +10,8 @@ class Reper {
 		unsigned int getNum();
 		unsigned int getHeight();
 		unsigned int getWidth();
+    // virtual ??? 
+    int getVectorProjection(unsigned int vectorNum, unsigned int coord);
   private:
 		typedef std::pair<int, int> ReperVector;
 		typedef std::vector<ReperVector> ReperVectors;

@@ -1,5 +1,7 @@
 #include "reper.h"
 
+#include <stdexcept>
+
 Reper::
 Reper(unsigned int _num, unsigned int _height, unsigned int _width)
   : num(_num)
@@ -22,5 +24,16 @@ unsigned int
 Reper::
 getWidth() {
 	return width;
+}
+
+int
+Reper::
+getVectorProjection(unsigned int vectorNum, unsigned int coord) {
+  if (0==coord) {
+    return vectors[vectorNum].first;
+  } else if (1==coord) {
+    return vectors[vectorNum].second;
+  };
+  throw std::out_of_range("No such vector dimension");
 }
 
