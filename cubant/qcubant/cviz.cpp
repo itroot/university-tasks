@@ -87,6 +87,9 @@ void CViz::drawCubants() {
 
 // dumb function does something
 void CViz::executeLine(const std::string& line) {
+  if ('#'==line[0]) {
+    return;
+  }
 	if ("REPER"==line.substr(0,5)) {
     reper.reset(new Reper(9));
     std::cout << "Initiailizing reper" << std::endl;
