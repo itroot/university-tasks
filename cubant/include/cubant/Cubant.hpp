@@ -34,7 +34,10 @@ namespace CubantCore {
             string toString() {
                 return impl.toString();
             }
-            CubantType operator[](unsigned int i) const {
+            const CubantType& operator[](unsigned int i) const {
+              return impl[i];
+            }
+            CubantType& operator[](unsigned int i) {
               return impl[i];
             }
             size_t size() const {

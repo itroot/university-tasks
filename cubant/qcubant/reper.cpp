@@ -7,7 +7,11 @@ Reper(unsigned int _num, unsigned int _height, unsigned int _width)
   : num(_num)
   , height(_height)
   , width(_width)
-{}
+{
+    for (size_t i=0; i<num; ++i) {
+        vectors.push_back(std::make_pair(height*(i-4), -width));
+    }
+}
 
 unsigned int
 Reper::

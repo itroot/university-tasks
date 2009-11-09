@@ -33,8 +33,11 @@ class CViz : public QMainWindow {
 		void drawCubant(const std::string& cubant);
     void createActions();
     void createMenus();
+    void adjustImage();
 
+    QScrollArea* scrollArea;
     QLabel *imageLabel;
+    
     std::auto_ptr<QImage> image;
     std::auto_ptr<QPainter> painter;
 

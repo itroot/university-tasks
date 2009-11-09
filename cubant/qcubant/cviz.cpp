@@ -16,16 +16,25 @@ CViz::CViz() {
     imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     imageLabel->setScaledContents(true);
 
+    scrollArea = new QScrollArea;
+    scrollArea->setBackgroundRole(QPalette::Dark);
+    scrollArea->setWidget(imageLabel);
+    setCentralWidget(scrollArea);
+
     createActions();
     createMenus();
 
     setWindowTitle(tr("QCubant Visualizer"));
-    //resize(900, 700);
+    resize(900, 700);
     image.reset(new QImage(800, 600, QImage::Format_ARGB32));
     image->fill(0);
     painter.reset(new QPainter(image.get()));
-    imageLabel->setPixmap(QPixmap::fromImage(*image));
-    imageLabel->adjustSize();
+    adjustImage();
+}
+
+void CViz::adjustImage() {
+  imageLabel->setPixmap(QPixmap::fromImage(*image));
+  imageLabel->adjustSize();
 }
 
 void CViz::createActions() {
@@ -67,6 +76,7 @@ void CViz::open() {
 		}
 	}
 	drawCubants();
+  adjustImage();
 }
 
 void CViz::drawCubants() {
@@ -78,6 +88,8 @@ void CViz::drawCubants() {
 // dumb function does something
 void CViz::executeLine(const std::string& line) {
 	if ("REPER"==line.substr(0,5)) {
+    reper.reset(new Reper(9));
+    std::cout << "Initiailizing reper" << std::endl;
     return;
   }
 	if ("COLOR"==line.substr(0,5)) {
@@ -114,6 +126,7 @@ void CViz::drawCubant(const std::string& cubant) {
       for (size_t i=0;i<pos.size();++i) {
           cubant_t cubant_part=c;
           cubant_part[pos[i]]=CubantType::NoShift;
+          std::cout << cubant_part.toString() << std::endl;
           // optimize FIXME
           drawCubant(cubant_part.toString());
           cubant_part[pos[i]]=CubantType::Shift;
