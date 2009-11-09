@@ -85,6 +85,7 @@ void CViz::executeLine(const std::string& line) {
 	}
 	drawCubant(line);
 }
+
 void CViz::drawCubant(const std::string& cubant) {
   const int X=400;
   const int Y=500;
@@ -94,7 +95,7 @@ void CViz::drawCubant(const std::string& cubant) {
   vector<int> start_point(2,0);
   vector<size_t> pos;
   for (size_t i=0;i<c.size();++i) {
-      if (CubantType::Spread==c[i]) {
+      if (CubantType::Spread==c[i].getType()) {
           ++num2;
           pos.push_back(i);
       } else if (1==cubant[i]) {
@@ -104,18 +105,19 @@ void CViz::drawCubant(const std::string& cubant) {
   }
   std::cerr << pos.size() << "\n";
   if (0==num2) {
-      painter.drawPoint(X+start_point[0],Y+start_point[1]);
+      painter->drawPoint(X+start_point[0],Y+start_point[1]);
   } else if (1==num2) {
-      painter.drawLine(X+start_point[0],Y+start_point[1],
-                        X+start_point[0] + reper[pos[0]][0],Y+start_point[1]+reper[pos[0]][1]);
+      painter->drawLine(X+start_point[0],Y+start_point[1],
+                        X+start_point[0]+reper->getVectorProjection(pos[0],0),
+                        Y+start_point[1]+reper->getVectorProjection(pos[0],1));
   } else {
       for (size_t i=0;i<pos.size();++i) {
           cubant_t cubant_part=c;
           cubant_part[pos[i]]=CubantType::NoShift;
           // optimize FIXME
-          drawCubant(painter, cubant_part.toString());
+          drawCubant(cubant_part.toString());
           cubant_part[pos[i]]=CubantType::Shift;
-          drawCubant(painter, cubant_part.toString());
+          drawCubant(cubant_part.toString());
       }
   }
 }
