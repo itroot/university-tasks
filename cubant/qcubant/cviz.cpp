@@ -114,6 +114,8 @@ void CViz::open() {
   adjustImage();
 }
 
+
+
 void CViz::drawCubants() {
 	for (size_t i=0;i<filecontents.size();++i) {
 		executeLine(filecontents[i]);
@@ -127,6 +129,7 @@ void CViz::executeLine(const std::string& line) {
   }
 	if ("REPER"==line.substr(0,5)) {
     setReper(line);
+    drawReper();
     std::cout << "Initiailizing reper" << std::endl;
     return;
   }
@@ -138,6 +141,16 @@ void CViz::executeLine(const std::string& line) {
     throw std::runtime_error("No reper specified");
   }
 	drawCubant(line);
+}
+
+void CViz::drawReper() {
+  const int X=140;
+  const int Y=580;
+  for (size_t i=0; i<reper->getNum(); ++i) {
+    painter->drawLine(X,Y,
+                        X+reper->getVectorProjection(i,0),
+                        Y+reper->getVectorProjection(i,1));
+  }
 }
 
 void CViz::drawCubant(const std::string& cubant) {

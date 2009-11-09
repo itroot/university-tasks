@@ -37,6 +37,7 @@ class CViz : public QMainWindow {
     void adjustImage();
     void setColor(const std::string& line);
     void setReper(const std::string& line);
+    void drawReper();
 
     QScrollArea* scrollArea;
     QLabel *imageLabel;
