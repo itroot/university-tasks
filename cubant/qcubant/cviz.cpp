@@ -98,6 +98,9 @@ void CViz::executeLine(const std::string& line) {
 	if ("COLOR"==line.substr(0,5)) {
 		return;
 	}
+  if (NULL==reper.get()) {
+    throw std::runtime_error("No reper specified");
+  }
 	drawCubant(line);
 }
 

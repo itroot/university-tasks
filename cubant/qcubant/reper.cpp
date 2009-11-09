@@ -1,6 +1,7 @@
 #include "reper.h"
 
 #include <stdexcept>
+#include <iostream>
 
 Reper::
 Reper(unsigned int _num, unsigned int _height, unsigned int _width)
@@ -33,6 +34,7 @@ getWidth() {
 int
 Reper::
 getVectorProjection(unsigned int vectorNum, unsigned int coord) {
+  std::cout << "gvp " << vectorNum << " " << coord << std::endl;
   if (0==coord) {
     return vectors[vectorNum].first;
   } else if (1==coord) {
