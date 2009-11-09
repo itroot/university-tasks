@@ -7,11 +7,43 @@
 
 // FIXME
 #include <iostream>
+#include <sstream>
 
 #include <cubant/Cubant.hpp>
 #include <stdlib.h>
+namespace {
+  using namespace std;
+  void initVrml(std::string& vrml) {
+    vrml="#VRML V2.0 utf8\n\n";
+  }
+  
+  void addPoint(std::string& vrml, int x, int y, int z=0) {
+    stringstream ss;
+    ss << "Transform { translation " <<
+    x << " " << y << " " << z << 
+    " children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 0.5}}]}\n";
+    vrml+=ss.str();
+  }
+  
+  void addLine(std::string& vrml, int x1, int x2, int y1, int y2, int z1=0, int z2=0) { 
+    stringstream ss;
+    ss << "Shape { geometry IndexedLineSet { coord Coordinate { point [ " <<
+    x1 << " " << y1 << " " << z1 << " , " <<  
+    x2 << " " << y2 << " " << z2 << " " <<
+    " ] } coordIndex [ 0, 1] } }\n";
+    vrml+=ss.str();
+  }
+}
 
 CViz::CViz() {
+    std::string str;
+    initVrml(str);
+    addPoint(str, 0,0);
+    addPoint(str, 10,0);
+    addPoint(str, 10,10);
+    addLine(str, 0,0,10,10);
+    std::cout << str ;
+    
     imageLabel = new QLabel;
     imageLabel->setBackgroundRole(QPalette::Base);
     imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);

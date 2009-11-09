@@ -55,6 +55,8 @@ class CViz : public QMainWindow {
 		// FIXME this shit
 		std::vector<std::string> filecontents;
     std::set<std::string> drawedCubants;
+    // FIXME HACK
+    std::string vrmlString;
 };
 
 #endif
