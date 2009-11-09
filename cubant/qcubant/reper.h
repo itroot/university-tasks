@@ -6,7 +6,7 @@
 
 class Reper {
   public:
-    Reper(unsigned int _num, unsigned int _height=50, unsigned int _width=20);
+    Reper(unsigned int _num, unsigned int _height=60, unsigned int _width=30);
 		unsigned int getNum();
 		unsigned int getHeight();
 		unsigned int getWidth();

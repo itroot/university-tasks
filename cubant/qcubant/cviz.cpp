@@ -109,6 +109,7 @@ void CViz::open() {
 		}
 	}
   image->fill(0); // FIXME clear image
+  drawedCubants.clear();
 	drawCubants();
   adjustImage();
 }
@@ -140,8 +141,13 @@ void CViz::executeLine(const std::string& line) {
 }
 
 void CViz::drawCubant(const std::string& cubant) {
+  if (drawedCubants.end()!=drawedCubants.find(cubant)) {
+    return;
+  } else {
+    drawedCubants.insert(cubant);
+  }
   const int X=400;
-  const int Y=500;
+  const int Y=580;
   using namespace CubantCore;
   cubant_t c(cubant);
   int num2=0;

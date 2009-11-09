@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <set>
 
 QT_BEGIN_NAMESPACE
 class QAction;
@@ -52,7 +53,7 @@ class CViz : public QMainWindow {
 		std::auto_ptr<Reper> reper;
 		// FIXME this shit
 		std::vector<std::string> filecontents;
-    
+    std::set<std::string> drawedCubants;
 };
 
 #endif
