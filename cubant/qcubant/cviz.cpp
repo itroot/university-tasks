@@ -116,12 +116,13 @@ void CViz::drawCubant(const std::string& cubant) {
       if (CubantType::Spread==c[i].getType()) {
           ++num2;
           pos.push_back(i);
-      } else if (1==cubant[i]) {
+      } else if (CubantType::Shift==c[i].getType()) {
           start_point[0]+=reper->getVectorProjection(i,0);
           start_point[1]+=reper->getVectorProjection(i,1);
       }
   }
   std::cerr << pos.size() << "\n";
+  std::cout << "Start point " << start_point[0] << " " << start_point[1] << std::endl;
   if (0==num2) {
       painter->drawPoint(X+start_point[0],Y+start_point[1]);
   } else if (1==num2) {
