@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include <cubant/Cubant.hpp>
+#include <stdlib.h>
 
 CViz::CViz() {
     imageLabel = new QLabel;
@@ -46,6 +47,38 @@ void CViz::createActions() {
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 }
 
+void CViz::setColor(const std::string& line) {
+  size_t pos=0;
+  pos=line.find(":");
+  if (std::string::npos==pos) {
+    return;
+  }
+  int r=atoi(line.c_str()+pos+1);
+  
+  pos=line.find(",");
+  if (std::string::npos==pos) {
+    return;
+  }
+  int g=atoi(line.c_str()+pos+1);
+
+  pos=line.find(",",pos+1);
+  if (std::string::npos==pos) {
+    return;
+  }
+  int b=atoi(line.c_str()+pos+1);
+  
+  painter->setPen(QColor(r,g,b));
+}
+
+void CViz::setReper(const std::string& line) {
+  size_t pos=line.find(":");
+  if (std::string::npos==pos) {
+    return;
+  }
+  unsigned int dim=atoi(line.c_str()+pos+1);
+  reper.reset(new Reper(dim));
+}
+
 void CViz::createMenus() {
 
 		fileMenu = new QMenu(tr("&File"), this);
@@ -75,6 +108,7 @@ void CViz::open() {
 			}
 		}
 	}
+  image->fill(0); // FIXME clear image
 	drawCubants();
   adjustImage();
 }
@@ -91,11 +125,12 @@ void CViz::executeLine(const std::string& line) {
     return;
   }
 	if ("REPER"==line.substr(0,5)) {
-    reper.reset(new Reper(9));
+    setReper(line);
     std::cout << "Initiailizing reper" << std::endl;
     return;
   }
 	if ("COLOR"==line.substr(0,5)) {
+    setColor(line);
 		return;
 	}
   if (NULL==reper.get()) {

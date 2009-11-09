@@ -34,6 +34,8 @@ class CViz : public QMainWindow {
     void createActions();
     void createMenus();
     void adjustImage();
+    void setColor(const std::string& line);
+    void setReper(const std::string& line);
 
     QScrollArea* scrollArea;
     QLabel *imageLabel;

@@ -9,9 +9,12 @@ Reper(unsigned int _num, unsigned int _height, unsigned int _width)
   , height(_height)
   , width(_width)
 {
-    for (size_t i=0; i<num; ++i) {
-        vectors.push_back(std::make_pair(width*(i-4), -height));
-    }
+  if (0==num) {
+    throw std::runtime_error("Reper with 0 dimension");
+  }
+  for (size_t i=0; i<num; ++i) {
+      vectors.push_back(std::make_pair(width*(i-4), -height));
+  }
 }
 
 unsigned int
