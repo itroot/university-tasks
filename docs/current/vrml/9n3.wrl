@@ -1,0 +1,275 @@
+#VRML V2.0 utf8
+
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 0 0 , -29 -60 -5  ] } coordIndex [ 0, 1] } }
+Transform { translation 0 0 0 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -29 -60 -5 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -60 -22 , -48 -120 -27  ] } coordIndex [ 0, 1] } }
+Transform { translation -19 -60 -22 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -48 -120 -27 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 0 0 , -19 -60 -22  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -60 -5 , -48 -120 -27  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -60 -30 , -29 -120 -35  ] } coordIndex [ 0, 1] } }
+Transform { translation 0 -60 -30 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -29 -120 -35 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -120 -52 , -48 -180 -57  ] } coordIndex [ 0, 1] } }
+Transform { translation -19 -120 -52 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -48 -180 -57 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -60 -30 , -19 -120 -52  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -120 -35 , -48 -180 -57  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 0 0 , 0 -60 -30  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -60 -5 , -29 -120 -35  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -60 -22 , -19 -120 -52  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -48 -120 -27 , -48 -180 -57  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -60 -5 , -10 -120 -27  ] } coordIndex [ 0, 1] } }
+Transform { translation -10 -120 -27 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -48 -120 -27 , -29 -180 -49  ] } coordIndex [ 0, 1] } }
+Transform { translation -29 -180 -49 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -10 -120 -27 , -29 -180 -49  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -120 -35 , -10 -180 -57  ] } coordIndex [ 0, 1] } }
+Transform { translation -10 -180 -57 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -48 -180 -57 , -29 -240 -79  ] } coordIndex [ 0, 1] } }
+Transform { translation -29 -240 -79 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -10 -180 -57 , -29 -240 -79  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -10 -120 -27 , -10 -180 -57  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -180 -49 , -29 -240 -79  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -180 -32 , 0 -240 -54  ] } coordIndex [ 0, 1] } }
+Transform { translation -19 -180 -32 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 0 -240 -54 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -48 -120 -27 , -19 -180 -32  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -180 -49 , 0 -240 -54  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -240 -62 , 0 -300 -84  ] } coordIndex [ 0, 1] } }
+Transform { translation -19 -240 -62 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 0 -300 -84 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -48 -180 -57 , -19 -240 -62  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -240 -79 , 0 -300 -84  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -180 -32 , -19 -240 -62  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -240 -54 , 0 -300 -84  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -23 -240 -42 , -4 -300 -64  ] } coordIndex [ 0, 1] } }
+Transform { translation -23 -240 -42 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -4 -300 -64 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 6 -300 -47 , 25 -360 -69  ] } coordIndex [ 0, 1] } }
+Transform { translation 6 -300 -47 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 25 -360 -69 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -23 -240 -42 , 6 -300 -47  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -4 -300 -64 , 25 -360 -69  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -48 -180 -57 , -23 -240 -42  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -240 -79 , -4 -300 -64  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -240 -62 , 6 -300 -47  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -300 -84 , 25 -360 -69  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -300 -51 , 10 -360 -56  ] } coordIndex [ 0, 1] } }
+Transform { translation -19 -300 -51 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 10 -360 -56 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 6 -360 -36 , 35 -420 -41  ] } coordIndex [ 0, 1] } }
+Transform { translation 6 -360 -36 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 35 -420 -41 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -300 -51 , 6 -360 -36  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 10 -360 -56 , 35 -420 -41  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -240 -79 , -19 -300 -51  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -300 -84 , 10 -360 -56  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -4 -300 -64 , 6 -360 -36  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 25 -360 -69 , 35 -420 -41  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -10 -360 -56 , 15 -420 -41  ] } coordIndex [ 0, 1] } }
+Transform { translation -10 -360 -56 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 15 -420 -41 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -420 -28 , 25 -480 -13  ] } coordIndex [ 0, 1] } }
+Transform { translation 0 -420 -28 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 25 -480 -13 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -10 -360 -56 , 0 -420 -28  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 15 -420 -41 , 25 -480 -13  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -300 -84 , -10 -360 -56  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 25 -360 -69 , 15 -420 -41  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 10 -360 -56 , 0 -420 -28  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 35 -420 -41 , 25 -480 -13  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -420 -54 , 10 -480 -26  ] } coordIndex [ 0, 1] } }
+Transform { translation 0 -420 -54 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 10 -480 -26 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -10 -480 -26 , 0 -540 2  ] } coordIndex [ 0, 1] } }
+Transform { translation -10 -480 -26 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 0 -540 2 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -420 -54 , -10 -480 -26  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 10 -480 -26 , 0 -540 2  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 25 -360 -69 , 0 -420 -54  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 35 -420 -41 , 10 -480 -26  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 15 -420 -41 , -10 -480 -26  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 25 -480 -13 , 0 -540 2  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 0 0 , 10 -60 28  ] } coordIndex [ 0, 1] } }
+Transform { translation 10 -60 28 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -10 -60 28 , 0 -120 56  ] } coordIndex [ 0, 1] } }
+Transform { translation -10 -60 28 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 0 -120 56 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 0 0 , -10 -60 28  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 10 -60 28 , 0 -120 56  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -25 -60 15 , -15 -120 43  ] } coordIndex [ 0, 1] } }
+Transform { translation -25 -60 15 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -15 -120 43 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -35 -120 43 , -25 -180 71  ] } coordIndex [ 0, 1] } }
+Transform { translation -35 -120 43 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -25 -180 71 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -25 -60 15 , -35 -120 43  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -15 -120 43 , -25 -180 71  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 0 0 , -25 -60 15  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 10 -60 28 , -15 -120 43  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -10 -60 28 , -35 -120 43  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -120 56 , -25 -180 71  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -120 23 , -29 -180 51  ] } coordIndex [ 0, 1] } }
+Transform { translation -19 -120 23 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -29 -180 51 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -44 -180 38 , -54 -240 66  ] } coordIndex [ 0, 1] } }
+Transform { translation -44 -180 38 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -54 -240 66 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -120 23 , -44 -180 38  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -180 51 , -54 -240 66  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 10 -60 28 , -19 -120 23  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -120 56 , -29 -180 51  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -15 -120 43 , -44 -180 38  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -25 -180 71 , -54 -240 66  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -180 34 , -44 -240 49  ] } coordIndex [ 0, 1] } }
+Transform { translation -19 -180 34 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -44 -240 49 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -48 -240 29 , -73 -300 44  ] } coordIndex [ 0, 1] } }
+Transform { translation -48 -240 29 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -73 -300 44 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -180 34 , -48 -240 29  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -44 -240 49 , -73 -300 44  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -120 56 , -19 -180 34  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -25 -180 71 , -44 -240 49  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -180 51 , -48 -240 29  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -54 -240 66 , -73 -300 44  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -25 -240 41 , -54 -300 36  ] } coordIndex [ 0, 1] } }
+Transform { translation -25 -240 41 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -54 -300 36 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -44 -300 19 , -73 -360 14  ] } coordIndex [ 0, 1] } }
+Transform { translation -44 -300 19 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -73 -360 14 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -25 -240 41 , -44 -300 19  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -54 -300 36 , -73 -360 14  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -25 -180 71 , -25 -240 41  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -54 -240 66 , -54 -300 36  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -44 -240 49 , -44 -300 19  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -73 -300 44 , -73 -360 14  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -54 -240 66 , -35 -300 44  ] } coordIndex [ 0, 1] } }
+Transform { translation -35 -300 44 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -73 -300 44 , -54 -360 22  ] } coordIndex [ 0, 1] } }
+Transform { translation -54 -360 22 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -35 -300 44 , -54 -360 22  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -54 -300 36 , -35 -360 14  ] } coordIndex [ 0, 1] } }
+Transform { translation -35 -360 14 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -73 -360 14 , -54 -420 -8  ] } coordIndex [ 0, 1] } }
+Transform { translation -54 -420 -8 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -35 -360 14 , -54 -420 -8  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -35 -300 44 , -35 -360 14  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -54 -360 22 , -54 -420 -8  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -44 -360 39 , -25 -420 17  ] } coordIndex [ 0, 1] } }
+Transform { translation -44 -360 39 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -25 -420 17 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -73 -300 44 , -44 -360 39  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -54 -360 22 , -25 -420 17  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -44 -420 9 , -25 -480 -13  ] } coordIndex [ 0, 1] } }
+Transform { translation -44 -420 9 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -25 -480 -13 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -73 -360 14 , -44 -420 9  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -54 -420 -8 , -25 -480 -13  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -44 -360 39 , -44 -420 9  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -25 -420 17 , -25 -480 -13  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -48 -420 29 , -29 -480 7  ] } coordIndex [ 0, 1] } }
+Transform { translation -48 -420 29 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation -29 -480 7 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -19 -480 24 , 0 -540 2  ] } coordIndex [ 0, 1] } }
+Transform { translation -19 -480 24 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -48 -420 29 , -19 -480 24  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -29 -480 7 , 0 -540 2  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -73 -360 14 , -48 -420 29  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -54 -420 -8 , -29 -480 7  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -44 -420 9 , -19 -480 24  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ -25 -480 -13 , 0 -540 2  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 0 0 , 19 -60 -22  ] } coordIndex [ 0, 1] } }
+Transform { translation 19 -60 -22 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 29 -60 -5 , 48 -120 -27  ] } coordIndex [ 0, 1] } }
+Transform { translation 29 -60 -5 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 48 -120 -27 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 0 0 , 29 -60 -5  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 19 -60 -22 , 48 -120 -27  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 25 -60 15 , 44 -120 -7  ] } coordIndex [ 0, 1] } }
+Transform { translation 25 -60 15 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 44 -120 -7 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 54 -120 10 , 73 -180 -12  ] } coordIndex [ 0, 1] } }
+Transform { translation 54 -120 10 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 73 -180 -12 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 25 -60 15 , 54 -120 10  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 44 -120 -7 , 73 -180 -12  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 0 0 , 25 -60 15  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 19 -60 -22 , 44 -120 -7  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 29 -60 -5 , 54 -120 10  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -120 -27 , 73 -180 -12  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 29 -120 6 , 58 -180 1  ] } coordIndex [ 0, 1] } }
+Transform { translation 29 -120 6 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 58 -180 1 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 54 -180 21 , 83 -240 16  ] } coordIndex [ 0, 1] } }
+Transform { translation 54 -180 21 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 83 -240 16 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 29 -120 6 , 54 -180 21  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 58 -180 1 , 83 -240 16  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 19 -60 -22 , 29 -120 6  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -120 -27 , 58 -180 1  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 44 -120 -7 , 54 -180 21  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 73 -180 -12 , 83 -240 16  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 38 -180 1 , 63 -240 16  ] } coordIndex [ 0, 1] } }
+Transform { translation 38 -180 1 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 63 -240 16 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -240 29 , 73 -300 44  ] } coordIndex [ 0, 1] } }
+Transform { translation 48 -240 29 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 73 -300 44 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 38 -180 1 , 48 -240 29  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 63 -240 16 , 73 -300 44  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -120 -27 , 38 -180 1  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 73 -180 -12 , 63 -240 16  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 58 -180 1 , 48 -240 29  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 83 -240 16 , 73 -300 44  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -240 3 , 58 -300 31  ] } coordIndex [ 0, 1] } }
+Transform { translation 48 -240 3 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 58 -300 31 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 38 -300 31 , 48 -360 59  ] } coordIndex [ 0, 1] } }
+Transform { translation 38 -300 31 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 48 -360 59 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -240 3 , 38 -300 31  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 58 -300 31 , 48 -360 59  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 73 -180 -12 , 48 -240 3  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 83 -240 16 , 58 -300 31  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 63 -240 16 , 38 -300 31  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 73 -300 44 , 48 -360 59  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 54 -300 11 , 44 -360 39  ] } coordIndex [ 0, 1] } }
+Transform { translation 54 -300 11 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 44 -360 39 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 29 -360 26 , 19 -420 54  ] } coordIndex [ 0, 1] } }
+Transform { translation 29 -360 26 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 19 -420 54 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 54 -300 11 , 29 -360 26  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 44 -360 39 , 19 -420 54  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 83 -240 16 , 54 -300 11  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 73 -300 44 , 44 -360 39  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 58 -300 31 , 29 -360 26  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -360 59 , 19 -420 54  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 54 -360 22 , 29 -420 37  ] } coordIndex [ 0, 1] } }
+Transform { translation 54 -360 22 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 29 -420 37 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 25 -420 17 , 0 -480 32  ] } coordIndex [ 0, 1] } }
+Transform { translation 25 -420 17 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 0 -480 32 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 54 -360 22 , 25 -420 17  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 29 -420 37 , 0 -480 32  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 73 -300 44 , 54 -360 22  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -360 59 , 29 -420 37  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 44 -360 39 , 25 -420 17  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 19 -420 54 , 0 -480 32  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -420 29 , 19 -480 24  ] } coordIndex [ 0, 1] } }
+Transform { translation 48 -420 29 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Transform { translation 19 -480 24 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 29 -480 7 , 0 -540 2  ] } coordIndex [ 0, 1] } }
+Transform { translation 29 -480 7 children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -420 29 , 29 -480 7  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 19 -480 24 , 0 -540 2  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 48 -360 59 , 48 -420 29  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 19 -420 54 , 19 -480 24  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 29 -420 37 , 29 -480 7  ] } coordIndex [ 0, 1] } }
+Shape { geometry IndexedLineSet { coord Coordinate { point [ 0 -480 32 , 0 -540 2  ] } coordIndex [ 0, 1] } }
+
