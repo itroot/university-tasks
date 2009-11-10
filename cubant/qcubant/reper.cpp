@@ -15,7 +15,7 @@ Reper(unsigned int _num, unsigned int _height, unsigned int _width)
   }
   for (size_t i=0; i<num; ++i) {
       vectors.push_back(std::make_pair(width*(i-4), -height));
-      double angle=M_PI*((i-num/2.0)/num);
+      double angle=2*M_PI*((i-num/2.0)/num);
       vectors3d.push_back(Coords3D(width*sin(angle),-height, width*cos(angle)));
   }
 }
