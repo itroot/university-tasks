@@ -75,6 +75,11 @@ void CViz::createActions() {
     openAct = new QAction(tr("&Open..."), this);
     openAct->setShortcut(tr("Ctrl+O"));
     connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
+    
+    saveVRMLAct = new QAction(tr("Save VRML..."), this);
+    saveVRMLAct->setShortcut(tr("Ctrl+S"));
+    connect(saveVRMLAct, SIGNAL(triggered()), this, SLOT(saveVRML()));
+    
 		
     aboutQtAct = new QAction(tr("About &Qt"), this);
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
@@ -116,6 +121,7 @@ void CViz::createMenus() {
 
 		fileMenu = new QMenu(tr("&File"), this);
     fileMenu->addAction(openAct);
+    fileMenu->addAction(saveVRMLAct);
 
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutQtAct);
@@ -147,8 +153,6 @@ void CViz::open() {
   adjustImage();
 }
 
-
-
 void CViz::drawCubants() {
   initVrml(vrmlString); // FIXME
 	for (size_t i=0;i<filecontents.size();++i) {
@@ -176,6 +180,19 @@ void CViz::executeLine(const std::string& line) {
     throw std::runtime_error("No reper specified");
   }
 	drawCubant(line);
+}
+
+void CViz::saveVRML() {
+    QString fileName = QFileDialog::getSaveFileName(this,
+      tr("Save VRML"), QDir::currentPath()+QDir::separator()+QString("Untitled.wrl"));
+
+    QFile file(fileName);
+      if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        return;
+      }
+
+    QTextStream out(&file);
+    out << QString(vrmlString.c_str()) << "\n";
 }
 
 void CViz::drawReper() {
