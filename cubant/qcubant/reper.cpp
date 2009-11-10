@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <iostream>
+#include <cmath>
 
 Reper::
 Reper(unsigned int _num, unsigned int _height, unsigned int _width)
@@ -14,6 +15,8 @@ Reper(unsigned int _num, unsigned int _height, unsigned int _width)
   }
   for (size_t i=0; i<num; ++i) {
       vectors.push_back(std::make_pair(width*(i-4), -height));
+      double angle=M_PI*((i-num/2.0)/num);
+      vectors3d.push_back(Coords3D(width*sin(angle),-height, width*cos(angle)));
   }
 }
 
@@ -44,5 +47,19 @@ getVectorProjection(unsigned int vectorNum, unsigned int coord) {
     return vectors[vectorNum].second;
   };
   throw std::out_of_range("No such vector dimension");
+}
+
+int
+Reper::
+getVectorProjection3D(unsigned int vectorNum, unsigned int coord) {
+  std::cout << "gvp3d " << vectorNum << " " << coord << std::endl;
+  if (0==coord) {
+    return vectors3d[vectorNum].x;
+  } else if (1==coord) {
+    return vectors3d[vectorNum].y;
+  } else if (2==coord) {
+    return vectors3d[vectorNum].z;
+  } 
+  throw std::out_of_range("No such vector3d dimension");
 }
 

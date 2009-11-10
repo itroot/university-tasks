@@ -200,6 +200,7 @@ void CViz::drawCubant(const std::string& cubant) {
   cubant_t c(cubant);
   int num2=0;
   vector<int> start_point(2,0);
+  vector<int> start_point3d(3,0);
   vector<size_t> pos;
   for (size_t i=0;i<c.size();++i) {
       if (CubantType::Spread==c[i].getType()) {
@@ -208,17 +209,25 @@ void CViz::drawCubant(const std::string& cubant) {
       } else if (CubantType::Shift==c[i].getType()) {
           start_point[0]+=reper->getVectorProjection(i,0);
           start_point[1]+=reper->getVectorProjection(i,1);
+          
+          start_point3d[0]+=reper->getVectorProjection3D(i,0);
+          start_point3d[1]+=reper->getVectorProjection3D(i,1);
+          start_point3d[2]+=reper->getVectorProjection3D(i,2);
       }
   }
   std::cerr << pos.size() << "\n";
   std::cout << "Start point " << start_point[0] << " " << start_point[1] << std::endl;
   if (0==num2) {
       painter->drawPoint(X+start_point[0],Y+start_point[1]);
-      addPoint(vrmlString, X+start_point[0], Y+start_point[1]);
+      //addPoint(vrmlString, X+start_point[0], Y+start_point[1]);
+      addPoint(vrmlString, start_point3d[0], start_point3d[1], start_point3d[2]);
       return;
   } else if (1==num2) {
-      addLine(vrmlString,X+start_point[0], X+start_point[0]+reper->getVectorProjection(pos[0],0),
-                         Y+start_point[1], Y+start_point[1]+reper->getVectorProjection(pos[0],1));
+      //addLine(vrmlString,X+start_point[0], X+start_point[0]+reper->getVectorProjection(pos[0],0),
+      //                   Y+start_point[1], Y+start_point[1]+reper->getVectorProjection(pos[0],1));
+      addLine(vrmlString,start_point3d[0], start_point3d[0]+reper->getVectorProjection3D(pos[0],0),
+                         start_point3d[1], start_point3d[1]+reper->getVectorProjection3D(pos[0],1),
+                         start_point3d[2], start_point3d[2]+reper->getVectorProjection3D(pos[0],2));
       painter->drawLine(X+start_point[0],Y+start_point[1],
                         X+start_point[0]+reper->getVectorProjection(pos[0],0),
                         Y+start_point[1]+reper->getVectorProjection(pos[0],1));
