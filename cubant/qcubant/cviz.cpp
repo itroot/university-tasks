@@ -21,7 +21,7 @@ namespace {
     stringstream ss;
     ss << "Transform { translation " <<
     x << " " << y << " " << z << 
-    " children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 0.5}}]}\n";
+    " children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}\n";
     vrml+=ss.str();
   }
   
@@ -36,6 +36,7 @@ namespace {
 }
 
 CViz::CViz() {
+  /*
     std::string str;
     initVrml(str);
     addPoint(str, 0,0);
@@ -43,7 +44,7 @@ CViz::CViz() {
     addPoint(str, 10,10);
     addLine(str, 0,0,10,10);
     std::cout << str ;
-    
+   */
     imageLabel = new QLabel;
     imageLabel->setBackgroundRole(QPalette::Base);
     imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
@@ -149,9 +150,11 @@ void CViz::open() {
 
 
 void CViz::drawCubants() {
+  initVrml(vrmlString); // FIXME
 	for (size_t i=0;i<filecontents.size();++i) {
 		executeLine(filecontents[i]);
 	}
+  std::cout << vrmlString << std::endl;
 }
 
 // dumb function does something
@@ -211,11 +214,15 @@ void CViz::drawCubant(const std::string& cubant) {
   std::cout << "Start point " << start_point[0] << " " << start_point[1] << std::endl;
   if (0==num2) {
       painter->drawPoint(X+start_point[0],Y+start_point[1]);
+      addPoint(vrmlString, X+start_point[0], Y+start_point[1]);
+      return;
   } else if (1==num2) {
+      addLine(vrmlString,X+start_point[0], X+start_point[0]+reper->getVectorProjection(pos[0],0),
+                         Y+start_point[1], Y+start_point[1]+reper->getVectorProjection(pos[0],1));
       painter->drawLine(X+start_point[0],Y+start_point[1],
                         X+start_point[0]+reper->getVectorProjection(pos[0],0),
                         Y+start_point[1]+reper->getVectorProjection(pos[0],1));
-  } else {
+  } //else {
       for (size_t i=0;i<pos.size();++i) {
           cubant_t cubant_part=c;
           cubant_part[pos[i]]=CubantType::NoShift;
@@ -224,7 +231,7 @@ void CViz::drawCubant(const std::string& cubant) {
           drawCubant(cubant_part.toString());
           cubant_part[pos[i]]=CubantType::Shift;
           drawCubant(cubant_part.toString());
-      }
+     // }
   }
 }
 
