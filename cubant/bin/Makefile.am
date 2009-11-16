@@ -1,4 +1,4 @@
-AM_CPPFLAGS = -I../include -I/usr/include/mozjs -I/home/itroot/Desktop/dev/prefix/include/js
+AM_CPPFLAGS = -I../include -I/usr/local/include/js -I/usr/include/mozjs -I/home/itroot/Desktop/dev/prefix/include/js
 AM_CXXFLAGS = -Wall -Wextra -Wconversion -pedantic -pthread\
               -DXP_UNIX -Wno-long-long
 
