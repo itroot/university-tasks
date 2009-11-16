@@ -20,7 +20,7 @@ operator[](unsigned int index) {
     return values[index];
 }
 
-
+/* xxx.org  */
 const CubantCore::CubantType&
 CubantCore::VectorImpl::
 operator[](unsigned int index) const {
