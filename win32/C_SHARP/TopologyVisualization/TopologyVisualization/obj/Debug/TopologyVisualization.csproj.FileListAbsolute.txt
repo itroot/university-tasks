@@ -1,0 +1,15 @@
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\bin\Debug\TopologyVisualization.exe
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\bin\Debug\TopologyVisualization.pdb
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.MainForm.resources
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.Properties.Resources.resources
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.SecondaryForms.ColorForm.resources
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.SecondaryForms.CubantStringForm.resources
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.SecondaryForms.HypercubeForm.resources
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.SecondaryForms.SizesForm.resources
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.SecondaryForms.VisualizeShapes.resources
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.csproj.GenerateResource.Cache
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.exe
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.pdb
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.SecondaryForms.DeleteShapes.resources
+C:\Documents and Settings\Geni4\Мои документы\Visual Studio 2008\Projects\TopologyVisualization\TopologyVisualization\obj\Debug\TopologyVisualization.SecondaryForms.PaintForm.resources
