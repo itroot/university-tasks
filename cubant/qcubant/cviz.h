@@ -28,6 +28,7 @@ class CViz : public QMainWindow {
 
 	private slots:
     void open();
+    void save();
 		void drawCubants();
     void saveVRML();
 	private:
@@ -47,6 +48,7 @@ class CViz : public QMainWindow {
     std::auto_ptr<QPainter> painter;
 
     QAction *openAct;
+    QAction *saveAct;
     QAction *saveVRMLAct;
     QAction *aboutQtAct;
 

@@ -80,7 +80,9 @@ void CViz::createActions() {
     saveVRMLAct->setShortcut(tr("Ctrl+S"));
     connect(saveVRMLAct, SIGNAL(triggered()), this, SLOT(saveVRML()));
     
-		
+    saveAct = new QAction(tr("Save Image..."), this);
+    connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
+
     aboutQtAct = new QAction(tr("About &Qt"), this);
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 }
@@ -122,6 +124,7 @@ void CViz::createMenus() {
 		fileMenu = new QMenu(tr("&File"), this);
     fileMenu->addAction(openAct);
     fileMenu->addAction(saveVRMLAct);
+     fileMenu->addAction(saveAct);
 
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutQtAct);
@@ -182,9 +185,16 @@ void CViz::executeLine(const std::string& line) {
 	drawCubant(line);
 }
 
+void CViz::save() {
+    QString fileName = QFileDialog::getSaveFileName(this,
+      tr("Save Image..."), QDir::currentPath()+QDir::separator()+QString("Untitled.png"));
+     
+    image->save(fileName);
+}
+
 void CViz::saveVRML() {
     QString fileName = QFileDialog::getSaveFileName(this,
-      tr("Save VRML"), QDir::currentPath()+QDir::separator()+QString("Untitled.wrl"));
+      tr("Save VRML..."), QDir::currentPath()+QDir::separator()+QString("Untitled.wrl"));
 
     QFile file(fileName);
       if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
