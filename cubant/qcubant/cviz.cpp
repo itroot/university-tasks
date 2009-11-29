@@ -11,28 +11,36 @@
 
 #include <cubant/Cubant.hpp>
 #include <stdlib.h>
-namespace {
-  using namespace std;
-  void initVrml(std::string& vrml) {
-    vrml="#VRML V2.0 utf8\n\nBackground { skyColor [ 1 1 1 ] }\n";
-  }
-  
-  void addPoint(std::string& vrml, int x, int y, int z=0) {
-    stringstream ss;
-    ss << "Transform { translation " <<
-    x << " " << y << " " << z << 
-    " children [Shape {appearance Appearance {material Material {diffuseColor 0.2 0.2 0.2}}geometry Sphere{radius 3}}]}\n";
-    vrml+=ss.str();
-  }
-  
-  void addLine(std::string& vrml, int x1, int x2, int y1, int y2, int z1=0, int z2=0) { 
-    stringstream ss;
-    ss << "Shape { geometry IndexedLineSet { coord Coordinate { point [ " <<
-    x1 << " " << y1 << " " << z1 << " , " <<  
-    x2 << " " << y2 << " " << z2 << " " <<
-    " ] } coordIndex [ 0, 1] color Color { color [ 0 0 0, 0 0 0 ] } } }\n";
-    vrml+=ss.str();
-  }
+
+using namespace std;
+
+void
+CViz::
+initVrml() {
+  vrml="#VRML V2.0 utf8\n\nBackground { skyColor [ 1 1 1 ] }\n";
+}
+
+void
+CViz::
+addPoint(int x, int y, int z) {
+  stringstream ss;
+  ss << "Transform { translation " <<
+  x << " " << y << " " << z << 
+  " children [Shape {appearance Appearance {material Material " <<
+  "{diffuseColor "<< R/RGB << " " << G/RGB << " " << B/RGB  << "}}geometry Sphere{radius 3}}]}\n";
+  vrml+=ss.str();
+}
+
+void
+CViz::
+addLine(int x1, int x2, int y1, int y2, int z1, int z2) { 
+  stringstream ss;
+  ss << "Shape { geometry IndexedLineSet { coord Coordinate { point [ " <<
+  x1 << " " << y1 << " " << z1 << " , " <<  
+  x2 << " " << y2 << " " << z2 << " " <<
+  " ] } coordIndex [ 0, 1] color Color { color [ "<< R/RGB << " " << G/RGB << " " << B/RGB  << ", "
+                                                  << R/RGB << " " << G/RGB << " " << B/RGB  << " ] } } }\n";
+  vrml+=ss.str();
 }
 
 CViz::CViz() {
@@ -45,6 +53,8 @@ CViz::CViz() {
     addLine(str, 0,0,10,10);
     std::cout << str ;
    */
+    R=G=B=0;
+    
     imageLabel = new QLabel;
     imageLabel->setBackgroundRole(QPalette::Base);
     imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
@@ -108,6 +118,9 @@ void CViz::setColor(const std::string& line) {
   int b=atoi(line.c_str()+pos+1);
   
   painter->setPen(QColor(r,g,b));
+  R=r;
+  G=g;
+  B=b;
 }
 
 void CViz::setReper(const std::string& line) {
@@ -157,11 +170,11 @@ void CViz::open() {
 }
 
 void CViz::drawCubants() {
-  initVrml(vrmlString); // FIXME
+  initVrml(); // FIXME
 	for (size_t i=0;i<filecontents.size();++i) {
 		executeLine(filecontents[i]);
 	}
-  std::cout << vrmlString << std::endl;
+  std::cout << vrml << std::endl;
 }
 
 // dumb function does something
@@ -202,7 +215,7 @@ void CViz::saveVRML() {
       }
 
     QTextStream out(&file);
-    out << QString(vrmlString.c_str()) << "\n";
+    out << QString(vrml.c_str()) << "\n";
 }
 
 void CViz::drawReper() {
@@ -247,12 +260,12 @@ void CViz::drawCubant(const std::string& cubant) {
   if (0==num2) {
       painter->drawPoint(X+start_point[0],Y+start_point[1]);
       //addPoint(vrmlString, X+start_point[0], Y+start_point[1]);
-      addPoint(vrmlString, start_point3d[0], start_point3d[1], start_point3d[2]);
+      addPoint(start_point3d[0], start_point3d[1], start_point3d[2]);
       return;
   } else if (1==num2) {
       //addLine(vrmlString,X+start_point[0], X+start_point[0]+reper->getVectorProjection(pos[0],0),
       //                   Y+start_point[1], Y+start_point[1]+reper->getVectorProjection(pos[0],1));
-      addLine(vrmlString,start_point3d[0], start_point3d[0]+reper->getVectorProjection3D(pos[0],0),
+      addLine(start_point3d[0], start_point3d[0]+reper->getVectorProjection3D(pos[0],0),
                          start_point3d[1], start_point3d[1]+reper->getVectorProjection3D(pos[0],1),
                          start_point3d[2], start_point3d[2]+reper->getVectorProjection3D(pos[0],2));
       painter->drawLine(X+start_point[0],Y+start_point[1],

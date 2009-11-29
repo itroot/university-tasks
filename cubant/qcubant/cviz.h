@@ -26,6 +26,8 @@ class CViz : public QMainWindow {
 	public:
     CViz();
 
+  private:
+    static const double RGB=255.0;
 	private slots:
     void open();
     void save();
@@ -40,6 +42,11 @@ class CViz : public QMainWindow {
     void setColor(const std::string& line);
     void setReper(const std::string& line);
     void drawReper();
+    
+    // VRML
+    void initVrml();
+    void addPoint(int x, int y, int z=0);
+    void addLine(int x1, int x2, int y1, int y2, int z1=0, int z2=0);
 
     QScrollArea* scrollArea;
     QLabel *imageLabel;
@@ -60,7 +67,11 @@ class CViz : public QMainWindow {
 		std::vector<std::string> filecontents;
     std::set<std::string> drawedCubants;
     // FIXME HACK
-    std::string vrmlString;
+    std::string vrml;
+    // HACK
+    int R;
+    int G;
+    int B;
 };
 
 #endif
