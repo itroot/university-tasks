@@ -221,10 +221,16 @@ void CViz::saveVRML() {
 void CViz::drawReper() {
   const int X=140;
   const int Y=580;
+  const int X3d=140;
+  const int Y3d=0;
   for (size_t i=0; i<reper->getNum(); ++i) {
     painter->drawLine(X,Y,
                         X+reper->getVectorProjection(i,0),
                         Y+reper->getVectorProjection(i,1));
+    
+    addLine(X3d,X3d+reper->getVectorProjection3D(i,0),
+                      Y3d, Y3d+reper->getVectorProjection3D(i,1),
+                      Y3d, Y3d+reper->getVectorProjection3D(i,2));
   }
 }
 
