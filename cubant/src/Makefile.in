@@ -72,7 +72,7 @@ am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libcubant_la_LIBADD =
 am_libcubant_la_OBJECTS = CubantApi.lo Cubant.lo ParseHelper.lo \
-	VectorImpl.lo
+	VectorImpl.lo CubantComplex3D.lo
 libcubant_la_OBJECTS = $(am_libcubant_la_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -212,7 +212,7 @@ AM_CPPFLAGS = -I../include
 AM_CXXFLAGS = -Wall -Wextra -Wconversion -fexceptions -frtti -pthread -fPIC
 lib_LTLIBRARIES = libcubant.la
 libcubant_la_SOURCES = CubantApi.cpp Cubant.cpp ParseHelper.cpp\
-                       VectorImpl.cpp
+                       VectorImpl.cpp CubantComplex3D.cpp
 
 all: all-am
 
@@ -290,6 +290,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Cubant.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CubantApi.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CubantComplex3D.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ParseHelper.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/VectorImpl.Plo@am__quote@
 

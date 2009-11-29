@@ -9,6 +9,14 @@
 #include <stdexcept>
 #include <utility>
 #include <iostream>
+#include <set>
+
+struct Point3D {
+  Point3D(): x(0), y(0), z(0) {}
+  double x;
+  double y;
+  double z;
+};
 
 namespace CubantCore {
 
@@ -23,11 +31,10 @@ namespace CubantCore {
     template<class Impl>
     class Cubant {
         public:
-            Cubant(){}
             explicit Cubant(const Impl& _impl)
             : impl(_impl)
             {}
-            explicit Cubant(const string& _str)
+            explicit Cubant(const string& _str="/0,0,0/") // FIXME default
             : impl(getImplFromString<Impl>(_str))
             {
             }
@@ -82,6 +89,9 @@ namespace CubantCore {
                     distance(lhs, farEdge(rhs, lhs)),
                     distance(rhs, farEdge(lhs, rhs))
                 );
+            }
+            std::set<Point3D> getPoints() {
+              
             }
         private:
             static Cubant farEdge(const Cubant& lhs, const Cubant& rhs) {
