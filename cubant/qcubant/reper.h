@@ -21,6 +21,7 @@ class Reper {
     int getVectorProjection(unsigned int vectorNum, unsigned int coord);
     int getVectorProjection3D(unsigned int vectorNum, unsigned int coord);
   private:
+    static const double COEFF_3D=2.0;
 		typedef std::pair<int, int> ReperVector;
 		typedef std::vector<ReperVector> ReperVectors;
     typedef std::vector<Coords3D> Reper3DVectors;

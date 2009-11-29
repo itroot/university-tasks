@@ -14,14 +14,14 @@
 namespace {
   using namespace std;
   void initVrml(std::string& vrml) {
-    vrml="#VRML V2.0 utf8\n\n";
+    vrml="#VRML V2.0 utf8\n\nBackground { skyColor [ 1 1 1 ] }\n";
   }
   
   void addPoint(std::string& vrml, int x, int y, int z=0) {
     stringstream ss;
     ss << "Transform { translation " <<
     x << " " << y << " " << z << 
-    " children [Shape {appearance Appearance {material Material {}}geometry Sphere{radius 3}}]}\n";
+    " children [Shape {appearance Appearance {material Material {diffuseColor 0.2 0.2 0.2}}geometry Sphere{radius 3}}]}\n";
     vrml+=ss.str();
   }
   
@@ -30,7 +30,7 @@ namespace {
     ss << "Shape { geometry IndexedLineSet { coord Coordinate { point [ " <<
     x1 << " " << y1 << " " << z1 << " , " <<  
     x2 << " " << y2 << " " << z2 << " " <<
-    " ] } coordIndex [ 0, 1] } }\n";
+    " ] } coordIndex [ 0, 1] color Color { color [ 0 0 0, 0 0 0 ] } } }\n";
     vrml+=ss.str();
   }
 }
