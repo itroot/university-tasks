@@ -28,7 +28,7 @@ namespace CubantCore {
     template<class Impl>
     class Cubant {
         public:
-            typedef std::vector<double> point_t;
+            typedef std::vector<int> point_t; // -1 -- means 2
             typedef std::set<point_t> points_t;
             explicit Cubant(const Impl& _impl)
             : impl(_impl)
@@ -96,8 +96,8 @@ namespace CubantCore {
               for (unsigned int i=0;i<size();++i) {
                 switch (this->operator[](i).getType()) {
                   case CubantType::NoShift :{pseudoPoint.push_back(0);} break;
-                  case CubantType::Shift :{pseudoPoint.push_back(1);} break;
-                  case CubantType::Spread :{pseudoPoint.push_back(2);} break;
+                  case CubantType::Shift :{pseudoPoint.push_back(2);} break;
+                  case CubantType::Spread :{pseudoPoint.push_back(-1);} break; // means spread
                   default: {throw cubant_exception("Can't create point from this cubant");} break;
                 }
               }
@@ -107,7 +107,7 @@ namespace CubantCore {
         private:
           // kind of bad code =)
             static void toPoints(const point_t& pseudoPoint, unsigned int pos, points_t& result) {
-              while(pos<pseudoPoint.size() && 2!=pseudoPoint[pos]) {
+              while(pos<pseudoPoint.size() && -1!=pseudoPoint[pos]) {
                 ++pos;
               }
               if (pseudoPoint.size()==pos) {
@@ -117,14 +117,14 @@ namespace CubantCore {
                 return;
               }
               //cerr << "GO" << endl;
-              if (2==pseudoPoint[pos]) { 
+              if (-1==pseudoPoint[pos]) { //pseudo
                 point_t p1=pseudoPoint;
                 point_t p2=pseudoPoint;
                 point_t p3=pseudoPoint;
 
                 p1[pos]=0;
-                p2[pos]=0.5; // we can speedup using int
-                p3[pos]=1;
+                p2[pos]=1; // we can speedup using int
+                p3[pos]=2;
 
                 toPoints(p1, pos+1, result);
                 toPoints(p2, pos+1, result);

@@ -60,6 +60,7 @@ class CubantComplex3D {
     unsigned int& getCubants() {
       return cubants;
     }
+    /*
     std::vector<cubant_t> getComplexCubants() {
       std::vector<cubant_t> result;
       for (std::map<unsigned int, cubant_t>::iterator it=cubantsCode.begin();it!=cubantsCode.end(); ++it) {
@@ -69,9 +70,15 @@ class CubantComplex3D {
       }
       return result;
     }
-    std::set<Point3D> getPoints() {
-      std::set<Point3D> result;
-      
+    */
+    cubant_t::points_t getPoints() {
+      cubant_t::points_t  result;
+       for (std::map<unsigned int, cubant_t>::iterator it=cubantsCode.begin();it!=cubantsCode.end(); ++it) {
+          if (cubants & it->first) {
+            cubant_t::points_t p=it->second.getPoints();
+            result.insert(p.begin(), p.end());
+          }
+       }
       return result;
     }
   private:
