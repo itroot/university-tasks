@@ -10,6 +10,12 @@
 
 using namespace CubantCore; // FIXME
 
+struct Point3D {
+  Point3D(): x(0), y(0), z(0) {}
+  double x;
+  double y;
+  double z;
+};
 
 class CubantComplex3D {
   public:
