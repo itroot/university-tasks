@@ -16,6 +16,9 @@ namespace CubantCore {
 
     using std::range_error;
     using std::runtime_error;
+    using std::cerr;
+    using std::cout;
+    using std::endl;
 
     // parser helper FIXME
     // /Z,0,1,2/
@@ -25,6 +28,8 @@ namespace CubantCore {
     template<class Impl>
     class Cubant {
         public:
+            typedef std::vector<double> point_t;
+            typedef std::set<point_t> points_t;
             explicit Cubant(const Impl& _impl)
             : impl(_impl)
             {}
@@ -84,16 +89,55 @@ namespace CubantCore {
                     distance(rhs, farEdge(lhs, rhs))
                 );
             }
-            std::set<Point3D> getPoints() {
-              
+            points_t getPoints() {
+              points_t result;
+              // creating pseudo point from cubant
+              point_t pseudoPoint;
+              for (unsigned int i=0;i<size();++i) {
+                switch (this->operator[](i).getType()) {
+                  case CubantType::NoShift :{pseudoPoint.push_back(0);} break;
+                  case CubantType::Shift :{pseudoPoint.push_back(1);} break;
+                  case CubantType::Spread :{pseudoPoint.push_back(2);} break;
+                  default: {throw cubant_exception("Can't create point from this cubant");} break;
+                }
+              }
+              toPoints(pseudoPoint, 0, result);
+              return result;
             }
         private:
+          // kind of bad code =)
+            static void toPoints(const point_t& pseudoPoint, unsigned int pos, points_t& result) {
+              while(pos<pseudoPoint.size() && 2!=pseudoPoint[pos]) {
+                ++pos;
+              }
+              if (pseudoPoint.size()==pos) {
+                //cerr << "INSERT" << endl;
+                result.insert(pseudoPoint);
+                //cerr << "SIZE: " << result.size() << endl;
+                return;
+              }
+              //cerr << "GO" << endl;
+              if (2==pseudoPoint[pos]) { 
+                point_t p1=pseudoPoint;
+                point_t p2=pseudoPoint;
+                point_t p3=pseudoPoint;
+
+                p1[pos]=0;
+                p2[pos]=0.5;
+                p3[pos]=1;
+
+                toPoints(p1, pos+1, result);
+                toPoints(p2, pos+1, result);
+                toPoints(p3, pos+1, result);
+                return;
+              }
+              throw cubant_exception("Can't be there");
+            }
             static Cubant farEdge(const Cubant& lhs, const Cubant& rhs) {
                 return Cubant(Impl::farEdge(lhs.impl, rhs.impl));
             }
             Impl impl;
     };
-
     typedef Cubant<VectorImpl> cubant_t;
 }
 
