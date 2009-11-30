@@ -123,7 +123,7 @@ namespace CubantCore {
                 point_t p3=pseudoPoint;
 
                 p1[pos]=0;
-                p2[pos]=0.5;
+                p2[pos]=0.5; // we can speedup using int
                 p3[pos]=1;
 
                 toPoints(p1, pos+1, result);
@@ -133,6 +133,29 @@ namespace CubantCore {
               }
               throw cubant_exception("Can't be there");
             }
+      public:
+            static double hausdorff_distance(const points_t& p1, const points_t& p2) {
+              // distances between points
+              double result=0;
+              double* table=new double[p1.size()*p2.size()];
+              size_t s=p2.size();
+              int i=0;
+              for (points_t::iterator it=p1.begin();it!=p1.end();++it,++i) {
+                int j=0;
+                for (points_t::iterator jt=p2.begin();jt!=p2.end();++jt,++j) {
+                  double dist=0;
+                  for (size_t k=0;k<it->size();++k) {
+                    dist+=(*it)[k]*(*it)[k]+(*jt)[k]*(*jt)[k];
+                  }
+                  table[s*i+j]=dist;
+                  //cout << dist << " " ;
+                }
+                //cout << endl;
+              }
+              delete[] table;
+              return result;
+            }
+      private:
             static Cubant farEdge(const Cubant& lhs, const Cubant& rhs) {
                 return Cubant(Impl::farEdge(lhs.impl, rhs.impl));
             }

@@ -6,9 +6,9 @@ using namespace std;
 using namespace CubantCore;
 
 void points() {
-  string cubant_str="/2,2,2/";
-  cubant_t c(cubant_str);
-  cubant_t::points_t points=c.getPoints();
+  cubant_t c1("/2,2,2/");
+  cubant_t c2("/1,2,2/");
+  cubant_t::points_t points=c1.getPoints();
   cout << "Size:" << points.size() << endl;
   for (cubant_t::points_t::iterator it=points.begin();it!=points.end();++it) {
     for (cubant_t::point_t::const_iterator jt=it->begin(); jt!=it->end();++jt) {
@@ -16,6 +16,8 @@ void points() {
     }
     cout << endl;
   }
+  for (int i=0;i<100000;++i) cubant_t::hausdorff_distance(c1.getPoints(), c2.getPoints());
+  //cout << "HHH: " << cubant_t::hausdorff_distance(c1.getPoints(), c2.getPoints()) << endl;
 }
 
 int main() {
