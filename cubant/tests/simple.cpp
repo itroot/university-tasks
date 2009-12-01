@@ -53,7 +53,7 @@ void do_test() {
       cc2.getCubants()=j;
       int d=hausdorf_distance(cc1.getPoints(), cc2.getPoints());
       if (result.find(d)==result.end()) {
-        result[d]=0;
+        result[d]=1;
       } else {
         ++result[d];
       }
