@@ -134,6 +134,7 @@ namespace CubantCore {
               throw cubant_exception("Can't be there");
             }
       public:
+        /*
             static double hausdorff_distance(const points_t& p1, const points_t& p2) {
               // distances between points
               double result=0;
@@ -155,6 +156,7 @@ namespace CubantCore {
               delete[] table;
               return result;
             }
+            */
       private:
             static Cubant farEdge(const Cubant& lhs, const Cubant& rhs) {
                 return Cubant(Impl::farEdge(lhs.impl, rhs.impl));

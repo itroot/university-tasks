@@ -4,6 +4,9 @@
 #include <map>
 #include <vector>
 #include <set>
+#include <algorithm>
+
+
 
 #include <cubant/Cubant.hpp>
 
@@ -54,7 +57,7 @@ class CubantComplex3D {
       cubantsCode[16777216]=cubant_t("/2,2,0/");
       cubantsCode[33554432]=cubant_t("/2,2,1/");
 
-      cubantsCode[67108864]=cubant_t("/2,2,2/");
+      cubantsCode[67108864]=cubant_t("/2,2,2/"); // 2**27 == 134217728
       
     }
     unsigned int& getCubants() {
@@ -86,5 +89,66 @@ class CubantComplex3D {
     // FIXME NOT MULTITHREADED move to singleton
     static std::map<unsigned int, cubant_t> cubantsCode;
 };
+
+int distance2(const cubant_t::point_t& p1, const cubant_t::point_t& p2) {
+  int result=0;
+  if (p1.size()!=p2.size()) throw cubant_exception("Size do not match");
+  for (size_t i=0;i<p1.size();++i) {
+    result+=p1[i]*p1[i]+p2[i]*p2[i];
+  }
+  return result;
+}
+
+int hausdorf_distance(const cubant_t::points_t& p1, const cubant_t::points_t& p2) {
+  int result=-1;
+  const size_t s1=p1.size();
+  const size_t s2=p2.size();
+
+  int* array=new int[s1*s2];
+  // Filling the table;
+  int i=0;
+  for (cubant_t::points_t::const_iterator it=p1.begin();it!=p1.end();++it,++i) {
+    int j=0;
+    for (cubant_t::points_t::const_iterator jt=p2.begin();jt!=p2.end();++jt,++j) {
+      array[s2*i+j]=distance2(*it, *jt);
+    }
+  }
+
+  //1st
+  
+  int r1=0;
+  std::vector<int> v1(s1,0);
+  for (size_t i=0;i<s1;++i) {
+    v1[i]=array[s2*i];
+    for (size_t j=0;j<s2;++j) {
+      v1[i]=std::min(v1[i], array[s2*i+j]);
+    }
+  }
+  
+  r1=v1[0];
+  for (size_t i=0;i<v1.size();++i) {
+    r1=std::max(r1, v1[i]);
+  }
+  
+  // 2nd
+
+  int r2=0;
+  std::vector<int> v2(s2,0);
+  
+  for (size_t j=0;j<s2;++j) {
+    v2[j]=array[j];
+    for (size_t i=0;i<s1;++i) {
+      v2[j]=std::min(v2[j], array[s2*i+j]);
+    }
+  }
+  
+  r2=v2[0];
+  for (size_t i=0;i<v2.size();++i) {
+    r2=std::max(r2, v2[i]);
+  }
+  result=std::max(r1,r2);
+  delete[] array;
+  return result;
+}
 
 #endif
