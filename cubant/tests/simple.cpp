@@ -70,8 +70,8 @@ void do_test() {
 void tmp() {
   CubantComplex3D cc1;
   CubantComplex3D cc2;
-  cc1.getCubants()=8192;
-  cc2.getCubants()=8192;
+  cc1.getCubants()=1;
+  cc2.getCubants()=128;
   std::cerr << "HAUSDORF: " << hausdorf_distance(cc1.getPoints(), cc2.getPoints()) << std::endl;
 }
 
