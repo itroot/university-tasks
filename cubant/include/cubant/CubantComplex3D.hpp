@@ -94,8 +94,10 @@ int distance2(const cubant_t::point_t& p1, const cubant_t::point_t& p2) {
   int result=0;
   if (p1.size()!=p2.size()) throw cubant_exception("Size do not match");
   for (size_t i=0;i<p1.size();++i) {
-    result+=p1[i]*p1[i]+p2[i]*p2[i];
+    //result+=p1[i]*p1[i]+p2[i]*p2[i];
+    result+=(p2[i]-p1[i])*(p2[i]-p1[i]);
   }
+  if (20==result) throw;
   return result;
 }
 
@@ -148,6 +150,9 @@ int hausdorf_distance(const cubant_t::points_t& p1, const cubant_t::points_t& p2
   }
   result=std::max(r1,r2);
   delete[] array;
+  //if (20==result) {
+  //  throw 1;
+  //}
   return result;
 }
 

@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+#include <stdlib.h>
 
 using namespace std;
 using namespace CubantCore;
@@ -66,6 +67,14 @@ void do_test() {
   }
 }
 
+void tmp() {
+  CubantComplex3D cc1;
+  CubantComplex3D cc2;
+  cc1.getCubants()=8192;
+  cc2.getCubants()=8192;
+  std::cerr << "HAUSDORF: " << hausdorf_distance(cc1.getPoints(), cc2.getPoints()) << std::endl;
+}
+
 int main() {
     //points();
     /*
@@ -76,5 +85,6 @@ int main() {
     return cubant_str!=c.toString();
     */
     do_test();
+    //tmp();
     return 0;
 }
