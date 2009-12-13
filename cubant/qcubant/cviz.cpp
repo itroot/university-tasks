@@ -299,7 +299,8 @@ void CViz::drawCubant(const std::string& cubant) {
   std::cerr << pos.size() << "\n";
   std::cout << "Start point " << start_point[0] << " " << start_point[1] << std::endl;
   if (0==num2) {
-      painter->drawPoint(X+start_point[0],Y+start_point[1]);
+      //painter->drawPoint(X+start_point[0],Y+start_point[1]);
+      painter->drawArc(X+start_point[0]-3,Y+start_point[1]-3, 6, 6, 0, 5760);
       //addPoint(vrmlString, X+start_point[0], Y+start_point[1]);
       addPoint(start_point3d[0], start_point3d[1], start_point3d[2]);
       return;
