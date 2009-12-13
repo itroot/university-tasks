@@ -63,7 +63,23 @@ CViz::CViz() {
     scrollArea = new QScrollArea;
     scrollArea->setBackgroundRole(QPalette::Dark);
     scrollArea->setWidget(imageLabel);
-    setCentralWidget(scrollArea);
+
+    textEdit=new QTextEdit();
+    textEdit->setText("REPER:3\n\nCOLOR:100,100,255\n\n/1,2,0/\n/2,0,0/\n\n");
+    
+    runButton=new QPushButton();
+    runButton->setText("Run!");
+
+    layout=new QVBoxLayout();
+
+    layout->addWidget(scrollArea,10);
+    layout->addWidget(textEdit,3);
+    layout->addWidget(runButton,1);
+
+    centerWidget=new QWidget();
+    centerWidget->setLayout(layout);
+ 
+    setCentralWidget(centerWidget);
 
     createActions();
     createMenus();
@@ -95,6 +111,8 @@ void CViz::createActions() {
 
     aboutQtAct = new QAction(tr("About &Qt"), this);
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+    
+    connect(runButton, SIGNAL(clicked()), this, SLOT(onPushRunButton()));
 }
 
 void CViz::setColor(const std::string& line) {
@@ -165,15 +183,15 @@ void CViz::open() {
 	}
   image->fill(0); // FIXME clear image
   drawedCubants.clear();
-	drawCubants();
+  drawCubants();
   adjustImage();
 }
 
 void CViz::drawCubants() {
   initVrml(); // FIXME
-	for (size_t i=0;i<filecontents.size();++i) {
-		executeLine(filecontents[i]);
-	}
+  for (size_t i=0;i<filecontents.size();++i) {
+    executeLine(filecontents[i]);
+  }
   std::cout << vrml << std::endl;
 }
 
@@ -196,6 +214,21 @@ void CViz::executeLine(const std::string& line) {
     throw std::runtime_error("No reper specified");
   }
 	drawCubant(line);
+}
+
+void CViz::onPushRunButton() {
+  image->fill(0); // FIXME clear image
+  QString str=textEdit->toPlainText();
+  QTextStream textStream(&str);
+  while (!textStream.atEnd()) {
+    std::string result=textStream.readLine().toStdString();
+    if (!result.empty()) {
+      filecontents.push_back(result);
+    }
+    std::cerr << result << std::endl;
+  }
+  drawCubants();
+  adjustImage();
 }
 
 void CViz::save() {
