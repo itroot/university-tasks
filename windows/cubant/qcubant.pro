@@ -5,14 +5,25 @@
 TEMPLATE = app
 TARGET = 
 DEPENDPATH += .
-INCLUDEPATH += .;/home/itroot/Desktop/dev/prefix/include
-LIBS += -L/home/itroot/Desktop/dev/prefix/lib -lcubant
+INCLUDEPATH += .; ../
+#LIBS += -L/home/itroot/Desktop/dev/prefix/lib -lcubant
 
 
 
 # Input
-HEADERS += cviz.h \
+HEADERS += Cubant.hpp \
+           CubantApi.hpp \
+           CubantComplex3D.hpp \
+           cubantexcept.hpp \
+           ParseHelper.hpp \
+           VectorImpl.hpp \
+           cviz.h \
            reper.h
-SOURCES += cviz.cpp \
+SOURCES += Cubant.cpp \
+           CubantApi.cpp \
+           CubantComplex3D.cpp \
+           ParseHelper.cpp \
+           VectorImpl.cpp \
+           cviz.cpp \
            reper.cpp \
            main.cpp
