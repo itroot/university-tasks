@@ -188,6 +188,7 @@ void CViz::open() {
 }
 
 void CViz::drawCubants() {
+  drawedCubants.clear();
   initVrml(); // FIXME
   for (size_t i=0;i<filecontents.size();++i) {
     executeLine(filecontents[i]);
@@ -217,6 +218,7 @@ void CViz::executeLine(const std::string& line) {
 }
 
 void CViz::onPushRunButton() {
+  filecontents.clear();
   image->fill(0); // FIXME clear image
   QString str=textEdit->toPlainText();
   QTextStream textStream(&str);
