@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cviz.h'
 **
-** Created: Thu Dec 10 10:29:50 2009
+** Created: Mon Dec 14 00:36:23 2009
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_CViz[] = {
        2,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   12, // methods
+       5,   12, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,14 +32,15 @@ static const uint qt_meta_data_CViz[] = {
        6,    5,    5,    5, 0x08,
       13,    5,    5,    5, 0x08,
       20,    5,    5,    5, 0x08,
-      34,    5,    5,    5, 0x08,
+      38,    5,    5,    5, 0x08,
+      52,    5,    5,    5, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_CViz[] = {
-    "CViz\0\0open()\0save()\0drawCubants()\0"
-    "saveVRML()\0"
+    "CViz\0\0open()\0save()\0onPushRunButton()\0"
+    "drawCubants()\0saveVRML()\0"
 };
 
 const QMetaObject CViz::staticMetaObject = {
@@ -69,11 +70,12 @@ int CViz::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         switch (_id) {
         case 0: open(); break;
         case 1: save(); break;
-        case 2: drawCubants(); break;
-        case 3: saveVRML(); break;
+        case 2: onPushRunButton(); break;
+        case 3: drawCubants(); break;
+        case 4: saveVRML(); break;
         default: ;
         }
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

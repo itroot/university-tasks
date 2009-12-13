@@ -14,7 +14,7 @@ Reper(unsigned int _num, unsigned int _height, unsigned int _width)
     throw std::runtime_error("Reper with 0 dimension");
   }
   for (size_t i=0; i<num; ++i) {
-      vectors.push_back(std::make_pair(width*(i-num/2), -height));
+      vectors.push_back(std::make_pair(width*(i-num/2)+((num%2)?0:width/2), -height));
       double angle=2*M_PI*((i-num/2.0)/num);
       vectors3d.push_back(Coords3D(width*sin(angle)*COEFF_3D,-height, width*cos(angle)*COEFF_3D));
   }

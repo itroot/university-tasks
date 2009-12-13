@@ -63,7 +63,23 @@ CViz::CViz() {
     scrollArea = new QScrollArea;
     scrollArea->setBackgroundRole(QPalette::Dark);
     scrollArea->setWidget(imageLabel);
-    setCentralWidget(scrollArea);
+
+    textEdit=new QTextEdit();
+    textEdit->setText("REPER:6\n\nCOLOR:100,100,255\n\n/1,2,0,2,2,1/\n\nCOLOR:255,100,0\n\n/2,0,0,1,2,1/\n\n");
+    
+    runButton=new QPushButton();
+    runButton->setText("Run!");
+
+    layout=new QVBoxLayout();
+
+    layout->addWidget(scrollArea,10);
+    layout->addWidget(textEdit,3);
+    layout->addWidget(runButton,1);
+
+    centerWidget=new QWidget();
+    centerWidget->setLayout(layout);
+ 
+    setCentralWidget(centerWidget);
 
     createActions();
     createMenus();
@@ -95,6 +111,8 @@ void CViz::createActions() {
 
     aboutQtAct = new QAction(tr("About &Qt"), this);
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+    
+    connect(runButton, SIGNAL(clicked()), this, SLOT(onPushRunButton()));
 }
 
 void CViz::setColor(const std::string& line) {
@@ -165,15 +183,16 @@ void CViz::open() {
 	}
   image->fill(0); // FIXME clear image
   drawedCubants.clear();
-	drawCubants();
+  drawCubants();
   adjustImage();
 }
 
 void CViz::drawCubants() {
+  drawedCubants.clear();
   initVrml(); // FIXME
-	for (size_t i=0;i<filecontents.size();++i) {
-		executeLine(filecontents[i]);
-	}
+  for (size_t i=0;i<filecontents.size();++i) {
+    executeLine(filecontents[i]);
+  }
   std::cout << vrml << std::endl;
 }
 
@@ -196,6 +215,22 @@ void CViz::executeLine(const std::string& line) {
     throw std::runtime_error("No reper specified");
   }
 	drawCubant(line);
+}
+
+void CViz::onPushRunButton() {
+  filecontents.clear();
+  image->fill(0); // FIXME clear image
+  QString str=textEdit->toPlainText();
+  QTextStream textStream(&str);
+  while (!textStream.atEnd()) {
+    std::string result=textStream.readLine().toStdString();
+    if (!result.empty()) {
+      filecontents.push_back(result);
+    }
+    std::cerr << result << std::endl;
+  }
+  drawCubants();
+  adjustImage();
 }
 
 void CViz::save() {
@@ -264,7 +299,8 @@ void CViz::drawCubant(const std::string& cubant) {
   std::cerr << pos.size() << "\n";
   std::cout << "Start point " << start_point[0] << " " << start_point[1] << std::endl;
   if (0==num2) {
-      painter->drawPoint(X+start_point[0],Y+start_point[1]);
+      //painter->drawPoint(X+start_point[0],Y+start_point[1]);
+      painter->drawArc(X+start_point[0]-3,Y+start_point[1]-3, 6, 6, 0, 5760);
       //addPoint(vrmlString, X+start_point[0], Y+start_point[1]);
       addPoint(start_point3d[0], start_point3d[1], start_point3d[2]);
       return;
