@@ -1,0 +1,343 @@
+maxprime22_why: THEORY
+BEGIN
+
+  importing maxprime22_spec_why
+  IMPORTING maxprime22_spec_why
+
+  fcuk: LEMMA
+    FORALL (n: int) :
+      rem(n, 1) = 0 
+
+
+  %% DO NOT EDIT BELOW THIS LINE
+
+  % Why obligation from file "maxprime22.c", line 13, characters 12-109: 
+  maxpr_impl_po_1: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    (i < n AND i >= 0 AND
+    (FORALL (k: int):
+    (k > i AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n))))
+  % Why obligation from file "maxprime22.c", line 18, characters 7-12: 
+  maxpr_impl_po_2: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0
+  % Why obligation from file "maxprime22.c", line 28, characters 12-132: 
+  maxpr_impl_po_3: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result = 0 IMPLIES
+    FORALL (j: int) :
+    j = 2 IMPLIES
+    (j >= 2 AND ((i0 >= 2 IMPLIES j <= i0)) AND
+    ((1 /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j IMPLIES NOT isDivisor(k, i0))))))
+  % Why obligation from file "maxprime22.c", line 33, characters 9-14: 
+  maxpr_impl_po_4: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result = 0 IMPLIES
+    FORALL (j: int) :
+    j = 2 IMPLIES
+    FORALL (is_prime: int) :
+    FORALL (j0: int) :
+    (j0 >= 2 AND ((i0 >= 2 IMPLIES j0 <= i0)) AND
+    ((is_prime /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j0 IMPLIES NOT isDivisor(k, i0)))))) IMPLIES
+    j0 < i0 IMPLIES
+    j0 /= 0
+  % Why obligation from file "maxprime22.c", line 28, characters 12-132: 
+  maxpr_impl_po_5: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result = 0 IMPLIES
+    FORALL (j: int) :
+    j = 2 IMPLIES
+    FORALL (is_prime: int) :
+    FORALL (j0: int) :
+    (j0 >= 2 AND ((i0 >= 2 IMPLIES j0 <= i0)) AND
+    ((is_prime /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j0 IMPLIES NOT isDivisor(k, i0)))))) IMPLIES
+    j0 < i0 IMPLIES
+    j0 /= 0 IMPLIES
+    FORALL (result0: int) :
+    result0 = (mod(i0,j0)) IMPLIES
+    result0 = 0 IMPLIES
+    FORALL (is_prime0: int) :
+    is_prime0 = 0 IMPLIES
+    FORALL (j1: int) :
+    j1 = j0 + 1 IMPLIES
+    (j1 >= 2 AND ((i0 >= 2 IMPLIES j1 <= i0)) AND
+    ((is_prime0 /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j1 IMPLIES NOT isDivisor(k, i0))))))
+  % Why obligation from file "maxprime22.c", line 30, characters 11-16: 
+  maxpr_impl_po_6: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result = 0 IMPLIES
+    FORALL (j: int) :
+    j = 2 IMPLIES
+    FORALL (is_prime: int) :
+    FORALL (j0: int) :
+    (j0 >= 2 AND ((i0 >= 2 IMPLIES j0 <= i0)) AND
+    ((is_prime /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j0 IMPLIES NOT isDivisor(k, i0)))))) IMPLIES
+    j0 < i0 IMPLIES
+    j0 /= 0 IMPLIES
+    FORALL (result0: int) :
+    result0 = (mod(i0,j0)) IMPLIES
+    result0 = 0 IMPLIES
+    FORALL (is_prime0: int) :
+    is_prime0 = 0 IMPLIES
+    FORALL (j1: int) :
+    j1 = j0 + 1 IMPLIES
+    zwf_zero((i0 - j1), (i0 - j0))
+  % Why obligation from file "maxprime22.c", line 28, characters 12-132: 
+  maxpr_impl_po_7: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result = 0 IMPLIES
+    FORALL (j: int) :
+    j = 2 IMPLIES
+    FORALL (is_prime: int) :
+    FORALL (j0: int) :
+    (j0 >= 2 AND ((i0 >= 2 IMPLIES j0 <= i0)) AND
+    ((is_prime /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j0 IMPLIES NOT isDivisor(k, i0)))))) IMPLIES
+    j0 < i0 IMPLIES
+    j0 /= 0 IMPLIES
+    FORALL (result0: int) :
+    result0 = (mod(i0,j0)) IMPLIES
+    result0 /= 0 IMPLIES
+    FORALL (j1: int) :
+    j1 = j0 + 1 IMPLIES
+    (j1 >= 2 AND ((i0 >= 2 IMPLIES j1 <= i0)) AND
+    ((is_prime /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j1 IMPLIES NOT isDivisor(k, i0))))))
+  % Why obligation from file "maxprime22.c", line 30, characters 11-16: 
+  maxpr_impl_po_8: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result = 0 IMPLIES
+    FORALL (j: int) :
+    j = 2 IMPLIES
+    FORALL (is_prime: int) :
+    FORALL (j0: int) :
+    (j0 >= 2 AND ((i0 >= 2 IMPLIES j0 <= i0)) AND
+    ((is_prime /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j0 IMPLIES NOT isDivisor(k, i0)))))) IMPLIES
+    j0 < i0 IMPLIES
+    j0 /= 0 IMPLIES
+    FORALL (result0: int) :
+    result0 = (mod(i0,j0)) IMPLIES
+    result0 /= 0 IMPLIES
+    FORALL (j1: int) :
+    j1 = j0 + 1 IMPLIES
+    zwf_zero((i0 - j1), (i0 - j0))
+  % Why obligation from file "maxprime22.c", line 6, characters 14-156: 
+  maxpr_impl_po_9: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result = 0 IMPLIES
+    FORALL (j: int) :
+    j = 2 IMPLIES
+    FORALL (is_prime: int) :
+    FORALL (j0: int) :
+    (j0 >= 2 AND ((i0 >= 2 IMPLIES j0 <= i0)) AND
+    ((is_prime /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j0 IMPLIES NOT isDivisor(k, i0)))))) IMPLIES
+    j0 >= i0 IMPLIES
+    is_prime /= 0 IMPLIES
+    (i0 < n AND isDivisor(i0, n) AND isPrime(i0) AND
+    (FORALL (i: int):
+    (i > i0 AND i < n IMPLIES NOT isPrime(i) OR NOT isDivisor(i, n))))
+  % Why obligation from file "maxprime22.c", line 13, characters 12-109: 
+  maxpr_impl_po_10: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result = 0 IMPLIES
+    FORALL (j: int) :
+    j = 2 IMPLIES
+    FORALL (is_prime: int) :
+    FORALL (j0: int) :
+    (j0 >= 2 AND ((i0 >= 2 IMPLIES j0 <= i0)) AND
+    ((is_prime /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j0 IMPLIES NOT isDivisor(k, i0)))))) IMPLIES
+    j0 >= i0 IMPLIES
+    is_prime = 0 IMPLIES
+    FORALL (i1: int) :
+    i1 = i0 - 1 IMPLIES
+    (i1 < n AND i1 >= 0 AND
+    (FORALL (k: int):
+    (k > i1 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n))))
+  % Why obligation from file "maxprime22.c", line 14, characters 10-11: 
+  maxpr_impl_po_11: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result = 0 IMPLIES
+    FORALL (j: int) :
+    j = 2 IMPLIES
+    FORALL (is_prime: int) :
+    FORALL (j0: int) :
+    (j0 >= 2 AND ((i0 >= 2 IMPLIES j0 <= i0)) AND
+    ((is_prime /= 0 IFF
+     (FORALL (k: int): (k >= 2 AND k < j0 IMPLIES NOT isDivisor(k, i0)))))) IMPLIES
+    j0 >= i0 IMPLIES
+    is_prime = 0 IMPLIES
+    FORALL (i1: int) :
+    i1 = i0 - 1 IMPLIES
+    zwf_zero(i1, i0)
+  % Why obligation from file "maxprime22.c", line 13, characters 12-109: 
+  maxpr_impl_po_12: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result /= 0 IMPLIES
+    FORALL (i1: int) :
+    i1 = i0 - 1 IMPLIES
+    (i1 < n AND i1 >= 0 AND
+    (FORALL (k: int):
+    (k > i1 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n))))
+  % Why obligation from file "maxprime22.c", line 14, characters 10-11: 
+  maxpr_impl_po_13: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 > 0 IMPLIES
+    i0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(n,i0)) IMPLIES
+    result /= 0 IMPLIES
+    FORALL (i1: int) :
+    i1 = i0 - 1 IMPLIES
+    zwf_zero(i1, i0)
+  % Why obligation from file "maxprime22.c", line 6, characters 14-156: 
+  maxpr_impl_po_14: LEMMA
+    FORALL (n: int) :
+    n >= 2 IMPLIES
+    FORALL (i: int) :
+    i = n - 1 IMPLIES
+    FORALL (i0: int) :
+    (i0 < n AND i0 >= 0 AND
+    (FORALL (k: int):
+    (k > i0 AND k < n IMPLIES NOT isPrime(k) OR NOT isDivisor(k, n)))) IMPLIES
+    i0 <= 0 IMPLIES
+    (1 < n AND isDivisor(1, n) AND isPrime(1) AND
+    (FORALL (i: int):
+    (i > 1 AND i < n IMPLIES NOT isPrime(i) OR NOT isDivisor(i, n))))
+END maxprime22_why
+
