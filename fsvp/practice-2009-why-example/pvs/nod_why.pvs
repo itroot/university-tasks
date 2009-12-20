@@ -1,0 +1,163 @@
+nod_why: THEORY
+BEGIN
+
+  importing nod_spec_why
+  IMPORTING nod_spec_why
+  importing nod_my
+
+  %% DO NOT EDIT BELOW THIS LINE
+
+  % Why obligation from file "/home/hed/Documents/D/Hed/Documents/AnalyticalVerification/AnVerCourse-v2/PVS-Lecture/lecture-example/why-example/nod.c", line 29, characters 16-101: 
+  nod_impl_po_1: LEMMA
+    FORALL (x1: int) :
+    FORALL (x2: int) :
+    (x1 > 0 AND
+    x2 > 0) IMPLIES
+    x1 > x2 IMPLIES
+    FORALL (y1: int) :
+    y1 = x2 IMPLIES
+    FORALL (y2: int) :
+    y2 = x1 IMPLIES
+    (0 < y1 AND y1 <= y2 AND gcd(x1, x2) = gcd(y1, y2) OR y1 = 0 AND
+    gcd(x1, x2) = y2)
+  % Why obligation from file "/home/hed/Documents/D/Hed/Documents/AnalyticalVerification/AnVerCourse-v2/PVS-Lecture/lecture-example/why-example/nod.c", line 29, characters 16-101: 
+  nod_impl_po_2: LEMMA
+    FORALL (x1: int) :
+    FORALL (x2: int) :
+    (x1 > 0 AND
+    x2 > 0) IMPLIES
+    x1 > x2 IMPLIES
+    FORALL (y1: int) :
+    y1 = x2 IMPLIES
+    FORALL (y2: int) :
+    y2 = x1 IMPLIES
+    FORALL (y1_0: int) :
+    FORALL (y2_0: int) :
+    (0 < y1_0 AND y1_0 <= y2_0 AND gcd(x1, x2) = gcd(y1_0, y2_0) OR
+    y1_0 = 0 AND
+    gcd(x1, x2) = y2_0) IMPLIES
+    y1_0 /= 0 IMPLIES
+    FORALL (tmp: int) :
+    tmp = y1_0 IMPLIES
+    y1_0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(y2_0,y1_0)) IMPLIES
+    FORALL (y1_1: int) :
+    y1_1 = result IMPLIES
+    FORALL (y2_1: int) :
+    y2_1 = tmp IMPLIES
+    (0 < y1_1 AND y1_1 <= y2_1 AND gcd(x1, x2) = gcd(y1_1, y2_1) OR
+    y1_1 = 0 AND gcd(x1, x2) = y2_1)
+  % Why obligation from file "why/nod.why", line 24, characters 22-24: 
+  nod_impl_po_3: LEMMA
+    FORALL (x1: int) :
+    FORALL (x2: int) :
+    (x1 > 0 AND
+    x2 > 0) IMPLIES
+    x1 > x2 IMPLIES
+    FORALL (y1: int) :
+    y1 = x2 IMPLIES
+    FORALL (y2: int) :
+    y2 = x1 IMPLIES
+    FORALL (y1_0: int) :
+    FORALL (y2_0: int) :
+    (0 < y1_0 AND y1_0 <= y2_0 AND gcd(x1, x2) = gcd(y1_0, y2_0) OR
+    y1_0 = 0 AND
+    gcd(x1, x2) = y2_0) IMPLIES
+    y1_0 /= 0 IMPLIES
+    FORALL (tmp: int) :
+    tmp = y1_0 IMPLIES
+    y1_0 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(y2_0,y1_0)) IMPLIES
+    FORALL (y1_1: int) :
+    y1_1 = result IMPLIES
+    FORALL (y2_1: int) :
+    y2_1 = tmp IMPLIES
+    zwf_zero(y1_1, y1_0)
+  % Why obligation from file "/home/hed/Documents/D/Hed/Documents/AnalyticalVerification/AnVerCourse-v2/PVS-Lecture/lecture-example/why-example/nod.c", line 16, characters 12-33: 
+  nod_impl_po_4: LEMMA
+    FORALL (x1: int) :
+    FORALL (x2: int) :
+    (x1 > 0 AND
+    x2 > 0) IMPLIES
+    x1 > x2 IMPLIES
+    FORALL (y1: int) :
+    y1 = x2 IMPLIES
+    FORALL (y2: int) :
+    y2 = x1 IMPLIES
+    FORALL (y1_0: int) :
+    FORALL (y2_0: int) :
+    (0 < y1_0 AND y1_0 <= y2_0 AND gcd(x1, x2) = gcd(y1_0, y2_0) OR
+    y1_0 = 0 AND
+    gcd(x1, x2) = y2_0) IMPLIES
+    y1_0 = 0 IMPLIES
+    is_gcd(y2_0, x1, x2)
+  % Why obligation from file "/home/hed/Documents/D/Hed/Documents/AnalyticalVerification/AnVerCourse-v2/PVS-Lecture/lecture-example/why-example/nod.c", line 29, characters 16-101: 
+  nod_impl_po_5: LEMMA
+    FORALL (x1: int) :
+    FORALL (x2: int) :
+    (x1 > 0 AND x2 > 0) IMPLIES
+    x1 <= x2 IMPLIES
+    (0 < x1 AND x1 <= x2 AND gcd(x1, x2) = gcd(x1, x2) OR x1 = 0 AND
+    gcd(x1, x2) = x2)
+  % Why obligation from file "/home/hed/Documents/D/Hed/Documents/AnalyticalVerification/AnVerCourse-v2/PVS-Lecture/lecture-example/why-example/nod.c", line 29, characters 16-101: 
+  nod_impl_po_6: LEMMA
+    FORALL (x1: int) :
+    FORALL (x2: int) :
+    (x1 > 0 AND
+    x2 > 0) IMPLIES
+    x1 <= x2 IMPLIES
+    FORALL (y1: int) :
+    FORALL (y2: int) :
+    (0 < y1 AND y1 <= y2 AND gcd(x1, x2) = gcd(y1, y2) OR y1 = 0 AND
+    gcd(x1, x2) = y2) IMPLIES
+    y1 /= 0 IMPLIES
+    FORALL (tmp: int) :
+    tmp = y1 IMPLIES
+    y1 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(y2,y1)) IMPLIES
+    FORALL (y1_0: int) :
+    y1_0 = result IMPLIES
+    FORALL (y2_0: int) :
+    y2_0 = tmp IMPLIES
+    (0 < y1_0 AND y1_0 <= y2_0 AND gcd(x1, x2) = gcd(y1_0, y2_0) OR
+    y1_0 = 0 AND gcd(x1, x2) = y2_0)
+  % Why obligation from file "why/nod.why", line 24, characters 22-24: 
+  nod_impl_po_7: LEMMA
+    FORALL (x1: int) :
+    FORALL (x2: int) :
+    (x1 > 0 AND
+    x2 > 0) IMPLIES
+    x1 <= x2 IMPLIES
+    FORALL (y1: int) :
+    FORALL (y2: int) :
+    (0 < y1 AND y1 <= y2 AND gcd(x1, x2) = gcd(y1, y2) OR y1 = 0 AND
+    gcd(x1, x2) = y2) IMPLIES
+    y1 /= 0 IMPLIES
+    FORALL (tmp: int) :
+    tmp = y1 IMPLIES
+    y1 /= 0 IMPLIES
+    FORALL (result: int) :
+    result = (mod(y2,y1)) IMPLIES
+    FORALL (y1_0: int) :
+    y1_0 = result IMPLIES
+    FORALL (y2_0: int) :
+    y2_0 = tmp IMPLIES
+    zwf_zero(y1_0, y1)
+  % Why obligation from file "/home/hed/Documents/D/Hed/Documents/AnalyticalVerification/AnVerCourse-v2/PVS-Lecture/lecture-example/why-example/nod.c", line 16, characters 12-33: 
+  nod_impl_po_8: LEMMA
+    FORALL (x1: int) :
+    FORALL (x2: int) :
+    (x1 > 0 AND
+    x2 > 0) IMPLIES
+    x1 <= x2 IMPLIES
+    FORALL (y1: int) :
+    FORALL (y2: int) :
+    (0 < y1 AND y1 <= y2 AND gcd(x1, x2) = gcd(y1, y2) OR y1 = 0 AND
+    gcd(x1, x2) = y2) IMPLIES
+    y1 = 0 IMPLIES
+    is_gcd(y2, x1, x2)
+END nod_why
+

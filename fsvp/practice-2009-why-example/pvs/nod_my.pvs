@@ -1,0 +1,36 @@
+nod_my: THEORY
+BEGIN
+
+  importing nod_spec_why
+
+  rem_pos: LEMMA
+    FORALL (a: int) :
+    FORALL (b: int) :
+    (a > 0 AND b > 0) IMPLIES rem(a, b) >= 0
+
+  gcd_com: LEMMA
+    FORALL (x1: int) :
+    FORALL (x2: int) :
+    (x1 > 0 AND x2 > 0) IMPLIES gcd(x1, x2) = gcd(x2, x1)
+
+  lemma_gcd_eq_arg: LEMMA
+    FORALL (a: int) :
+    (a > 0 IMPLIES gcd(a, a) = a)
+
+  lemma_gcd_pos: LEMMA
+    FORALL (a: int) :
+    FORALL (b: int) :
+    (a > 0  AND b > 0 IMPLIES gcd(a, b) > 0)
+
+  lemma_gcd1: LEMMA
+    FORALL (a: int) :
+    FORALL (b: int) :
+    (a > 0 AND b > 0 AND NOT is_divisor(b,a)) IMPLIES gcd(a, b) = gcd(rem(a,b), b)
+
+  lemma_gcd2: LEMMA
+    FORALL (a: int) :
+    FORALL (b: int) :
+    (a > 0 AND b > 0 AND is_divisor(b,a)) IMPLIES gcd(a, b) = b
+
+END nod_my
+
