@@ -1,0 +1,79 @@
+let maxpr_impl =
+ fun (n : int) ->
+  { (CADUCEUS_3: ge_int(n, (2))) }
+  (init:
+  try
+   begin
+     (let i = ref (any_int void) in
+     begin
+       begin
+         (label_1:
+         begin
+           (i := (let caduceus_7 = n in ((sub_int caduceus_7) (1))));
+          while (let caduceus_6 = !i in ((gt_int_ caduceus_6) (0))) do
+          { invariant
+              (CADUCEUS_5:
+              ((lt_int(i, n) and ge_int(i, (0)))
+              and (forall k:int.
+                   ((gt_int(k, i) and lt_int(k, n)) ->
+                    ((not isPrime(k)) or (not isDivisor(k, n)))))))
+            variant (CADUCEUS_6 : i) }
+           (if (let caduceus_5 = (CADUCEUS_10: ((mod_int_ n) !i)) in
+               ((eq_int_ caduceus_5) (0)))
+           then
+            (let is_prime = ref (1) in
+            begin
+              (let j = ref (any_int void) in
+              begin
+                begin
+                  (label_2:
+                  begin
+                    (j := (let caduceus_4 = !i in ((sub_int caduceus_4) (1))));
+                   try
+                    while (let caduceus_3 = !j in ((gt_int_ caduceus_3) (1))) do
+                    { invariant
+                        (CADUCEUS_7:
+                        ((((ge_int(i, (2)) -> ge_int(j, (1)))
+                          and le_int(j, sub_int(i, (1))))
+                         and ((eq_int(i, (1)) or eq_int(i, (2))) ->
+                              neq_int(is_prime, (0))))
+                        and (neq_int(is_prime, (0))
+                            <-> (forall k:int.
+                                 ((lt_int(k, i) and gt_int(k, j)) ->
+                                  (not isDivisor(k, i)))))))
+                      variant (CADUCEUS_8 : sub_int(j, (1))) }
+                     (if (let caduceus_2 = (CADUCEUS_9: ((mod_int_ !i) !j)) in
+                         ((eq_int_ caduceus_2) (0)))
+                     then begin   (is_prime := (0)); (raise Break) end
+                     else void);
+                     (j := ((sub_int !j) (1)))
+                    done
+                    with
+                    Break ->
+                    void end
+                  end);
+                 (if (let caduceus_1 = !is_prime in
+                     ((neq_int_ caduceus_1) (0)))
+                 then (raise (Return_int !i))
+                 else void)
+                end
+              end)
+            end)
+           else void);
+           (i := ((sub_int !i) (1)))
+          done
+         end);
+        (raise (Return_int (1)))
+       end
+     end);
+    absurd 
+   end
+   with
+   Return_int caduceus_8 ->
+   caduceus_8 end)
+  { (CADUCEUS_4:
+    (((lt_int(result, n) and isDivisor(result, n)) and isPrime(result))
+    and (forall i:int.
+         ((gt_int(i, result) and lt_int(i, n)) ->
+          ((not isPrime(i)) or (not isDivisor(i, n))))))) }
+

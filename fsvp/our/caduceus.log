@@ -1,0 +1,94 @@
+CADUCEUSLIB is not set, using /usr/local/lib/caduceus as default
+local n renamed into n
+set_var_type n <-  int
+local n has why type int
+local m renamed into m
+set_var_type m <-  int
+local m has why type int
+local n renamed into n
+set_var_type n <-  int
+local n has why type int
+local i renamed into i
+set_var_type i <-  int
+local i has why type int
+set_var_type n <-  int
+Parameter n added in env with unique name n
+set_var_type maxpr <- <fun>
+local n renamed into n
+set_var_type n <-  int
+local n has why type int
+set_var_type result <-  int
+local result renamed into result
+set_var_type result <-  int
+local result has why type int
+local i renamed into i
+set_var_type i <-  int
+local i has why type int
+Labels for function maxpr:
+{ { { { { { { { {  } } {  } } {  } {  } } } {  } } } } }
+local i renamed into i
+set_var_type i <-  int
+local i has why type int
+local k renamed into k
+set_var_type k <-  int
+local k has why type int
+File "maxprime25.c", line 15, characters 6-7:
+Variable i is assigned
+File "maxprime25.c", line 15, characters 23-24:
+Variable i is assigned
+local is_prime renamed into is_prime
+set_var_type is_prime <-  int
+local is_prime has why type int
+local j renamed into j
+set_var_type j <-  int
+local j has why type int
+local k renamed into k
+set_var_type k <-  int
+local k has why type int
+File "maxprime25.c", line 26, characters 8-9:
+Variable j is assigned
+File "maxprime25.c", line 26, characters 26-27:
+Variable j is assigned
+File "maxprime25.c", line 29, characters 5-13:
+Variable is_prime is assigned
+Call graph by components: 
+0: maxpr 
+starting normalization of programs.
+set_var_type invariants_initially_established <- void
+set_var_type maxpr <- <fun>
+set_var_type n <-  int
+starting separation of variables.
+starting separation of initializers.
+Why polymorphic zones for function invariants_initially_established:
+
+starting separation of functions.
+Why polymorphic zones for function maxpr:
+
+computing typing predicates.
+starting computation of effects.
+effects of logic declaration of isDivisor:  
+effects of logic declaration of isPrime:  
+previous effects for function invariants_initially_established: reads 
+  writes  
+effects for function invariants_initially_established: reads   writes 
+ 
+previous effects for function maxpr: reads   writes  
+effects for function maxpr: reads   writes  
+heap variables: 
+translating logic declaration of isDivisor
+recording location for id 'CADUCEUS_1'
+translating logic declaration of isPrime
+recording location for id 'CADUCEUS_2'
+recording location for id 'CADUCEUS_3'
+recording location for id 'CADUCEUS_4'
+recording location for id 'maxpr_impl'
+translating function maxpr
+translating local declaration of i
+recording location for id 'CADUCEUS_5'
+recording location for id 'CADUCEUS_6'
+translating local declaration of is_prime
+translating local declaration of j
+recording location for id 'CADUCEUS_7'
+recording location for id 'CADUCEUS_8'
+recording location for id 'CADUCEUS_9'
+recording location for id 'CADUCEUS_10'
