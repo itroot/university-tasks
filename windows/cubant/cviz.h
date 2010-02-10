@@ -31,6 +31,7 @@ class CViz : public QMainWindow {
 
   private:
     static const double RGB=255.0;
+    void resetImage(unsigned int x, unsigned int y);
   private slots:
     void open();
     void save();
@@ -45,6 +46,8 @@ class CViz : public QMainWindow {
     void adjustImage();
     void setColor(const std::string& line);
     void setReper(const std::string& line);
+    void setImage(const std::string& line);
+    void setCStart(const std::string& line);
     void drawReper();
     
     // VRML
@@ -80,6 +83,9 @@ class CViz : public QMainWindow {
     int R;
     int G;
     int B;
+    // cubant pos.
+    int startCX;
+    int startCY;
 };
 
 #endif

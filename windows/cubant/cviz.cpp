@@ -54,6 +54,8 @@ CViz::CViz() {
     std::cout << str ;
    */
     R=G=B=0;
+    startCX=400;
+    startCY=580;
     
     imageLabel = new QLabel;
     imageLabel->setBackgroundRole(QPalette::Base);
@@ -65,7 +67,7 @@ CViz::CViz() {
     scrollArea->setWidget(imageLabel);
 
     textEdit=new QTextEdit();
-    textEdit->setText("REPER:6\n\nCOLOR:100,100,255\n\n/1,2,0,2,2,1/\n\nCOLOR:255,100,0\n\n/2,0,0,1,2,1/\n\n");
+    textEdit->setText("REPER:6\nIMAGE:800,600\nCSTART:400,580\n\nCOLOR:100,100,255\n\n/1,2,0,2,2,1/\n\nCOLOR:255,100,0\n\n/2,0,0,1,2,1/\n\n");
     
     runButton=new QPushButton();
     runButton->setText("Run!");
@@ -86,11 +88,19 @@ CViz::CViz() {
 
     setWindowTitle(tr("QCubant Visualizer"));
     resize(900, 700);
-    image.reset(new QImage(800, 600, QImage::Format_ARGB32));
+    resetImage(800,600);
+}
+
+void
+CViz::
+resetImage(unsigned int x, unsigned int y) {
+    painter.reset(NULL);
+    image.reset(new QImage(x, y, QImage::Format_ARGB32));
     image->fill(0);
     painter.reset(new QPainter(image.get()));
     adjustImage();
 }
+
 
 void CViz::adjustImage() {
   imageLabel->setPixmap(QPixmap::fromImage(*image));
@@ -189,6 +199,8 @@ void CViz::open() {
 
 void CViz::drawCubants() {
   drawedCubants.clear();
+  R=G=B=0;
+  painter->setPen(QColor(R,G,B));
   initVrml(); // FIXME
   for (size_t i=0;i<filecontents.size();++i) {
     executeLine(filecontents[i]);
@@ -207,6 +219,14 @@ void CViz::executeLine(const std::string& line) {
     std::cout << "Initiailizing reper" << std::endl;
     return;
   }
+  if ("IMAGE"==line.substr(0,5)) {
+      setImage(line);
+      return;
+  }
+    if ("CSTART"==line.substr(0,6)) {
+      setCStart(line);
+      return;
+  }
 	if ("COLOR"==line.substr(0,5)) {
     setColor(line);
 		return;
@@ -215,6 +235,41 @@ void CViz::executeLine(const std::string& line) {
     throw std::runtime_error("No reper specified");
   }
 	drawCubant(line);
+}
+
+void
+CViz::
+setCStart(const std::string& line) {
+  size_t pos=line.find(":");
+  if (std::string::npos==pos) {
+    return;
+  }
+  int x=atoi(line.c_str()+pos+1);
+  
+  pos=line.find(",");
+  if (std::string::npos==pos) {
+    return;
+  }
+  int y=atoi(line.c_str()+pos+1);
+  startCX=x;
+  startCY=y;
+}
+
+void
+CViz::
+setImage(const std::string& line) {
+  size_t pos=line.find(":");
+  if (std::string::npos==pos) {
+    return;
+  }
+  int x=atoi(line.c_str()+pos+1);
+  
+  pos=line.find(",");
+  if (std::string::npos==pos) {
+    return;
+  }
+  int y=atoi(line.c_str()+pos+1);
+  resetImage(x,y);
 }
 
 void CViz::onPushRunButton() {
@@ -275,8 +330,8 @@ void CViz::drawCubant(const std::string& cubant) {
   } else {
     drawedCubants.insert(cubant);
   }
-  const int X=400;
-  const int Y=580;
+  const int X=startCX;
+  const int Y=startCY;
   using namespace CubantCore;
   cubant_t c(cubant);
   int num2=0;
