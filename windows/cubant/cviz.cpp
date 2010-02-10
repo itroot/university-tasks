@@ -67,7 +67,7 @@ CViz::CViz() {
     scrollArea->setWidget(imageLabel);
 
     textEdit=new QTextEdit();
-    textEdit->setText("REPER:6\nIMAGE:800,600\nCSTART:400,580\n\nCOLOR:100,100,255\n\n/1,2,0,2,2,1/\n\nCOLOR:255,100,0\n\n/2,0,0,1,2,1/\n\n");
+    textEdit->setText("IMAGE:800,600\nREPER:6\nCSTART:400,580\n\nCOLOR:100,100,255\n\n/1,2,0,2,2,1/\n\nCOLOR:255,100,0\n\n/2,0,0,1,2,1/\n\n");
     
     runButton=new QPushButton();
     runButton->setText("Run!");
