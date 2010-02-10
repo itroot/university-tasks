@@ -193,7 +193,11 @@ void CViz::open() {
 	}
   image->fill(0); // FIXME clear image
   drawedCubants.clear();
+  try {
   drawCubants();
+  } catch (std::exception& e) {
+      QMessageBox::warning(this, "Exception", e.what());
+  }
   adjustImage();
 }
 
@@ -284,7 +288,11 @@ void CViz::onPushRunButton() {
     }
     std::cerr << result << std::endl;
   }
+  try {
   drawCubants();
+  } catch (std::exception& e) {
+      QMessageBox::warning(this, "Exception", e.what());
+  }
   adjustImage();
 }
 
