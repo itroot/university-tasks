@@ -54,6 +54,7 @@ CViz::CViz() {
     std::cout << str ;
    */
     R=G=B=0;
+    penWidth=1;
     startCX=400;
     startCY=580;
     
@@ -67,7 +68,7 @@ CViz::CViz() {
     scrollArea->setWidget(imageLabel);
 
     textEdit=new QTextEdit();
-    textEdit->setText("IMAGE:800,600\nREPER:6\nCSTART:400,580\n\nCOLOR:100,100,255\n\n/1,2,0,2,2,1/\n\nCOLOR:255,100,0\n\n/2,0,0,1,2,1/\n\n");
+    textEdit->setText("IMAGE:800,600\nREPER:6\nCSTART:400,580\n\nCOLOR:255,100,0,3\n\n/2,0,0,1,2,1/\n\nCOLOR:100,100,90,1\n\n/2,2,2,2,2,2/\n\n");
     
     runButton=new QPushButton();
     runButton->setText("Run!");
@@ -144,8 +145,16 @@ void CViz::setColor(const std::string& line) {
     return;
   }
   int b=atoi(line.c_str()+pos+1);
-  
-  painter->setPen(QColor(r,g,b));
+
+  // not nessesary
+  pos=line.find(",",pos+1);
+  if (std::string::npos!=pos) {
+    penWidth=atoi(line.c_str()+pos+1);
+  }
+
+  QPen pen(QColor(r,g,b));
+  pen.setWidth(penWidth);
+  painter->setPen(pen);
   R=r;
   G=g;
   B=b;

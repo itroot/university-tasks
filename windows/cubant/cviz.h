@@ -83,6 +83,7 @@ class CViz : public QMainWindow {
     int R;
     int G;
     int B;
+    int penWidth;
     // cubant pos.
     int startCX;
     int startCY;
