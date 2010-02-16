@@ -68,7 +68,7 @@ CViz::CViz() {
     scrollArea->setWidget(imageLabel);
 
     textEdit=new QTextEdit();
-    textEdit->setText("IMAGE:800,600\nREPER:6\nCSTART:400,580\n\nCOLOR:255,100,0,3\n\n/2,0,0,1,2,1/\n\nCOLOR:100,100,90,1\n\n/2,2,2,2,2,2/\n\n");
+    textEdit->setText("IMAGE:800,600\nREPER:6\nCSTART:400,580\n\nCOLOR:100,100,90,1\n\n/2,2,2,2,2,2/\n\nCOLOR:255,100,0,3\n\n/2,0,0,1,2,1/\n\n");
     
     runButton=new QPushButton();
     runButton->setText("Run!");
@@ -211,11 +211,11 @@ void CViz::open() {
 }
 
 void CViz::drawCubants() {
-  drawedCubants.clear();
   R=G=B=0;
   painter->setPen(QColor(R,G,B));
   initVrml(); // FIXME
   for (size_t i=0;i<filecontents.size();++i) {
+    drawedCubants.clear();
     executeLine(filecontents[i]);
   }
   std::cout << vrml << std::endl;
