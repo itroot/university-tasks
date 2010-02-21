@@ -18,6 +18,7 @@ HEADERS += core/Cubant.hpp \
            core/VectorImpl.hpp \
            ui/cviz.h \
            ui/reper.h
+
 SOURCES += core/Cubant.cpp \
            core/CubantApi.cpp \
            core/CubantComplex3D.cpp \
