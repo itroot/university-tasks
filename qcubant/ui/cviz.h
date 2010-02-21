@@ -28,6 +28,7 @@ class CViz : public QMainWindow {
 
     public:
         CViz();
+        ~CViz();
 
     private:
         static const double RGB=255.0;

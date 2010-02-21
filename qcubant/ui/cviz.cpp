@@ -91,6 +91,11 @@ CViz::CViz() {
     resetImage(800,600);
 }
 
+CViz::
+~CViz() {
+    painter.reset(NULL);
+}
+
 void
 CViz::
 resetImage(unsigned int x, unsigned int y) {

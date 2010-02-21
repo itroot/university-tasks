@@ -1,4 +1,4 @@
 Old strings must not be delted. Just insert + and new tasks.
 [ ] Add qt scripting.
-[ ] Fix warning with paint devide.
+[+] Fix warning with paint devide.
 [ ] QT tests.
