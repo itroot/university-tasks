@@ -53,6 +53,7 @@ class CViz : public QMainWindow {
         void drawReper();
         // js
         void runJsScript();
+        void embedCubants();
 
         // VRML
         void initVrml();

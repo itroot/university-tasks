@@ -71,6 +71,7 @@ CViz::CViz() {
     /// @todo reper, cubants - all must be adjustable form javascript
     textEdit->setText("IMAGE:800,600\nREPER:6\nCSTART:400,580\n\nCOLOR:100,100,90,1\n\n/2,2,2,2,2,2/\n\nCOLOR:255,100,0,3\n\n/2,0,0,1,2,1/\n\n");
     jsEdit=new QTextEdit();
+    jsEdit->setText("(\nfunction() {\n\n}\n)()");
     runButton=new QPushButton();
     runButton->setText("Run!");
 
@@ -325,6 +326,12 @@ void CViz::onPushRunButton() {
         }
     }
     adjustImage();
+}
+
+void
+CViz::
+embedCubants() {
+    
 }
 
 void
