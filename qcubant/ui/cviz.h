@@ -31,6 +31,8 @@ class CViz : public QMainWindow {
         CViz();
         ~CViz();
 
+    public slots:
+        void drawCubant(const std::string& cubant);
     private:
         static const double RGB=255.0;
         void resetImage(unsigned int x, unsigned int y);
@@ -43,7 +45,6 @@ class CViz : public QMainWindow {
         void showhideJsOut();
     private:
         void executeLine(const std::string& line);
-        void drawCubant(const std::string& cubant);
         void createActions();
         void createMenus();
         void adjustImage();
