@@ -6,7 +6,7 @@ TEMPLATE = app
 TARGET = 
 DEPENDPATH += .
 INCLUDEPATH += .; ./core ; ./ui
-
+QT+= core gui script
 
 
 # Input
@@ -17,7 +17,8 @@ HEADERS += core/Cubant.hpp \
            core/ParseHelper.hpp \
            core/VectorImpl.hpp \
            ui/cviz.h \
-           ui/reper.h
+           ui/reper.h \
+           scripting/qcubant.h
 
 SOURCES += core/Cubant.cpp \
            core/CubantApi.cpp \
@@ -26,4 +27,5 @@ SOURCES += core/Cubant.cpp \
            core/VectorImpl.cpp \
            ui/cviz.cpp \
            ui/reper.cpp \
+           scripting/qcubant.cpp \
            main/main.cpp

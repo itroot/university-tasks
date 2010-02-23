@@ -2,6 +2,8 @@
 #include <ui/reper.h>
 
 #include <QtGui>
+#include <QtCore>
+#include <QtScript>
 #include <QFile>
 #include <QTextStream>
 
@@ -68,14 +70,16 @@ CViz::CViz() {
     /// @todo add loading all of this from file.
     /// @todo reper, cubants - all must be adjustable form javascript
     textEdit->setText("IMAGE:800,600\nREPER:6\nCSTART:400,580\n\nCOLOR:100,100,90,1\n\n/2,2,2,2,2,2/\n\nCOLOR:255,100,0,3\n\n/2,0,0,1,2,1/\n\n");
-
+    jsEdit=new QTextEdit();
     runButton=new QPushButton();
     runButton->setText("Run!");
 
     layout=new QVBoxLayout();
-
+    tabWidget=new QTabWidget;
+    tabWidget->addTab(textEdit, "Old");
+    tabWidget->addTab(jsEdit, "Javascript");
     layout->addWidget(scrollArea,10);
-    layout->addWidget(textEdit,3);
+    layout->addWidget(tabWidget,3);
     layout->addWidget(runButton,1);
 
     centerWidget=new QWidget();
@@ -89,6 +93,8 @@ CViz::CViz() {
     setWindowTitle(tr("QCubant Visualizer"));
     resize(900, 700);
     resetImage(800,600);
+
+    scriptEngine.reset(new QScriptEngine);
 }
 
 CViz::
@@ -293,23 +299,38 @@ setImage(const std::string& line) {
 }
 
 void CViz::onPushRunButton() {
-    filecontents.clear();
+    // here if FIXME virtual!
     image->fill(0); // FIXME clear image
-    QString str=textEdit->toPlainText();
-    QTextStream textStream(&str);
-    while (!textStream.atEnd()) {
-        std::string result=textStream.readLine().toStdString();
-        if (!result.empty()) {
-            filecontents.push_back(result);
+    if (textEdit==tabWidget->currentWidget()) {
+        filecontents.clear();
+        QString str=textEdit->toPlainText();
+        QTextStream textStream(&str);
+        while (!textStream.atEnd()) {
+            std::string result=textStream.readLine().toStdString();
+            if (!result.empty()) {
+                filecontents.push_back(result);
+            }
+            //std::cerr << result << std::endl;
         }
-        //std::cerr << result << std::endl;
-    }
-    try {
-        drawCubants();
-    } catch (std::exception& e) {
-        QMessageBox::warning(this, "Exception", e.what());
+        try {
+            drawCubants();
+        } catch (std::exception& e) {
+            QMessageBox::warning(this, "Exception", e.what());
+        }
+    } else { // Here goes js.
+        try {
+            runJsScript();
+        } catch (std::exception& e) {
+            QMessageBox::warning(this, "Exception", e.what());
+        }
     }
     adjustImage();
+}
+
+void
+CViz::  
+runJsScript() {
+    QMessageBox::warning(this, "JS", "JS");
 }
 
 void CViz::save() {

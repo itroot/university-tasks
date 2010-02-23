@@ -19,6 +19,7 @@ class QImage;
 class QVBoxLayout;
 class QTextEdit;
 class QPushButton;
+class QScriptEngine;
 QT_END_NAMESPACE
 
 class Reper;
@@ -50,6 +51,8 @@ class CViz : public QMainWindow {
         void setImage(const std::string& line);
         void setCStart(const std::string& line);
         void drawReper();
+        // js
+        void runJsScript();
 
         // VRML
         void initVrml();
@@ -60,7 +63,9 @@ class CViz : public QMainWindow {
         QLabel *imageLabel;
         QVBoxLayout* layout;
         QWidget* centerWidget;
+        QTabWidget* tabWidget;
         QTextEdit* textEdit;
+        QTextEdit* jsEdit;
         QPushButton* runButton;
 
         std::auto_ptr<QImage> image;
@@ -74,6 +79,7 @@ class CViz : public QMainWindow {
         QMenu *fileMenu;
         QMenu *helpMenu;
 
+        std::auto_ptr<QScriptEngine> scriptEngine;
         std::auto_ptr<Reper> reper;
         // FIXME this shit
         std::vector<std::string> filecontents;
