@@ -10,6 +10,16 @@ createCubant(QScriptContext *ctx, QScriptEngine *engine) {
     return engine->newQObject(qcubant, QScriptEngine::ScriptOwnership);
 }
 
+static QScriptValue cubantHull(QScriptContext *context,
+                               QScriptEngine *engine)
+{
+    QCubant* qcubant=dynamic_cast<QCubant*>(context->argument(1).toQObject());
+    if (NULL==qcubant) {
+        throw std::runtime_error("Expected cubant!");
+    }
+    // here we must to create an array.
+}
+
 QCubant::
 QCubant(QObject* qObject)
     : QObject(qObject)

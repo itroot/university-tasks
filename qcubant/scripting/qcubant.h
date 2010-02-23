@@ -13,8 +13,11 @@ class QCubant : public QObject {
         QCubant(QObject* qObject);
         QCubant(const QString& value);
         // maybe later it will be real js constructor
+        // maybe we need to move this into qsystem
         static QScriptValue createCubant(QScriptContext *context,
                                          QScriptEngine *engine);
+        static QScriptValue cubantHull(QScriptContext *context,
+                                       QScriptEngine *engine);
     public slots:
         int dimension() const;
         void draw();
