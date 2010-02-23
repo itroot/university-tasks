@@ -1,6 +1,8 @@
 Old strings must not be deleted. Just insert + and new tasks.
-[ ] Add qt scripting.
+[+] Add qt scripting.
 [+] Fix warning with paint devide.
 [ ] QT tests. QTestLib.
 [ ] Refactor! :: split CViz.
 [ ] create backward compatible to tests implementation!
+[ ][critical] add reper modifications (+-), as Ryabov said.
+[ ][critical] add operation that create array of QCubants.
