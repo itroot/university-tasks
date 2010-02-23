@@ -33,6 +33,7 @@ class CViz : public QMainWindow {
 
     public slots:
         void drawCubant(const std::string& cubant);
+        void drawCubantClearCache(const std::string& cubant);
         void setReperDimension(unsigned int);
     private:
         static const double RGB=255.0;

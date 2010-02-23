@@ -365,7 +365,7 @@ CViz::
 embedCubants() {
     QSystem* qsystem=new QSystem();
     connect(qsystem, SIGNAL(printSignal(const QString&)), jsOut, SLOT(append(const QString&)));
-    connect(qsystem, SIGNAL(drawCubantSignal(const std::string&)), this, SLOT(drawCubant(const std::string&)));
+    connect(qsystem, SIGNAL(drawCubantSignal(const std::string&)), this, SLOT(drawCubantClearCache(const std::string&)));
     connect(qsystem, SIGNAL(setReperSizeSignal(unsigned int)), this, SLOT(setReperDimension(unsigned int)));
     QScriptValue system=scriptEngine->newQObject(qsystem);
     scriptEngine->globalObject().setProperty("System", system);
@@ -422,6 +422,13 @@ void CViz::drawReper() {
                 Y3d, Y3d+reper->getVectorProjection3D(i,1),
                 Y3d, Y3d+reper->getVectorProjection3D(i,2));
     }
+}
+
+void
+CViz::
+drawCubantClearCache(const std::string& cubant) {
+    drawedCubants.clear();
+    drawCubant(cubant);
 }
 
 void CViz::drawCubant(const std::string& cubant) {
