@@ -28,3 +28,9 @@ QSystem::
 setReperSize(unsigned int size) {
     emit setReperSizeSignal(size);
 }
+
+void
+QSystem::
+setPenWidth(unsigned int width) {
+    emit setPenWidthSignal(width);
+}

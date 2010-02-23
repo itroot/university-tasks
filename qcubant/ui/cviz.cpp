@@ -188,18 +188,25 @@ void CViz::setColor(const std::string& line) {
         penWidth=atoi(line.c_str()+pos+1);
     }
 
-    QPen pen(QColor(r,g,b));
-    pen.setWidth(penWidth);
-    painter->setPen(pen);
     R=r;
     G=g;
     B=b;
+    setPenWidth(penWidth);
 }
 
 void
 CViz::
 setReperDimension(unsigned int size) {
     reper.reset(new Reper(size));
+}
+
+void
+CViz::
+setPenWidth(unsigned int width) {
+    penWidth=width;
+    QPen pen(QColor(R,G,B));
+    pen.setWidth(penWidth);
+    painter->setPen(pen);
 }
 
 void CViz::setReper(const std::string& line) {
@@ -381,6 +388,7 @@ embedCubants() {
     connect(qsystem, SIGNAL(printSignal(const QString&)), jsOut, SLOT(append(const QString&)));
     connect(qsystem, SIGNAL(drawCubantSignal(const std::string&)), this, SLOT(drawCubantClearCache(const std::string&)));
     connect(qsystem, SIGNAL(setReperSizeSignal(unsigned int)), this, SLOT(setReperDimension(unsigned int)));
+    connect(qsystem, SIGNAL(setPenWidthSignal(unsigned int)), this, SLOT(setPenWidth(unsigned int)));
     QScriptValue system=scriptEngine->newQObject(qsystem);
     scriptEngine->globalObject().setProperty("System", system);
     QScriptValue createCubantFun=

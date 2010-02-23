@@ -17,11 +17,13 @@ class QSystem : public QObject {
         /// @todo add native cubant drawing.
         void drawCubantSignal(const std::string& cubant);
         void setReperSizeSignal(unsigned int);
+        void setPenWidthSignal(unsigned int);
     public slots:
         void print(const QString& str);
         void drawCubantFromString(const QString& cubant);
         void drawCubant(QCubant* cubant);
         void setReperSize(unsigned int size);
+        void setPenWidth(unsigned int width);
 };
 
 #endif

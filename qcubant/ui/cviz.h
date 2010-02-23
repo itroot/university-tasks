@@ -35,6 +35,7 @@ class CViz : public QMainWindow {
         void drawCubant(const std::string& cubant);
         void drawCubantClearCache(const std::string& cubant);
         void setReperDimension(unsigned int);
+        void setPenWidth(unsigned int);
     private:
         static const double RGB=255.0;
         void resetImage(unsigned int x, unsigned int y);
