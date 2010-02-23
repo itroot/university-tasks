@@ -14,6 +14,8 @@
 #include <core/Cubant.hpp>
 #include <stdlib.h>
 
+#include <scripting/system.h>
+
 using namespace std;
 
 void
@@ -96,6 +98,9 @@ CViz::CViz() {
     resetImage(800,600);
 
     scriptEngine.reset(new QScriptEngine);
+    jsOut=new QTextEdit();
+    jsOut->setReadOnly(true);
+    jsOut->show();
 }
 
 CViz::
@@ -131,10 +136,19 @@ void CViz::createActions() {
     saveAct = new QAction(tr("Save Image..."), this);
     connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
 
+    showhideJsOutAct = new QAction(tr("Show/Hide JS out..."), this);
+    connect(showhideJsOutAct, SIGNAL(triggered()), this, SLOT(showhideJsOut()));
+
     aboutQtAct = new QAction(tr("About &Qt"), this);
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
     connect(runButton, SIGNAL(clicked()), this, SLOT(onPushRunButton()));
+}
+
+void
+CViz::
+showhideJsOut() {
+    jsOut->setVisible(!jsOut->isVisible());
 }
 
 void CViz::setColor(const std::string& line) {
@@ -188,6 +202,7 @@ void CViz::createMenus() {
     fileMenu->addAction(openAct);
     fileMenu->addAction(saveVRMLAct);
     fileMenu->addAction(saveAct);
+    fileMenu->addAction(showhideJsOutAct);
 
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutQtAct);
@@ -331,12 +346,17 @@ void CViz::onPushRunButton() {
 void
 CViz::
 embedCubants() {
-    
+    QSystem* qsystem=new QSystem();
+    connect(qsystem, SIGNAL(printSignal(const QString&)), jsOut, SLOT(append(const QString&)));
+    QScriptValue system=scriptEngine->newQObject(qsystem);
+    scriptEngine->globalObject().setProperty("System", system);
 }
 
 void
 CViz::
 runJsScript() {
+    // here?
+    embedCubants();
     QString str=jsEdit->toPlainText();
     scriptEngine->evaluate(str);
     if (scriptEngine->hasUncaughtException()) {

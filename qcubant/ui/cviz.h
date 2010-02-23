@@ -40,6 +40,7 @@ class CViz : public QMainWindow {
         void onPushRunButton();
         void drawCubants();
         void saveVRML();
+        void showhideJsOut();
     private:
         void executeLine(const std::string& line);
         void drawCubant(const std::string& cubant);
@@ -67,6 +68,7 @@ class CViz : public QMainWindow {
         QTabWidget* tabWidget;
         QTextEdit* textEdit;
         QTextEdit* jsEdit;
+        QTextEdit* jsOut;
         QPushButton* runButton;
 
         std::auto_ptr<QImage> image;
@@ -75,6 +77,7 @@ class CViz : public QMainWindow {
         QAction *openAct;
         QAction *saveAct;
         QAction *saveVRMLAct;
+        QAction *showhideJsOutAct;
         QAction *aboutQtAct;
 
         QMenu *fileMenu;
