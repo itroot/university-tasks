@@ -301,8 +301,8 @@ setImage(const std::string& line) {
 void CViz::onPushRunButton() {
     // here if FIXME virtual!
     image->fill(0); // FIXME clear image
+    filecontents.clear();
     if (textEdit==tabWidget->currentWidget()) {
-        filecontents.clear();
         QString str=textEdit->toPlainText();
         QTextStream textStream(&str);
         while (!textStream.atEnd()) {
@@ -328,9 +328,15 @@ void CViz::onPushRunButton() {
 }
 
 void
-CViz::  
+CViz::
 runJsScript() {
-    QMessageBox::warning(this, "JS", "JS");
+    QString str=jsEdit->toPlainText();
+    scriptEngine->evaluate(str);
+    if (scriptEngine->hasUncaughtException()) {
+        QScriptValue exception=scriptEngine->uncaughtException();
+        scriptEngine->clearExceptions();
+        throw std::runtime_error(exception.toString().toStdString());
+    }
 }
 
 void CViz::save() {
