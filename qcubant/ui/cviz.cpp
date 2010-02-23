@@ -85,8 +85,8 @@ CViz::CViz() {
 
     layout=new QVBoxLayout();
     tabWidget=new QTabWidget;
-    tabWidget->addTab(textEdit, "Old");
     tabWidget->addTab(jsEdit, "Javascript");
+    tabWidget->addTab(textEdit, "Old");
     layout->addWidget(scrollArea,10);
     layout->addWidget(tabWidget,3);
     layout->addWidget(runButton,1);
