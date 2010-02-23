@@ -1,4 +1,5 @@
-Old strings must not be delted. Just insert + and new tasks.
+Old strings must not be deleted. Just insert + and new tasks.
 [ ] Add qt scripting.
 [+] Fix warning with paint devide.
 [ ] QT tests. QTestLib.
+[ ] Refactor! :: split CViz.
