@@ -18,12 +18,14 @@ class QSystem : public QObject {
         void drawCubantSignal(const std::string& cubant);
         void setReperSizeSignal(unsigned int);
         void setPenWidthSignal(unsigned int);
+        void setColorSignal(unsigned int, unsigned int, unsigned int);
     public slots:
         void print(const QString& str);
         void drawCubantFromString(const QString& cubant);
         void drawCubant(QCubant* cubant);
         void setReperSize(unsigned int size);
         void setPenWidth(unsigned int width);
+        void setColor(unsigned int, unsigned int, unsigned int);
 };
 
 #endif

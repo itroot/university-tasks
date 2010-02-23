@@ -160,6 +160,15 @@ showhideJsOut() {
     jsOut->setVisible(!jsOut->isVisible());
 }
 
+void
+CViz::
+setNumColor(unsigned int _R, unsigned int _G, unsigned int _B) {
+    R=_R;
+    G=_G;
+    B=_B;
+    setPenWidth(penWidth);
+}
+
 void CViz::setColor(const std::string& line) {
     size_t pos=0;
     pos=line.find(":");
@@ -389,6 +398,8 @@ embedCubants() {
     connect(qsystem, SIGNAL(drawCubantSignal(const std::string&)), this, SLOT(drawCubantClearCache(const std::string&)));
     connect(qsystem, SIGNAL(setReperSizeSignal(unsigned int)), this, SLOT(setReperDimension(unsigned int)));
     connect(qsystem, SIGNAL(setPenWidthSignal(unsigned int)), this, SLOT(setPenWidth(unsigned int)));
+    connect(qsystem, SIGNAL(setColorSignal(unsigned int, unsigned int, unsigned int)),\
+            this, SLOT(setNumColor(unsigned int, unsigned int, unsigned int)));
     QScriptValue system=scriptEngine->newQObject(qsystem);
     scriptEngine->globalObject().setProperty("System", system);
     QScriptValue createCubantFun=

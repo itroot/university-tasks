@@ -34,3 +34,11 @@ QSystem::
 setPenWidth(unsigned int width) {
     emit setPenWidthSignal(width);
 }
+
+void
+QSystem::
+setColor(unsigned int R, unsigned int G, unsigned int B) {
+    emit setColorSignal(R,G,B);
+}
+
+
