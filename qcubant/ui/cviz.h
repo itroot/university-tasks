@@ -45,6 +45,7 @@ class CViz : public QMainWindow {
         void drawCubants();
         void saveVRML();
         void showhideJsOut();
+        void openJS();
     private:
         void executeLine(const std::string& line);
         void createActions();
@@ -81,6 +82,7 @@ class CViz : public QMainWindow {
         QAction *saveAct;
         QAction *saveVRMLAct;
         QAction *showhideJsOutAct;
+        QAction *openJsOutAct;
         QAction *aboutQtAct;
 
         QMenu *fileMenu;

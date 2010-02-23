@@ -145,6 +145,9 @@ void CViz::createActions() {
     showhideJsOutAct = new QAction(tr("Show/Hide JS out..."), this);
     connect(showhideJsOutAct, SIGNAL(triggered()), this, SLOT(showhideJsOut()));
 
+    openJsOutAct = new QAction(tr("Open JS file."), this);
+    connect(openJsOutAct, SIGNAL(triggered()), this, SLOT(openJS()));
+
     aboutQtAct = new QAction(tr("About &Qt"), this);
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
@@ -215,12 +218,23 @@ void CViz::createMenus() {
     fileMenu->addAction(saveVRMLAct);
     fileMenu->addAction(saveAct);
     fileMenu->addAction(showhideJsOutAct);
+    fileMenu->addAction(openJsOutAct);
 
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutQtAct);
 
     menuBar()->addMenu(fileMenu);
     menuBar()->addMenu(helpMenu);
+}
+
+void
+CViz::
+openJS() {
+    QString fileName=QFileDialog::getOpenFileName(this,
+                   tr("Open JS"), QDir::currentPath());
+    QFile js(fileName);
+    js.open(QIODevice::ReadOnly);
+    jsEdit->setText(js.readAll());
 }
 
 void CViz::open() {
