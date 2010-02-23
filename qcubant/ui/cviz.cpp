@@ -15,6 +15,7 @@
 #include <stdlib.h>
 
 #include <scripting/system.h>
+#include <scripting/qcubant.h>
 
 using namespace std;
 
@@ -343,6 +344,8 @@ void CViz::onPushRunButton() {
     adjustImage();
 }
 
+
+
 void
 CViz::
 embedCubants() {
@@ -350,6 +353,9 @@ embedCubants() {
     connect(qsystem, SIGNAL(printSignal(const QString&)), jsOut, SLOT(append(const QString&)));
     QScriptValue system=scriptEngine->newQObject(qsystem);
     scriptEngine->globalObject().setProperty("System", system);
+    QScriptValue createCubantFun=
+        scriptEngine->newFunction(QCubant::createCubant);
+    scriptEngine->globalObject().setProperty("createCubant", createCubantFun);
 }
 
 void
