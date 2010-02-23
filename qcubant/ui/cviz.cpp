@@ -188,13 +188,19 @@ void CViz::setColor(const std::string& line) {
     B=b;
 }
 
+void
+CViz::
+setReperDimension(unsigned int size) {
+    reper.reset(new Reper(size));
+}
+
 void CViz::setReper(const std::string& line) {
     size_t pos=line.find(":");
     if (std::string::npos==pos) {
         return;
     }
     unsigned int dim=atoi(line.c_str()+pos+1);
-    reper.reset(new Reper(dim));
+    setReperDimension(dim);
 }
 
 void CViz::createMenus() {
@@ -317,6 +323,9 @@ setImage(const std::string& line) {
 
 void CViz::onPushRunButton() {
     // here if FIXME virtual!
+    QFile js("./backup.js");
+    js.open(QIODevice::WriteOnly);
+    js.write(jsEdit->toPlainText().toAscii());
     image->fill(0); // FIXME clear image
     filecontents.clear();
     if (textEdit==tabWidget->currentWidget()) {
@@ -352,6 +361,7 @@ embedCubants() {
     QSystem* qsystem=new QSystem();
     connect(qsystem, SIGNAL(printSignal(const QString&)), jsOut, SLOT(append(const QString&)));
     connect(qsystem, SIGNAL(drawCubantSignal(const std::string&)), this, SLOT(drawCubant(const std::string&)));
+    connect(qsystem, SIGNAL(setReperSizeSignal(unsigned int)), this, SLOT(setReperDimension(unsigned int)));
     QScriptValue system=scriptEngine->newQObject(qsystem);
     scriptEngine->globalObject().setProperty("System", system);
     QScriptValue createCubantFun=

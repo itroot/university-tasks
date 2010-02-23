@@ -22,3 +22,9 @@ drawCubant(QCubant* cubant) {
     //return QScriptValue();
     drawCubantFromString(cubant->getString());
 }
+
+void
+QSystem::
+setReperSize(unsigned int size) {
+    emit setReperSizeSignal(size);
+}

@@ -16,10 +16,12 @@ class QSystem : public QObject {
         void printSignal(const QString& str);
         /// @todo add native cubant drawing.
         void drawCubantSignal(const std::string& cubant);
+        void setReperSizeSignal(unsigned int);
     public slots:
         void print(const QString& str);
         void drawCubantFromString(const QString& cubant);
         void drawCubant(QCubant* cubant);
+        void setReperSize(unsigned int size);
 };
 
 #endif
