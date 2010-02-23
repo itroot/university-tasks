@@ -74,7 +74,12 @@ CViz::CViz() {
     /// @todo reper, cubants - all must be adjustable form javascript
     textEdit->setText("IMAGE:800,600\nREPER:6\nCSTART:400,580\n\nCOLOR:100,100,90,1\n\n/2,2,2,2,2,2/\n\nCOLOR:255,100,0,3\n\n/2,0,0,1,2,1/\n\n");
     jsEdit=new QTextEdit();
+    /*
     jsEdit->setText("(function() {\nvar cubant=createCubant(\"/1,1,1,2/\");\nSystem.print(cubant.dimension());\n}\n)()");
+    */
+    QFile js("backup.js");
+    js.open(QIODevice::ReadOnly);
+    jsEdit->setText(js.readAll());
     runButton=new QPushButton();
     runButton->setText("Run!");
 
@@ -323,7 +328,7 @@ setImage(const std::string& line) {
 
 void CViz::onPushRunButton() {
     // here if FIXME virtual!
-    QFile js("./backup.js");
+    QFile js("backup.js");
     js.open(QIODevice::WriteOnly);
     js.write(jsEdit->toPlainText().toAscii());
     image->fill(0); // FIXME clear image
