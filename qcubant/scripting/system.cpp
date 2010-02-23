@@ -10,7 +10,15 @@ print(const QString& str) {
 
 void
 QSystem::
-drawCubant(const QString& cubant) {
+drawCubantFromString(const QString& cubant) {
     emit drawCubantSignal(cubant.toStdString());
 }
 
+void
+QSystem::
+drawCubant(QCubant* cubant) {
+    //QCubant* cubant=qscriptvalue_cast<QCubant*>(ctx->argument(0));
+    //cubant->draw();
+    //return QScriptValue();
+    drawCubantFromString(cubant->getString());
+}

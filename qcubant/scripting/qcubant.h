@@ -14,9 +14,12 @@ class QCubant : public QObject {
         QCubant(const QString& value);
         // maybe later it will be real js constructor
         static QScriptValue createCubant(QScriptContext *context,
-                                     QScriptEngine *engine);
+                                         QScriptEngine *engine);
     public slots:
         int dimension() const;
+        void draw();
+        QString getString() const;
+        QString toString() const;
     private:
         CubantCore::cubant_t* cubant;
 };

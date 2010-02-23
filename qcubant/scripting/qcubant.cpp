@@ -28,3 +28,25 @@ QCubant::
 dimension() const {
     return cubant->size();
 }
+
+QString
+QCubant::
+getString() const {
+    return QString::fromStdString(cubant->toString());
+}
+
+QString
+QCubant::
+toString() const {
+    return getString();
+}
+
+
+
+void
+QCubant::
+draw() {
+    
+}
+
+
