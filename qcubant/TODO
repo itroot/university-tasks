@@ -3,3 +3,4 @@ Old strings must not be deleted. Just insert + and new tasks.
 [+] Fix warning with paint devide.
 [ ] QT tests. QTestLib.
 [ ] Refactor! :: split CViz.
+[ ] create backward compatible to tests implementation!
