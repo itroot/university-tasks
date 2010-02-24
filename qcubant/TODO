@@ -6,3 +6,4 @@ Old strings must not be deleted. Just insert + and new tasks.
 [ ] create backward compatible to tests implementation!
 [ ][critical] add reper modifications (+-), as Ryabov said.
 [ ][critical] add operation that create array of QCubants.
+[ ][critical] write an article about it (1pg)
