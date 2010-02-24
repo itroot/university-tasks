@@ -1,6 +1,6 @@
 (function() {
   System.setPenWidth(1);
-  System.setReperSize(3);
+  System.setReperSize(5);
   System.setImageSize(900,600);
   System.setCubantStart(400, 580)
   var cubant=createCubant("/1,2,2,1/");
