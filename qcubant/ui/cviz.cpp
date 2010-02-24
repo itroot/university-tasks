@@ -74,6 +74,7 @@ CViz::CViz() {
     /// @todo reper, cubants - all must be adjustable form javascript
     textEdit->setText("IMAGE:800,600\nREPER:6\nCSTART:400,580\n\nCOLOR:100,100,90,1\n\n/2,2,2,2,2,2/\n\nCOLOR:255,100,0,3\n\n/2,0,0,1,2,1/\n\n");
     jsEdit=new QTextEdit();
+    jsEdit->setFont(QFont("monospace"));
     /*
     jsEdit->setText("(function() {\nvar cubant=createCubant(\"/1,1,1,2/\");\nSystem.print(cubant.dimension());\n}\n)()");
     */
