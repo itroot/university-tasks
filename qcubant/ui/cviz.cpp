@@ -335,8 +335,7 @@ setCStart(const std::string& line) {
         return;
     }
     int y=atoi(line.c_str()+pos+1);
-    startCX=x;
-    startCY=y;
+    setCubantStart(x,y);
 }
 
 void
@@ -354,6 +353,19 @@ setImage(const std::string& line) {
     }
     int y=atoi(line.c_str()+pos+1);
     resetImage(x,y);
+}
+
+void
+CViz::
+setImageSize(unsigned int x, unsigned int y) {
+    resetImage(x,y);
+}
+
+void
+CViz::
+setCubantStart(unsigned int x, unsigned int y) {
+    startCX=x;
+    startCY=y;
 }
 
 void CViz::onPushRunButton() {
@@ -398,8 +410,9 @@ embedCubants() {
     connect(qsystem, SIGNAL(drawCubantSignal(const std::string&)), this, SLOT(drawCubantClearCache(const std::string&)));
     connect(qsystem, SIGNAL(setReperSizeSignal(unsigned int)), this, SLOT(setReperDimension(unsigned int)));
     connect(qsystem, SIGNAL(setPenWidthSignal(unsigned int)), this, SLOT(setPenWidth(unsigned int)));
-    connect(qsystem, SIGNAL(setColorSignal(unsigned int, unsigned int, unsigned int)),\
-            this, SLOT(setNumColor(unsigned int, unsigned int, unsigned int)));
+    connect(qsystem, SIGNAL(setColorSignal(unsigned int, unsigned int, unsigned int)),this, SLOT(setNumColor(unsigned int, unsigned int, unsigned int)));
+    connect(qsystem, SIGNAL(setImageSizeSignal(unsigned int, unsigned int)), this, SLOT(setImageSize(unsigned int, unsigned int)));
+    connect(qsystem, SIGNAL(setCubantStartSignal(unsigned int, unsigned int)), this, SLOT(setCubantStart(unsigned int, unsigned int)));
     QScriptValue system=scriptEngine->newQObject(qsystem);
     scriptEngine->globalObject().setProperty("System", system);
     QScriptValue createCubantFun=

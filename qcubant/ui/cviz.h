@@ -37,6 +37,8 @@ class CViz : public QMainWindow {
         void setReperDimension(unsigned int);
         void setPenWidth(unsigned int);
         void setNumColor(unsigned int, unsigned int, unsigned int); // RGB
+        void setImageSize(unsigned int x, unsigned int y);
+        void setCubantStart(unsigned int x, unsigned int y);
     private:
         static const double RGB=255.0;
         void resetImage(unsigned int x, unsigned int y);

@@ -9,6 +9,8 @@
 #include <scripting/qcubant.h>
 #include <core/Cubant.hpp>
 
+
+/// @todo instead of using this object we can use CViz itself.
 class QSystem : public QObject {
     Q_OBJECT
     public slots:
@@ -19,6 +21,8 @@ class QSystem : public QObject {
         void setReperSizeSignal(unsigned int);
         void setPenWidthSignal(unsigned int);
         void setColorSignal(unsigned int, unsigned int, unsigned int);
+        void setImageSizeSignal(unsigned int, unsigned int);
+        void setCubantStartSignal(unsigned int, unsigned int);
     public slots:
         void print(const QString& str);
         void drawCubantFromString(const QString& cubant);
@@ -26,6 +30,8 @@ class QSystem : public QObject {
         void setReperSize(unsigned int size);
         void setPenWidth(unsigned int width);
         void setColor(unsigned int, unsigned int, unsigned int);
+        void setImageSize(unsigned int, unsigned int);
+        void setCubantStart(unsigned int, unsigned int);
 };
 
 #endif

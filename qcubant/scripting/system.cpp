@@ -41,4 +41,14 @@ setColor(unsigned int R, unsigned int G, unsigned int B) {
     emit setColorSignal(R,G,B);
 }
 
+void
+QSystem::
+setImageSize(unsigned int x, unsigned int y) {
+    emit setImageSizeSignal(x,y);
+}
 
+void
+QSystem::
+setCubantStart(unsigned int x, unsigned int y) {
+    emit setCubantStartSignal(x,y);
+}
