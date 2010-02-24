@@ -12,12 +12,15 @@ class QCubant : public QObject {
     public:
         QCubant(QObject* qObject);
         QCubant(const QString& value);
+        QCubant(const CubantCore::cubant_t& cubant);
+        ~QCubant();
         // maybe later it will be real js constructor
         // maybe we need to move this into qsystem
         static QScriptValue createCubant(QScriptContext *context,
                                          QScriptEngine *engine);
-        static QScriptValue cubantHull(QScriptContext *context,
-                                       QScriptEngine *engine);
+        static QScriptValue cubantFacet(QScriptContext *context,
+                                        QScriptEngine *engine);
+        CubantCore::cubant_t* getCubant();
     public slots:
         int dimension() const;
         void draw();

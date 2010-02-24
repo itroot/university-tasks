@@ -10,14 +10,37 @@ createCubant(QScriptContext *ctx, QScriptEngine *engine) {
     return engine->newQObject(qcubant, QScriptEngine::ScriptOwnership);
 }
 
-static QScriptValue cubantHull(QScriptContext *context,
-                               QScriptEngine *engine)
+QScriptValue
+QCubant::
+cubantFacet(QScriptContext *context,
+            QScriptEngine *engine)
 {
-    QCubant* qcubant=dynamic_cast<QCubant*>(context->argument(1).toQObject());
+    QCubant* qcubant=dynamic_cast<QCubant*>(context->argument(0).toQObject());
     if (NULL==qcubant) {
         throw std::runtime_error("Expected cubant!");
     }
-    // here we must to create an array.
+    QScriptValue result=engine->newArray();
+    cubant_t* cubant=qcubant->getCubant();
+    unsigned int arrayIndex=0;
+    for (size_t i=0;i<cubant->size();++i) {
+        if (CubantType::Spread==(*cubant)[i].getType()) {
+            cubant_t cubant0=*cubant;
+            cubant_t cubant1=*cubant;
+            cubant0[i].setType(CubantType::NoShift);
+            cubant1[i].setType(CubantType::Shift);
+            result.setProperty(arrayIndex, engine->newQObject(new QCubant(cubant0), QScriptEngine::ScriptOwnership));
+            ++arrayIndex;
+            result.setProperty(arrayIndex, engine->newQObject(new QCubant(cubant1), QScriptEngine::ScriptOwnership));
+            ++arrayIndex;
+        }
+    }
+    return result;
+}
+
+cubant_t*
+QCubant::
+getCubant() {
+    return cubant;
 }
 
 QCubant::
@@ -31,6 +54,11 @@ QCubant(QObject* qObject)
 QCubant::
 QCubant(const QString& value) {
     cubant=new cubant_t(value.toStdString());
+}
+
+QCubant::
+QCubant(const cubant_t& _cubant) {
+    cubant=new cubant_t(_cubant);
 }
 
 int
@@ -51,12 +79,17 @@ toString() const {
     return getString();
 }
 
+QCubant::
+~QCubant() {
+    delete cubant;
+}
+
 
 
 void
 QCubant::
 draw() {
-    
+
 }
 
 

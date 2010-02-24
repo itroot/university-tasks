@@ -419,6 +419,10 @@ embedCubants() {
     QScriptValue createCubantFun=
         scriptEngine->newFunction(QCubant::createCubant);
     scriptEngine->globalObject().setProperty("createCubant", createCubantFun);
+
+    QScriptValue cubantFacetFun=
+        scriptEngine->newFunction(QCubant::cubantFacet);
+    scriptEngine->globalObject().setProperty("cubantFacet", cubantFacetFun);
 }
 
 void
