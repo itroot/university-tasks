@@ -22,6 +22,7 @@ class Reper {
         unsigned int getWidth();
 
         int getVectorProjection(unsigned int vectorNum, unsigned int coord);
+        void set2DVector(unsigned int vectorNum, int x, int y);
         int getVectorProjection3D(unsigned int vectorNum, unsigned int coord);
     private:
         static const double COEFF_3D=2.0;

@@ -39,6 +39,7 @@ class CViz : public QMainWindow {
         void setNumColor(unsigned int, unsigned int, unsigned int); // RGB
         void setImageSize(unsigned int x, unsigned int y);
         void setCubantStart(unsigned int x, unsigned int y);
+        void setReper2DVector(unsigned int vectorNum, int x, int y);
     private:
         static const double RGB=255.0;
         void resetImage(unsigned int x, unsigned int y);

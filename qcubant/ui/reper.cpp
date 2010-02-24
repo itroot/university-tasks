@@ -18,6 +18,18 @@ Reper(unsigned int _num, unsigned int _height, unsigned int _width)
         double angle=2*M_PI*((i-num/2.0)/num);
         vectors3d.push_back(Coords3D(width*sin(angle)*COEFF_3D,-height, width*cos(angle)*COEFF_3D));
     }
+    // std::cerr << "!!!!!!!!!!!!\n";
+}
+
+void
+Reper::
+set2DVector(unsigned int vectorNum, int x, int y) {
+    if (vectorNum>num) {
+        throw std::runtime_error("Reper size out of dimension.");
+    }
+    vectors[vectorNum].first=x;
+    vectors[vectorNum].second=y;
+    // std::cerr << "SET\n";
 }
 
 unsigned int

@@ -402,6 +402,12 @@ void CViz::onPushRunButton() {
 }
 
 
+void
+CViz::
+setReper2DVector(unsigned int vectorNum, int x, int y) {
+    reper->set2DVector(vectorNum, x, y);
+}
+
 
 void
 CViz::
@@ -414,6 +420,7 @@ embedCubants() {
     connect(qsystem, SIGNAL(setColorSignal(unsigned int, unsigned int, unsigned int)),this, SLOT(setNumColor(unsigned int, unsigned int, unsigned int)));
     connect(qsystem, SIGNAL(setImageSizeSignal(unsigned int, unsigned int)), this, SLOT(setImageSize(unsigned int, unsigned int)));
     connect(qsystem, SIGNAL(setCubantStartSignal(unsigned int, unsigned int)), this, SLOT(setCubantStart(unsigned int, unsigned int)));
+    connect(qsystem, SIGNAL(setReper2DVectorSignal(unsigned int, int, int)), this, SLOT(setReper2DVector(unsigned int, int, int)));
     QScriptValue system=scriptEngine->newQObject(qsystem);
     scriptEngine->globalObject().setProperty("System", system);
     QScriptValue createCubantFun=

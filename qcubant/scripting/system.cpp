@@ -52,3 +52,11 @@ QSystem::
 setCubantStart(unsigned int x, unsigned int y) {
     emit setCubantStartSignal(x,y);
 }
+
+void
+QSystem::
+setReper2DVector(unsigned int num, int x, int y) {
+    emit setReper2DVectorSignal(num, x, y);
+}
+
+
