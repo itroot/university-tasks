@@ -17,6 +17,14 @@
   System.setColor(255,255,0);
   System.drawCubantFromString("/2,1,1/");
   var facets=cubantFacet(cubant);
-  System.print(facets.toString())
+
+  System.setColor(0,0,0);
+  var width=1;
+  for(facet in facets) {
+    System.print(facets[facet].toString())
+    System.drawCubant(facets[facet]);
+    ++width;
+    System.setPenWidth(width%4);
+  }
 }
 )()
