@@ -40,17 +40,17 @@ var a3=[
   System.setPenWidth(1);
   System.drawCubant(whole);
   System.setColor(0,0,0);
-  //System.setColor(255,0,0);
+  System.setColor(255,0,0);
   System.setPenWidth(2);
   for (e in a1) {
     System.drawCubantFromString(a1[e]);
   }
 
-  //System.setColor(0,255,0);
+  System.setColor(0,255,0);
   for (e in a2) {
     System.drawCubantFromString(a2[e]);
   }
- //System.setColor(0,0,255);
+  System.setColor(0,0,255);
   for (e in a3) {
     System.drawCubantFromString(a3[e]);
   }
