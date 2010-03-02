@@ -1,6 +1,20 @@
+function setReper() {
+    const num=9;
+    const width=30;
+    const height=60;
+    System.setReperSize(9);
+    for (var i=0; i<num; ++i) {
+        //vectors.push_back(std::make_pair(width*(i-num/2)+((num%2)?0:width/2), -height)
+        var x=Math.floor(width*(i-Math.floor(num/2))+(num%2)?0:width/2);
+        var y=-height
+        System.setReper2DVector(i, x, y);
+        System.print(i+": "+x+" => "+y);
+    }
+}
+
 (function() {
+  setReper();
   System.setPenWidth(1);
-  System.setReperSize(9);
   System.setImageSize(900,800);
   System.setCubantStart(400, 580);
   //System.setReper2DVector(0,200,-70);
@@ -40,17 +54,17 @@ var a3=[
   System.setPenWidth(1);
   System.drawCubant(whole);
   System.setColor(0,0,0);
-  System.setColor(255,0,0);
+  //System.setColor(255,0,0);
   System.setPenWidth(2);
   for (e in a1) {
     System.drawCubantFromString(a1[e]);
   }
 
-  System.setColor(0,255,0);
+  //System.setColor(0,255,0);
   for (e in a2) {
     System.drawCubantFromString(a2[e]);
   }
-  System.setColor(0,0,255);
+  //System.setColor(0,0,255);
   for (e in a3) {
     System.drawCubantFromString(a3[e]);
   }

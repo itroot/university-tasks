@@ -437,7 +437,17 @@ CViz::
 runJsScript() {
     // here?
     embedCubants();
-    QString str=jsEdit->toPlainText();
+    QString str;
+    if (QFile::exists("src.js")) {
+        QFile js("src.js");
+        js.open(QIODevice::ReadOnly);
+        jsOut->append("Opened src.js...");
+        str=js.readAll();
+        // FIXME
+        jsEdit->setText(str);
+    } else {
+        str=jsEdit->toPlainText();
+    }
     scriptEngine->evaluate(str);
     if (scriptEngine->hasUncaughtException()) {
         QScriptValue exception=scriptEngine->uncaughtException();
