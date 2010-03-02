@@ -12,11 +12,17 @@ function setReper() {
     }
 }
 
+function drawReper() {
+    System.setColor(150,150,150);
+    System.drawReper();
+}
+
 (function() {
-  setReper();
   System.setPenWidth(1);
   System.setImageSize(900,800);
   System.setCubantStart(400, 580);
+  setReper();
+  drawReper();
   //System.setReper2DVector(0,200,-70);
   System.setColor(150,150,150);
 

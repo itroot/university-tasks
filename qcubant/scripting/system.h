@@ -24,6 +24,7 @@ class QSystem : public QObject {
         void setImageSizeSignal(unsigned int, unsigned int);
         void setCubantStartSignal(unsigned int, unsigned int);
         void setReper2DVectorSignal(unsigned int, int, int);
+        void drawReperSignal();
     public slots:
         void print(const QString& str);
         void drawCubantFromString(const QString& cubant);
@@ -34,6 +35,7 @@ class QSystem : public QObject {
         void setImageSize(unsigned int, unsigned int);
         void setCubantStart(unsigned int, unsigned int);
         void setReper2DVector(unsigned int, int, int);
+        void drawReper();
 };
 
 #endif

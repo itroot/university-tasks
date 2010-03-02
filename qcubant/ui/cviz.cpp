@@ -421,6 +421,7 @@ embedCubants() {
     connect(qsystem, SIGNAL(setImageSizeSignal(unsigned int, unsigned int)), this, SLOT(setImageSize(unsigned int, unsigned int)));
     connect(qsystem, SIGNAL(setCubantStartSignal(unsigned int, unsigned int)), this, SLOT(setCubantStart(unsigned int, unsigned int)));
     connect(qsystem, SIGNAL(setReper2DVectorSignal(unsigned int, int, int)), this, SLOT(setReper2DVector(unsigned int, int, int)));
+    connect(qsystem, SIGNAL(drawReperSignal()), this, SLOT(drawReper()));
     QScriptValue system=scriptEngine->newQObject(qsystem);
     scriptEngine->globalObject().setProperty("System", system);
     QScriptValue createCubantFun=

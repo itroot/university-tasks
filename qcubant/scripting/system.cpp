@@ -59,4 +59,10 @@ setReper2DVector(unsigned int num, int x, int y) {
     emit setReper2DVectorSignal(num, x, y);
 }
 
+void
+QSystem::
+drawReper() {
+    emit drawReperSignal();
+}
+
 

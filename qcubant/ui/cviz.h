@@ -51,6 +51,7 @@ class CViz : public QMainWindow {
         void saveVRML();
         void showhideJsOut();
         void openJS();
+        void drawReper();
     private:
         void executeLine(const std::string& line);
         void createActions();
@@ -60,7 +61,6 @@ class CViz : public QMainWindow {
         void setReper(const std::string& line);
         void setImage(const std::string& line);
         void setCStart(const std::string& line);
-        void drawReper();
         // js
         void runJsScript();
         void embedCubants();
