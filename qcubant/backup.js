@@ -5,18 +5,28 @@ function setReper() {
     System.setReperSize(9);
     for (var i=0; i<num; ++i) {
         //vectors.push_back(std::make_pair(width*(i-num/2)+((num%2)?0:width/2), -height)
-        var x=Math.floor(width*(i-Math.floor(num/2))+(num%2)?0:width/2);
-        var y=-height
+        var x=Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
+        var y=-height;
+        if (i==0) {
+            x=-x;
+            y=-y;
+        }
         System.setReper2DVector(i, x, y);
         System.print(i+": "+x+" => "+y);
     }
 }
 
+function drawReper() {
+    System.setColor(150,150,150);
+    System.drawReper();
+}
+
 (function() {
-  setReper();
   System.setPenWidth(1);
   System.setImageSize(900,800);
   System.setCubantStart(400, 580);
+  setReper();
+  drawReper();
   //System.setReper2DVector(0,200,-70);
   System.setColor(150,150,150);
 
