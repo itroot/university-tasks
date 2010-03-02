@@ -4,7 +4,6 @@ function setReper() {
     const height=60;
     System.setReperSize(9);
     for (var i=0; i<num; ++i) {
-        //vectors.push_back(std::make_pair(width*(i-num/2)+((num%2)?0:width/2), -height)
         var x=Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
         var y=-height;
         //if (i<4) {
