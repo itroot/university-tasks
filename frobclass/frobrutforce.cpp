@@ -64,7 +64,7 @@ int main() {
     //cerr << OCubeIterator() << endl;
     OCubeIterator ocit;
     do {
-        cout << ocit << endl;
+        //cout << ocit << endl;
         ++ocit;
     } while (!ocit.isDefault());
 }
