@@ -38,6 +38,12 @@ class OCubeIterator {
         bool isDefault() {
             return (0==internal_facets) && (0==external_facets);
         }
+        const unsigned int& external() const {
+            return external_facets;
+        }
+        const unsigned int& internal() const {
+            return internal_facets;
+        }
         friend ostream& operator<<(ostream& o, const OCubeIterator& cit);
     private:
         const static unsigned int EFACETS_NUM=24;
