@@ -72,8 +72,19 @@ namespace {
 
 }
 
+// HACK procedure
+namespace {
+    void hack_procedure() {
+        // cube and rotation
+        Cube3D cube(1);
+        //cout << cube << endl;
+
+    }
+}
 
 MainWindow::MainWindow() {
+
+hack_procedure();
 
 createWidgets();
 createActions();
