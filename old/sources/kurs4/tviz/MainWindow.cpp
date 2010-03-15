@@ -80,13 +80,15 @@ namespace {
         unsigned int y=0;
         unsigned int z=0;
         bool found=false;
-        for (;x<2;++x) {
-            for (;y<2;++y) {
-                for (;z<2;++z) {
+        //cerr << cubeValues << endl;
+        for (x=0;x<2;++x) {
+            for (y=0;y<2;++y) {
+                for (z=0;z<2;++z) {
+                    //cerr << cubeValues.cubes[x+2*y+4*z] << endl;
                     if (0!=cubeValues.cubes[x+2*y+4*z]) {
                         found=true;
-                        break;
                     }
+                    if (found) break;
                 }
                 if (found) break;
             }
@@ -116,7 +118,20 @@ namespace {
             dY=1;
         } else if (32==currentCube) {
             dZ=1;
-        } else ;//throw 42;
+        } else throw 42;
+        X+=dX;
+        Y+=dY;
+        Z+=dZ;
+        cerr << "::X: " << X << " Y: " << Y << " Z: " << Z << endl;
+        Point3D point(X,Y,Z);
+        Rotator3D rotator3d;
+        rotator3d.setCurrentRotation(rotationNum);
+        rotator3d(point);
+        X=point.X();
+        Y=point.Y();
+        Z=point.Z();
+        cerr << "->X: " << X << " Y: " << Y << " Z: " << Z << endl;
+        
         return result;
     }
     void generateRotationMap(unsigned int internalFace,
