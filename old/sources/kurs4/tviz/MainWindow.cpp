@@ -74,11 +74,80 @@ namespace {
 
 // HACK procedure
 namespace {
+    CubeValues rotateCubes(CubeValues& cubeValues, unsigned int rotationNum) {
+        CubeValues result;
+        unsigned int x=0;
+        unsigned int y=0;
+        unsigned int z=0;
+        bool found=false;
+        for (;x<2;++x) {
+            for (;y<2;++y) {
+                for (;z<2;++z) {
+                    if (0!=cubeValues.cubes[x+2*y+4*z]) {
+                        found=true;
+                        break;
+                    }
+                }
+                if (found) break;
+            }
+            if (found) break;
+        }
+        if (!found) {
+            throw 1;
+        }
+        unsigned int currentCube=cubeValues.cubes[x+2*y+4*z];
+        int X=x?1:-1;
+        int Y=y?1:-1;
+        int Z=z?1:-1;
+        cerr << "currentCube: " << currentCube << endl;
+        cerr << "X: " << X << " Y: " << Y << " Z: " << Z << endl;
+        int dX=0;
+        int dY=0;
+        int dZ=0;
+        if (1==currentCube) {
+            dX=-1;
+        } else if (2==currentCube) {
+            dY=-1;
+        } else if (4==currentCube) {
+            dZ=-1;
+        } else if (8==currentCube) {
+            dX=1;
+        } else if (16==currentCube) {
+            dY=1;
+        } else if (32==currentCube) {
+            dZ=1;
+        } else ;//throw 42;
+        return result;
+    }
+    void generateRotationMap(unsigned int internalFace,
+                             unsigned int externalFace,
+                             unsigned int rotationNum)
+    {
+        unsigned int IFbit=internalFace?1:0;
+        if (internalFace) IFbit<<=(internalFace-1);
+        unsigned int EFbit=externalFace?1:0;
+        if (externalFace) EFbit<<=(externalFace-1);
+        cerr << "// IF: " << internalFace << " bit: " << IFbit <<
+                " EF: " << externalFace << " bit: " << EFbit <<
+                " ROT: " << rotationNum << endl;
+        ;
+        OctoCube octoCube(EFbit, IFbit);
+        CubeValues cubeValues=octoCube.getCubes();
+        CubeValues cubeValuesR=rotateCubes(cubeValues, rotationNum);
+        OctoCubeValues octoCubeR;
+        octoCubeR=OctoCube::c2o(cubeValuesR);
+        cerr << "e: " << octoCubeR.ext_faces << " i: " << octoCubeR.int_faces
+        << endl;
+    }
     void hack_procedure() {
-        // cube and rotation
-        Cube3D cube(1);
-        //cout << cube << endl;
-
+        for (unsigned int r=0;r<48;++r) {
+            for (unsigned int j=1;j<=24;++j) {
+                generateRotationMap(0,j,r);
+            }
+            for (unsigned int i=1;i<=12;++i) {
+                generateRotationMap(i,0,r);
+            }
+        }
     }
 }
 
