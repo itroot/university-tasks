@@ -10,6 +10,18 @@ struct OctoCubeValues {
       ext_faces(_ext_faces), int_faces(_int_faces) {}
   unsigned int ext_faces;
   unsigned int int_faces;
+  bool operator<(const OctoCubeValues& other) const {
+      if (this->ext_faces<other.ext_faces) {
+          return true;
+      } else if (this->ext_faces>other.ext_faces) {
+          return false;
+      } else if (this->int_faces<other.int_faces) {
+          return true;
+      } else if (this->int_faces>other.int_faces) {
+          return false;
+      }
+      return false;
+  }
 };
 
 struct CubeValues {

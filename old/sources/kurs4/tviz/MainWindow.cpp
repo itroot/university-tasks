@@ -74,7 +74,55 @@ namespace {
 
 // HACK procedure
 namespace {
-    
+    typedef map<OctoCubeValues, Point3D> OctoMap;
+    OctoMap defaultValues;
+    vector<OctoMap> releasedValues;
+
+    unsigned int numofbit(unsigned int what) {
+        unsigned int result=0;
+        if (0==what) return result;
+        result=1;
+        while (what>>=1) {
+          ++result;
+        }
+        return result;
+    }
+
+    unsigned int extintbit(unsigned int int_bit_pos, unsigned int ext_bit_pos) {
+        if (int_bit_pos && ext_bit_pos) throw "wtf";
+        if (0==int_bit_pos) {
+            return 12+ext_bit_pos;
+        } else {
+            return int_bit_pos;
+        }
+    }
+
+    void output_code() {
+        unsigned int aaa=0;
+        cerr << "==================" << endl;
+        for (size_t i=0;i<releasedValues.size();++i) {
+            for (OctoMap::iterator it=releasedValues[i].begin();it!=releasedValues[i].end();++it) {
+                for (OctoMap::iterator jt=defaultValues.begin();jt!=defaultValues.end();++jt) {
+                    if (it->second==jt->second) {
+                        ++aaa;
+                        //cerr << it->first << " * " << i << " => " << jt->first << endl;
+                        //cerr <<
+                        cerr << "// " << jt->first.int_faces << "," <<jt->first.ext_faces
+                         << " * " << i << " => "<< it->first.int_faces << "," <<it->first.ext_faces << endl;
+                        cerr << "data[" << i << "]"
+                        << "[" << extintbit(numofbit(jt->first.int_faces),numofbit(jt->first.ext_faces)) << "]=" 
+                        << extintbit(numofbit(it->first.int_faces),numofbit(it->first.ext_faces)) << ";" << endl;
+                    }
+                }
+            }
+        }
+        cerr << "==================" << endl;
+        cerr << aaa << endl;
+        cerr << numofbit(0) << endl;
+        cerr << numofbit(1) << endl;
+        cerr << numofbit(2) << endl;
+        cerr << numofbit(4) << endl;
+    }
     Point3D getPointFromCubes(CubeValues& cubeValues) {
         unsigned int x=0;
         unsigned int y=0;
@@ -126,13 +174,15 @@ namespace {
         Point3D point(X,Y,Z);
         return point;
     }
-    CubeValues rotateCubes(CubeValues& cubeValues, unsigned int rotationNum) {
+    CubeValues rotateCubes(CubeValues& cubeValues, unsigned int rotationNum, const OctoCubeValues& ov) {
         CubeValues result;
         Point3D point;
         point=getPointFromCubes(cubeValues);
+        defaultValues[ov]=point;
         Rotator3D rotator3d;
         rotator3d.setCurrentRotation(rotationNum);
         rotator3d(point);
+        releasedValues[rotationNum][ov]=point;
         unsigned int X=point.X();
         unsigned int Y=point.Y();
         unsigned int Z=point.Z();
@@ -154,14 +204,16 @@ namespace {
         ;
         OctoCube octoCube(EFbit, IFbit);
         CubeValues cubeValues=octoCube.getCubes();
-        CubeValues cubeValuesR=rotateCubes(cubeValues, rotationNum);
+        CubeValues cubeValuesR=rotateCubes(cubeValues, rotationNum, octoCube.getOctoCubes());
         OctoCubeValues octoCubeR;
         octoCubeR=OctoCube::c2o(cubeValuesR);
         cerr << "e: " << octoCubeR.ext_faces << " i: " << octoCubeR.int_faces
         << endl;
     }
+
     void hack_procedure() {
         for (unsigned int r=0;r<48;++r) {
+            releasedValues.push_back(OctoMap());
             for (unsigned int j=1;j<=24;++j) {
                 generateRotationMap(0,j,r);
             }
@@ -169,6 +221,8 @@ namespace {
                 generateRotationMap(i,0,r);
             }
         }
+        cerr << defaultValues.size() << endl;
+        output_code();
     }
 }
 
