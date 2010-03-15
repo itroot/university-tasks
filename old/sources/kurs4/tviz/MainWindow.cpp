@@ -74,8 +74,8 @@ namespace {
 
 // HACK procedure
 namespace {
-    CubeValues rotateCubes(CubeValues& cubeValues, unsigned int rotationNum) {
-        CubeValues result;
+    
+    Point3D getPointFromCubes(CubeValues& cubeValues) {
         unsigned int x=0;
         unsigned int y=0;
         unsigned int z=0;
@@ -124,12 +124,18 @@ namespace {
         Z+=dZ;
         cerr << "::X: " << X << " Y: " << Y << " Z: " << Z << endl;
         Point3D point(X,Y,Z);
+        return point;
+    }
+    CubeValues rotateCubes(CubeValues& cubeValues, unsigned int rotationNum) {
+        CubeValues result;
+        Point3D point;
+        point=getPointFromCubes(cubeValues);
         Rotator3D rotator3d;
         rotator3d.setCurrentRotation(rotationNum);
         rotator3d(point);
-        X=point.X();
-        Y=point.Y();
-        Z=point.Z();
+        unsigned int X=point.X();
+        unsigned int Y=point.Y();
+        unsigned int Z=point.Z();
         cerr << "->X: " << X << " Y: " << Y << " Z: " << Z << endl;
         
         return result;
