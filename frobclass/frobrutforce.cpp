@@ -129,6 +129,7 @@ int main() {
     do {
         const unsigned int efaces=ocit.external();
         const unsigned int ifaces=ocit.internal();
+        bool haveThisOne=false;
         for (unsigned int rotationNum=0;rotationNum<48;++rotationNum) {
             unsigned int efacesR=0;
             unsigned int ifacesR=0;
@@ -143,7 +144,13 @@ int main() {
                 int result=data[rotationNum][i];
                 efacesR|=bitn2num(result);
             }
-            result.insert(OCubeIterator(ifacesR, efacesR));
+            if (result.count(OCubeIterator(ifacesR, efacesR))) {
+                haveThisOne=true;
+                break;
+            }
+        }
+        if (!haveThisOne) {
+            result.insert(ocit);
         }
         //cout << ocit << endl;
         if (0==ifaces) printSet(result);
