@@ -41,6 +41,13 @@ class OCubeIterator {
             }
             ++internal_facets;
         }
+        inline void nextInternal() {
+            if (IFACETS_MAX==internal_facets) {
+                internal_facets=0;
+            } else {
+                ++internal_facets;
+            }
+        }
         bool isDefault() {
             return (0==internal_facets) && (0==external_facets);
         }
@@ -113,8 +120,9 @@ bool haveBit(unsigned int number, unsigned int pos) {
 }
 
 int main() {
+    bool firstTime=true;
     //cerr << OCubeIterator() << endl;
-    OCubeIterator ocit;
+    OCubeIterator ocit(0,8388864);
     using namespace std;
     vector<vector<int> > data;
     for (unsigned int i=0;i<48;++i) {
@@ -153,7 +161,14 @@ int main() {
             result.insert(ocit);
         }
         //cout << ocit << endl;
-        if (0==ifaces) printSet(result);
+        if (0==ifaces) {
+            if (firstTime) {
+                firstTime=false;
+            } else{
+                printSet(result);
+                break;
+            }
+        }
         ++ocit;
     } while (!ocit.isDefault());
     printSet(result);

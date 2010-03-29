@@ -211,6 +211,14 @@ namespace {
         << endl;
     }
 
+    void out_octo_from_cube() {
+        CubeValues cubeValues;
+        cubeValues.cubes[0]=4;
+        cubeValues.cubes[7]=32;
+        OctoCubeValues octoCube;
+        octoCube=OctoCube::c2o(cubeValues);
+        cerr << "e: " << octoCube.ext_faces << " i: " << octoCube.int_faces;
+    }
     void hack_procedure() {
         for (unsigned int r=0;r<48;++r) {
             releasedValues.push_back(OctoMap());
@@ -223,7 +231,9 @@ namespace {
         }
         cerr << defaultValues.size() << endl;
         output_code();
+        out_octo_from_cube();
     }
+
 }
 
 MainWindow::MainWindow() {
