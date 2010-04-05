@@ -122,7 +122,7 @@ bool haveBit(unsigned int number, unsigned int pos) {
 int main() {
     bool firstTime=true;
     //cerr << OCubeIterator() << endl;
-    OCubeIterator ocit(0,8388864);
+    OCubeIterator ocit(0,3);
     using namespace std;
     vector<vector<int> > data;
     for (unsigned int i=0;i<48;++i) {
