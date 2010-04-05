@@ -50,3 +50,4 @@ tracemonkey/shell/Makefile
 tracemonkey/shell/js
 tracemonkey/tests/Makefile
 tracemonkey/unallmakefiles
+moc_*.cpp
