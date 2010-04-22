@@ -8,7 +8,7 @@
 #include <memory>
 #include <set>
 
-QT_BEGIN_NAMESPACE
+//QT_BEGIN_NAMESPACE
 class QAction;
 class QLabel;
 class QMenu;
@@ -20,7 +20,7 @@ class QVBoxLayout;
 class QTextEdit;
 class QPushButton;
 class QScriptEngine;
-QT_END_NAMESPACE
+//QT_END_NAMESPACE
 
 class Reper;
 
