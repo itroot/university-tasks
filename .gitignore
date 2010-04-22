@@ -1,4 +1,5 @@
 *.o
+*~
 cubant/autom4te.cache/
 cubant/qcubant/moc_cviz.cpp
 cubant/qcubant/qcubant
