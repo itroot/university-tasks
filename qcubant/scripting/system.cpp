@@ -65,4 +65,11 @@ drawReper() {
     emit drawReperSignal();
 }
 
+void
+QSystem::
+distance(QCubant* lhs, QCubant* rhs) {
+    emit distanceSignal(QCubant* lhs, QCubant* rhs);
+}
+
+
 

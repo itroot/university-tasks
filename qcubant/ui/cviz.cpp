@@ -422,6 +422,7 @@ embedCubants() {
     connect(qsystem, SIGNAL(setCubantStartSignal(unsigned int, unsigned int)), this, SLOT(setCubantStart(unsigned int, unsigned int)));
     connect(qsystem, SIGNAL(setReper2DVectorSignal(unsigned int, int, int)), this, SLOT(setReper2DVector(unsigned int, int, int)));
     connect(qsystem, SIGNAL(drawReperSignal()), this, SLOT(drawReper()));
+    connect(qsystem, SIGNAL(distanceSignal(QCubant*, QCubant*)), this, SLOT(cubantDistance(QCubant*, QCubant*)));
     QScriptValue system=scriptEngine->newQObject(qsystem);
     scriptEngine->globalObject().setProperty("System", system);
     QScriptValue createCubantFun=
@@ -556,5 +557,7 @@ void CViz::drawCubant(const std::string& cubant) {
     }
 }
 
-
-
+unsigned int
+cubantDistance(QCubant* lhs, QCubant* rhs) {
+    return Cubant::hausdorff_distance(lhs, rhs);
+}

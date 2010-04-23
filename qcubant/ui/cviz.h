@@ -40,6 +40,7 @@ class CViz : public QMainWindow {
         void setImageSize(unsigned int x, unsigned int y);
         void setCubantStart(unsigned int x, unsigned int y);
         void setReper2DVector(unsigned int vectorNum, int x, int y);
+        unsigned int cubantDistance(QCubant*, QCubant*);
     private:
         static const double RGB=255.0;
         void resetImage(unsigned int x, unsigned int y);
@@ -50,7 +51,7 @@ class CViz : public QMainWindow {
         void drawCubants();
         void saveVRML();
         void showhideJsOut();
-        void openJS();
+        unsigned int openJS();
         void drawReper();
     private:
         void executeLine(const std::string& line);
