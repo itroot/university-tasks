@@ -25,8 +25,6 @@ class QSystem : public QObject {
         void setCubantStartSignal(unsigned int, unsigned int);
         void setReper2DVectorSignal(unsigned int, int, int);
         void drawReperSignal();
-        void drawReperSignal();
-        void distanceSignal(QCubant* lhs, QCubant* rhs);
     public slots:
         void print(const QString& str);
         void drawCubantFromString(const QString& cubant);
@@ -38,7 +36,6 @@ class QSystem : public QObject {
         void setCubantStart(unsigned int, unsigned int);
         void setReper2DVector(unsigned int, int, int);
         void drawReper();
-        void distance(QCubant* lhs, QCubant* rhs);
 };
 
 #endif
