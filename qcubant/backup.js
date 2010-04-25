@@ -1,11 +1,10 @@
 function setReper() {
-    const num=9;
+    const num=7;
     const width=30;
     const height=60;
-    System.setReperSize(9);
+    System.setReperSize(num);
     for (var i=0; i<num; ++i) {
-        //vectors.push_back(std::make_pair(width*(i-num/2)+((num%2)?0:width/2), -height)
-        var x=Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
+        var x=Math.floor(width*(i-Math.floornum/2))+((num%2)?0:width/2));
         var y=-height;
         //if (i<4) {
         //    x=-x;
@@ -27,6 +26,8 @@ function drawReper() {
   System.setCubantStart(400, 580);
   setReper();
   drawReper();
+  System.drawCubant(createCubant("/2,1,0,2,2,1,2/"));
+  return;
   //System.setReper2DVector(0,200,-70);
   System.setColor(150,150,150);
 
