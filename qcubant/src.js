@@ -16,17 +16,21 @@ function setReper() {
 }
 
 function drawReper() {
-    System.setColor(150,150,150);
+    System.setColor(255,150,150);
     System.drawReper();
 }
 
 (function() {
-  System.setPenWidth(1);
+  System.setPenWidth(2);
   System.setImageSize(900,800);
   System.setCubantStart(400, 580);
   setReper();
   drawReper();
   System.drawCubant(createCubant("/2,1,0,2,2,1,2/"));
+  System.setColor(150,150,255);
+  System.drawCubant(createCubant("/0,1,2,1,2,1,2/"));
+  System.setColor(0,0,0);
+  System.drawCubant(createCubant("/0,1,0,1,2,1,2/"));
   return;
   //System.setReper2DVector(0,200,-70);
   System.setColor(150,150,150);
