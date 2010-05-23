@@ -4,7 +4,7 @@ function setReper() {
     const height=60;
     System.setReperSize(num);
     for (var i=0; i<num; ++i) {
-        var x=Math.floor(width*(i-Math.floornum/2))+((num%2)?0:width/2));
+        var x=Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
         var y=-height;
         //if (i<4) {
         //    x=-x;
@@ -29,7 +29,7 @@ function drawReper() {
   System.drawCubant(createCubant("/2,1,0,2,2,1,2/"));
   return;
   //System.setReper2DVector(0,200,-70);
-  System.setColor(150,150,150);
+  System.setColor(255,150,150);
 
 var a1=[
 "/2,2,2,0,0,0,0,0,0/",
