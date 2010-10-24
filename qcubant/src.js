@@ -1,11 +1,11 @@
 function setReper() {
-    const num=7;
+    const num=4;
     const width=30;
     const height=60;
     System.setReperSize(num);
     for (var i=0; i<num; ++i) {
         var x=Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
-        var y=-height;
+        var y=-height/((Math.abs((num)/2.0-i-0.5)+1));
         //if (i<4) {
         //    x=-x;
         //    y=-y;
@@ -26,62 +26,6 @@ function drawReper() {
   System.setCubantStart(400, 580);
   setReper();
   drawReper();
-  System.drawCubant(createCubant("/2,1,0,2,2,1,2/"));
-  System.setColor(150,150,255);
-  System.drawCubant(createCubant("/0,1,2,1,2,1,2/"));
-  System.setColor(0,0,0);
-  System.drawCubant(createCubant("/0,1,0,1,2,1,2/"));
-  return;
-  //System.setReper2DVector(0,200,-70);
-  System.setColor(150,150,150);
-
-var a1=[
-"/2,2,2,0,0,0,0,0,0/",
-"/2,2,1,0,0,0,0,0,2/",
-"/2,1,1,0,0,0,0,2,2/",
-"/1,1,1,0,0,0,2,2,2/",
-"/1,1,1,0,0,2,2,2,1/",
-"/1,1,1,0,2,2,2,1,1/",
-"/1,1,1,2,2,2,1,1,1/",
-];
-
-var a2=[
-"/0,0,0,2,2,2,0,0,0/",
-"/0,0,2,2,2,1,0,0,0/",
-"/0,2,2,2,1,1,0,0,0/",
-"/2,2,2,1,1,1,0,0,0/",
-"/2,2,1,1,1,1,0,0,2/",
-"/2,1,1,1,1,1,0,2,2/",
-"/1,1,1,1,1,1,2,2,2/"
-];
-
-var a3=[
-
-"/0,0,0,0,0,0,2,2,2/",
-"/0,0,0,0,0,2,2,2,1/",
-"/0,0,0,0,2,2,2,1,1/",
-"/0,0,0,2,2,2,1,1,1/",
-"/0,0,2,2,2,1,1,1,1/",
-"/0,2,2,2,1,1,1,1,1/",
-"/2,2,2,1,1,1,1,1,1/"
-]
-  var whole=createCubant("/2,2,2,2,2,2,2,2,2/");
-  System.setPenWidth(1);
-  System.drawCubant(whole);
-  System.setColor(0,0,0);
-  //System.setColor(255,0,0);
-  System.setPenWidth(2);
-  for (e in a1) {
-    System.drawCubantFromString(a1[e]);
-  }
-
-  //System.setColor(0,255,0);
-  for (e in a2) {
-    System.drawCubantFromString(a2[e]);
-  }
-  //System.setColor(0,0,255);
-  for (e in a3) {
-    System.drawCubantFromString(a3[e]);
-  }
+  System.drawCubant(createCubant("/2,2,2,2/"));
 }
 )()
