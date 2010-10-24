@@ -30,6 +30,11 @@ set2DVector(unsigned int vectorNum, int x, int y) {
     vectors[vectorNum].first=x;
     vectors[vectorNum].second=y;
     // std::cerr << "SET\n";
+    // 3D
+    double angle=2*M_PI*((vectorNum-num/2.0)/num);
+    vectors3d[vectorNum].x=x*sin(angle)*COEFF_3D;
+    vectors3d[vectorNum].y=y;
+    vectors3d[vectorNum].z=x*cos(angle)*COEFF_3D;
 }
 
 unsigned int
