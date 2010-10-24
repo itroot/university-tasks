@@ -1,3 +1,5 @@
+var reper=[];
+
 function setReper() {
     const num=4;
     const width=30;
@@ -10,8 +12,17 @@ function setReper() {
         //    x=-x;
         //    y=-y;
         //}
-        System.setReper2DVector(i, x, y);
+        //System.setReper2DVector(i, x, y);
+        reper[i]=[x,y];
         System.print(i+": "+x+" => "+y);
+    }
+}
+
+setReper();
+
+function setRealReper(a) {
+    for (var i=0; i< a.length; ++i) {
+        System.setReper2DVector(i, a[i]*reper[i][0], a[i]*reper[i][1]);
     }
 }
 
@@ -20,12 +31,44 @@ function drawReper() {
     System.drawReper();
 }
 
+function draw(a) {
+  setRealReper(a);
+  drawReper();
+  System.drawCubant(createCubant("/1,2,2,2/"));
+  System.drawCubant(createCubant("/2,1,2,2/"));
+  System.drawCubant(createCubant("/2,2,1,2/"));
+  System.drawCubant(createCubant("/2,2,2,1/"));
+  //System.drawCubant(createCubant("/2,2,2,2/"));
+}
+
+
+
+function getAllArrays() {
+    return [
+     [ 1, 1, 1, 1],
+     [ 1, 1, 1,-1],
+     [ 1, 1,-1, 1],
+     [ 1, 1,-1,-1],
+     [ 1,-1, 1, 1],
+     [ 1,-1, 1,-1],
+     [ 1,-1,-1, 1],
+     [ 1,-1,-1,-1],
+     [-1, 1, 1, 1],
+     [-1, 1, 1,-1],
+     [-1, 1,-1, 1],
+     [-1, 1,-1,-1],
+     [-1,-1, 1, 1],
+     [-1,-1, 1,-1],
+     [-1,-1,-1, 1],
+     [-1,-1,-1,-1]
+    ];
+}
+
 (function() {
   System.setPenWidth(2);
   System.setImageSize(900,800);
   System.setCubantStart(400, 580);
-  setReper();
-  drawReper();
-  System.drawCubant(createCubant("/2,2,2,2/"));
+  var arrays=getAllArrays();
+  arrays.forEach(function(e){draw(e)});
 }
 )()
