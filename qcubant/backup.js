@@ -2,8 +2,8 @@ var reper=[];
 
 function setReper() {
     const num=4;
-    const width=30;
-    const height=60;
+    const width=60;
+    const height=120;
     System.setReperSize(num);
     for (var i=0; i<num; ++i) {
         var x=Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
@@ -38,6 +38,7 @@ function draw(a) {
   System.drawCubant(createCubant("/2,1,2,2/"));
   System.drawCubant(createCubant("/2,2,1,2/"));
   System.drawCubant(createCubant("/2,2,2,1/"));
+  //System.drawCubant(createCubant("/2,2,2,2/"));
 }
 
 
