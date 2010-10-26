@@ -6,7 +6,7 @@ function setReper() {
     const height=120;
     System.setReperSize(num);
     for (var i=0; i<num; ++i) {
-        var x=Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
+        var x=width;//Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
         var y=-height/((Math.abs((num)/2.0-i-0.5)+1));
         //if (i<4) {
         //    x=-x;
