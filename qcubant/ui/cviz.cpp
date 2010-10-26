@@ -474,6 +474,7 @@ void CViz::saveVRML() {
       }
 
     QTextStream out(&file);
+    out << "#VRML V2.0 utf8\n\nBackground { skyColor [ 1 1 1 ] }\n";
     out << QString(vrml.c_str()) << "\n";
 }
 
