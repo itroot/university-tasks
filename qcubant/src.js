@@ -6,7 +6,7 @@ function setReper() {
     const height=120;
     System.setReperSize(num);
     for (var i=0; i<num; ++i) {
-        var x=width;//Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
+        var x=width+10*i;//Math.floor(width*(i-Math.floor(num/2))+((num%2)?0:width/2));
         var y=-height/((Math.abs((num)/2.0-i-0.5)+1));
         //if (i<4) {
         //    x=-x;
@@ -34,12 +34,45 @@ function drawReper() {
 function draw(a) {
   setRealReper(a);
   drawReper();
+  /*
+  System.drawCubant(createCubant("/1,2,2,2/"));
+  System.drawCubant(createCubant("/2,1,2,2/"));
+  System.drawCubant(createCubant("/2,2,1,2/"));
+  System.drawCubant(createCubant("/2,2,2,1/"));
+  */
+  System.setColor(255,0,0);
+  /*
+  System.drawCubant(createCubant("/2,0,0,1/"));
+  System.drawCubant(createCubant("/2,0,1,0/"));
+  System.drawCubant(createCubant("/2,1,0,0/"));
+  System.drawCubant(createCubant("/0,2,0,1/"));
+  System.drawCubant(createCubant("/0,2,1,0/"));
+  System.drawCubant(createCubant("/1,2,0,0/"));
+  System.drawCubant(createCubant("/0,0,2,1/"));
+  System.drawCubant(createCubant("/0,1,2,0/"));
+  System.drawCubant(createCubant("/1,0,2,0/"));
+  System.drawCubant(createCubant("/0,0,1,2/"));
+  System.drawCubant(createCubant("/0,1,0,2/"));
+  System.drawCubant(createCubant("/1,0,0,2/"));
+  */
+  System.drawCubant(createCubant("/2,0,0,2/"));
+  System.drawCubant(createCubant("/2,0,2,0/"));
+  System.drawCubant(createCubant("/2,2,0,0/"));
+  System.drawCubant(createCubant("/0,2,0,2/"));
+  System.drawCubant(createCubant("/0,2,2,0/"));
+  System.drawCubant(createCubant("/2,2,0,0/"));
+  System.drawCubant(createCubant("/0,0,2,2/"));
+  System.drawCubant(createCubant("/0,2,2,0/"));
+  System.drawCubant(createCubant("/2,0,2,0/"));
+  System.drawCubant(createCubant("/0,0,2,2/"));
+  System.drawCubant(createCubant("/0,2,0,2/"));
+  System.drawCubant(createCubant("/2,0,0,2/"));
+  System.setColor(0,255,0);
   System.drawCubant(createCubant("/1,2,2,2/"));
   System.drawCubant(createCubant("/2,1,2,2/"));
   System.drawCubant(createCubant("/2,2,1,2/"));
   System.drawCubant(createCubant("/2,2,2,1/"));
   /*
-  System.drawCubant(createCubant("/2,1,1,1/"));
   System.drawCubant(createCubant("/1,2,1,1/"));
   System.drawCubant(createCubant("/1,1,2,1/"));
   System.drawCubant(createCubant("/1,1,1,2/"));
