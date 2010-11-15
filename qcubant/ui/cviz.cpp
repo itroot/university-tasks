@@ -32,7 +32,7 @@ addPoint(int x, int y, int z) {
     ss << "Transform { translation " <<
     x << " " << y << " " << z << 
     " children [Shape {appearance Appearance {material Material " <<
-    "{diffuseColor "<< R/RGB << " " << G/RGB << " " << B/RGB  << "}}geometry Sphere{radius 3}}]}\n";
+    "{diffuseColor "<< R/RGB << " " << G/RGB << " " << B/RGB  << "}}geometry Sphere{radius 7}}]}\n";
     vrml+=ss.str();
 }
 
