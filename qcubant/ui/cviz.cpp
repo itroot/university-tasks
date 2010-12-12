@@ -19,10 +19,20 @@
 
 using namespace std;
 
+const string vrml_string=
+ "#VRML V2.0 utf8\n\nBackground { skyColor [ 1 1 1 ] }\n"
+ "Shape {appearance Appearance {material Material "
+ "{diffuseColor 200 200 200}} geometry Sphere{radius 70}}\n";
+
 void
 CViz::
 initVrml() {
+    vrml=vrml_string;
+    /*
     vrml="#VRML V2.0 utf8\n\nBackground { skyColor [ 1 1 1 ] }\n";
+    vrml+="Shape {appearance Appearance {material Material ";
+    vrml+="{diffuseColor 200 200 200}} geometry Sphere{radius 70}}\n";
+    */
 }
 
 void
@@ -474,7 +484,7 @@ void CViz::saveVRML() {
       }
 
     QTextStream out(&file);
-    out << "#VRML V2.0 utf8\n\nBackground { skyColor [ 1 1 1 ] }\n";
+    out << QString(vrml_string.c_str()); //"#VRML V2.0 utf8\n\nBackground { skyColor [ 1 1 1 ] }\n";
     out << QString(vrml.c_str()) << "\n";
 }
 
