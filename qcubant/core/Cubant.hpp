@@ -30,9 +30,14 @@ namespace CubantCore {
         public:
             typedef std::vector<int> point_t; // -1 -- means 2
             typedef std::set<point_t> points_t;
+            typedef std::vector<int> vector_diff_t; // -1 -- means 2
             explicit Cubant(const Impl& _impl)
             : impl(_impl)
-            {}
+            {
+                for (unsigned int i=0;i<impl.size();++i) {
+                    m_diff_vector.push_back(0);
+                }
+            }
             explicit Cubant(const string& _str="/0,0,0/") // FIXME default
             : impl(getImplFromString<Impl>(_str))
             {
@@ -134,6 +139,8 @@ namespace CubantCore {
               throw cubant_exception("Can't be there");
             }
       public:
+          // FIXME diff vector;
+          vector_diff_t m_diff_vector;
         /*
             static double hausdorff_distance(const points_t& p1, const points_t& p2) {
               // distances between points
