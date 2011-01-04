@@ -24,6 +24,19 @@ unsigned int numOfDiffs(const std::string& lhs, const std::string& rhs) {
     return result;
 }
 
+bool isBadPoint(const std::string& str) {
+    if ("0000"==str)
+    /*
+    for (unsigned int i=0;i<str.length();++i) {
+        if ('0'!=str[i]) {
+            return false;
+        }
+    }
+    */
+    return true;
+    return false;
+}
+
 PointsList generateFacets(unsigned int dimension) {
     PointsList result;
     if (1==dimension) {
@@ -39,7 +52,13 @@ PointsList generateFacets(unsigned int dimension) {
             result.push_back(tmp[i]+"-");
         }
     }
-    return result;
+    PointsList rresult;
+    for (unsigned int i=0;i<result.size();++i) {
+        if (!isBadPoint(result[i])) {
+            rresult.push_back(result[i]);
+        }
+    }
+    return rresult;
 }
 
 
@@ -62,9 +81,9 @@ int print_matrix(unsigned int dimension) {
         for (unsigned int j=0;j<points.size();++j) {
             unsigned int diffs=numOfDiffs(points[i], points[j]);
             if (1==diffs) {
-                std::cout << "+";
+                std::cout << "X";
             } else {
-                std::cout << "-";
+                std::cout << ".";
             }
         }
         std::cout << std::endl;
